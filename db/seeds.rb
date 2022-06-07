@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 USERNAMES = ['rmgodfrey', 'aackle00', 'GeoniX404', 'chriswall24']
+# Turn this hash into an array to get a random sample
 CHOICE_POINTS = {
   "What should I wear to my job interview?" => ["Button-up shirt", "Suit", "T-shirt"],
   "What car should I buy?" => ["Chevrolet", "Toyota"],
