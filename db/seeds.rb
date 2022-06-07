@@ -60,28 +60,3 @@ User.destroy_all
 puts "Creating seeds..."
 create_users
 puts "New seeds created"
-
-# USERNAMES.each do |username|
-#   user = User.create!(
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password,
-#     name: username
-#   )
-#   NUMBER_OF_CHOICE_POINTS.times do
-#     title, option_descriptions = CHOICE_POINTS.sample
-#     choice_point = ChoicePoint.create!(
-#       title: title,
-#       description: Faker::Lorem.sentence,
-#       user: user,
-#       deadline: DEADLINE
-#     )
-#     option_descriptions.each do |description|
-#       option = Option.create!(
-#         description: description,
-#         pros: Faker::Lorem.sentence,
-#         cons: Faker::Lorem.sentence,
-#         choice_point: choice_point
-#       )
-#     end
-#   end
-# end
