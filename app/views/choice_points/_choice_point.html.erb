@@ -1,0 +1,6 @@
+<%= simple_form_for [ @choice_point ] do |f| %>
+  <%= f.input :title, placeholder: 'Please choose a name', label: false, :class => "form-field", required: true %>
+  <%= f.input :description, placeholder: 'Add a description', label:false, :class => "form-field", required: true, as: :text %>
+  <%= f.input :deadline, placeholder: 'Add a deadline', label:false, :class => "form-field", required: true, as: :date %>
+  <%= f.submit "Submit ChoicePoint", class: "btn btn-primary" %>
+<% end %>
