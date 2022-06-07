@@ -1,2 +1,18 @@
-<h1>ChoicePoint</h1>
-<h1>T   R   E   N   D   I   N   G</h1>
+<div class="index_main_text">
+  <title>ChoicePoint</title>
+  <h1>T   R   E   N   D   I   N   G</h1>
+    <div class="large_index_image">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    </div>
+</div>
+<div class="choicepoint">
+  <div class="card-container">
+    <% @choice_points.each do |choicepoint| %>
+      <div class="position-relative">
+        <%= render "shared/choicepoint_card", choicepoint: choicepoint %>
+      </div>
+    <% end %>
+  </div>
+  <div class="ranking-container">
+  </div>
+</div>
