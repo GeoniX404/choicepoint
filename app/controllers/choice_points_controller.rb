@@ -13,7 +13,7 @@ class ChoicePointsController < ApplicationController
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
-      redirect_to choice_points_path(@choice_points)
+      redirect_to choice_points_path(@choice_point)
     else
       render "choice_points/new"
     end
@@ -25,6 +25,6 @@ class ChoicePointsController < ApplicationController
     params.require(:choice_point).permit(:title, :description, :deadline)
   end
 
-  def show
-  end
+  # def show
+  # end
 end
