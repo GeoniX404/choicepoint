@@ -24,4 +24,7 @@ class ChoicePointsController < ApplicationController
   def choice_point_params
     params.require(:choice_point).permit(:title, :description, :deadline)
   end
+
+  def show
+  end
 end
