@@ -19,9 +19,6 @@ class OptionsController < ApplicationController
     end
   end
 
-  def adjust_score
-  end
-
   # private
 
   # def vote_params
