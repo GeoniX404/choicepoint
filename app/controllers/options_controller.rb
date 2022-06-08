@@ -1,8 +1,14 @@
 class OptionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[new create]
+  skip_before_action :authenticate_user!, only: %i[index new create]
+
+  def index
+    @options = Option.all
+  end
 
   def new
     @option = Option.new
+    @choice_point = ChoicePoint.find(params[:choice_point_id])
+    @option.choice_point = @choice_point
   end
 
   def create

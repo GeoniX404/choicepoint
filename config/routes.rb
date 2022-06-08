@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :choice_points, only: %i[index show new create] do
-    resources :options, only: %i[new create]
+    resources :options, only: %i[index new create]
   end
 end
