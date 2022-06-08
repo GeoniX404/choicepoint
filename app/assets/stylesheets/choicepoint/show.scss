@@ -17,7 +17,7 @@
     align-items: flex-start;
   }
   .asker {
-    font-size: $secondary-header-size;
+    font-size: $paragraph-size;
     color: $dark-gray;
     font-weight: 400;
   }
@@ -30,8 +30,6 @@
     font-size: $paragraph-size;
     text-transform: uppercase;
     font-weight: 700;
-    line-height: 1.2;
-    padding: 14px 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -44,6 +42,10 @@
   form {
     align-self: stretch;
   }
+  input.btn-main {
+    text-transform: uppercase;
+    font-size: $secondary-header-size;
+  }
 }
 
 .show-container .show-header {
@@ -52,10 +54,6 @@
   justify-content: flex-start;
   align-items: flex-end;
   gap: 48px;
-  h1 {
-    flex-basis: 968px;
-    flex-grow: 0;
-  }
 }
 
 .show-container .show-options {
@@ -63,6 +61,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
   padding: 16px 0;
+  margin-bottom: 48px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
@@ -76,13 +75,18 @@
     padding: 8px 24px;
     display: flex;
     align-items: flex-end;
+    font-size: $paragraph-size;
+    color: $dark-gray;
+    text-transform: uppercase;
   }
   .show-options-row {
     display: grid;
-    padding: 24px;
+    padding: 16px 24px;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
+    font-size: $secondary-header-size;
+    font-weight: 700;
     div {
       display: flex;
       flex-direction: row;
@@ -91,6 +95,10 @@
     }
     &.show-options-row-score {
       grid-template-columns: 1fr;
+    }
+    .show-options-row-pros-and-cons > p{
+      line-height: 1;
+      text-transform: uppercase;
     }
   }
 }

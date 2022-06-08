@@ -12,3 +12,16 @@
   opacity: 1;
   color: $regal-blue;
 }
+
+.btn-main {
+  color: $white;
+  background-color: $regal-blue;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.btn-main:hover {
+  background-color: $black;
+  color: $white;
+}
