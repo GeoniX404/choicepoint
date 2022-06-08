@@ -7,6 +7,7 @@ class ChoicePointsController < ApplicationController
 
   def new
     @choice_point = ChoicePoint.new
+    # @choice_point.options.build
   end
 
   def create
@@ -22,7 +23,7 @@ class ChoicePointsController < ApplicationController
   private
 
   def choice_point_params
-    params.require(:choice_point).permit(:title, :description, :deadline)
+    params.require(:choice_point).permit(:title, :description, :deadline, options_attributes: [:description, :pros, :cons, :chosen, :score])
   end
 
   # def show

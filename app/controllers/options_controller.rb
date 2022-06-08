@@ -1,4 +1,9 @@
 class OptionsController < ApplicationController
+
+  def new
+    @option = Option.new
+  end
+
   def create
     @choice_point = ChoicePoint.find(params[:choice_point_id])
     @option = Option.new
