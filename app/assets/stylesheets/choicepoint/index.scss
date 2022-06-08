@@ -1,5 +1,5 @@
 body {
-  background-color: F8F9FC;
+  background-color: #B0C6D4;
 }
 
 .index_main_text{
@@ -12,9 +12,42 @@ body {
 .choicepoint {
   .card-container{
   width: 60%;
-  margin: 16px;
   }
   .ranking-container{
   width: 38%;
   }
+}
+
+.large_index_image{
+ background-image: url("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg");
+ height: 600px;
+ background-size: cover;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+
+
+}
+
+.search-bar{
+  height: 50px;
+  background-color: white;
+}
+
+.page-container{
+  width: 80%;
+  margin: 30px auto;
+}
+
+.choicepoint {
+  display: flex;
+}
+.trending {
+  height: 450px;
+  background-color: white;
+}
+.memo {
+  height: 200px;
+  background-color: white;
 }
