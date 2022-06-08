@@ -14,17 +14,7 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <div class="page-container">
-      <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-        <div class="container">
-          <%= render "shared/navbar" %>
-        </div>
-      </nav>
-      <main>
-        <div class="container">
-          <%= yield %>
-        </div>
-      </main>
-    </div>
+    <%= render "shared/navbar" %>
+    <%= yield %>
   </body>
 </html>
