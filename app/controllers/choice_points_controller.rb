@@ -2,7 +2,11 @@ class ChoicePointsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index new show create]
 
   def index
+    if params[:query].present?
+      @choice_points = ChoicePoint.search_by_title_and_description(params[:query])
+    else
     @choice_points = ChoicePoint.all
+    end
   end
 
   def new
