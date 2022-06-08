@@ -5,10 +5,23 @@ body {
 .index_main_text{
   text-align: center;
   font-family: Inter;
-  .large_index_image{
-    width:auto;
-  }
+  color: white;
 }
+
+  .main-title {
+    font-weight: 600;
+    font-size: 60px;
+  }
+
+  .secondary-title {
+    font-size: 15px;
+  }
+
+  .trending-text {
+    font-size: 40px;
+    align-self: flex-bottom;
+    letter-spacing: 60px;
+  }
 
 .choicepoint {
   .card-container{
@@ -21,12 +34,14 @@ body {
 
 .large_index_image{
  background-image: url("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg");
+//  filter: brightness(50%);
  height: 600px;
  background-size: cover;
  display: flex;
- flex-direction: column;
- justify-content: space-around;
- align-items: center;
+ width:auto;
+ display: grid;
+ grid-template-rows: 1fr auto;
+ place-items: center;
 }
 
 .search-bar {
