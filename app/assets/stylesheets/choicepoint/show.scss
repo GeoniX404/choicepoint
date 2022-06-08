@@ -1,0 +1,114 @@
+.show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 48px;
+  margin: 48px auto;
+  width: 80%;
+
+  h1 {
+    // TODO: Add CSS reset
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .asker {
+    font-size: $paragraph-size;
+    color: $dark-gray;
+    font-weight: 400;
+  }
+  .question {
+    font-size: $main-header-size;
+    font-weight: 700;
+  }
+  #more {
+    border-width: 3px;
+    font-size: $paragraph-size;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  p {
+    // TODO: Add CSS reset
+    margin: 0;
+    padding: 0;
+  }
+  form {
+    align-self: stretch;
+  }
+  input.btn-main {
+    text-transform: uppercase;
+    font-size: $secondary-header-size;
+  }
+}
+
+.show-container .show-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 48px;
+}
+
+.show-container .show-options {
+  background-color: $white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
+  border-radius: 16px;
+  padding: 16px 0;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: auto;
+  .show-option-descriptions {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+  }
+  .show-options-header-row {
+    padding: 8px 24px;
+    display: flex;
+    align-items: flex-end;
+    font-size: $paragraph-size;
+    color: $dark-gray;
+    text-transform: uppercase;
+  }
+  .show-options-row {
+    display: grid;
+    padding: 16px 24px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    font-size: $secondary-header-size;
+    font-weight: 700;
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+    &.show-options-row-score {
+      grid-template-columns: 1fr;
+    }
+    .show-options-row-pros-and-cons > p{
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+}
+
+// Not DRY, will fix later
+.show-view {
+  // TODO: Move this elsewhere, should be inherited
+  color: $black;
+  background-color: $white-lilac;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
