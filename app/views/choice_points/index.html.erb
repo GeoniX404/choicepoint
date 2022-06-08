@@ -1,2 +1,30 @@
-<h1>ChoicePoint</h1>
-<h1>T   R   E   N   D   I   N   G</h1>
+<head>
+  <div class="index_main_text">
+    <div class="large_index_image">
+      <h1>ChoicePoint</h1>
+      <h1>T   R   E   N   D   I   N   G</h1>
+    </div>
+  </div>
+</head>
+
+<div class="page-container">
+  <body>
+    <div class="choicepoint">
+      <div class="card-container">
+        <div class="search-bar mb-4">
+         <p>Search bar placeholder </p>
+        </div>
+        <% @choice_points.each do |choicepoint| %>
+          <div class="position-relative mb-4" >
+            <%= render "shared/choicepoint_card", choicepoint: choicepoint %>
+          </div>
+        <% end %>
+      </div>
+      <div class="ranking-container ms-4">
+      <div class="trending mb-4"><p>trending placeholder</p></div>
+
+      <div class="memo"><p>memo placeholder</p></div>
+      </div>
+    </div>
+  </body>
+</div>
