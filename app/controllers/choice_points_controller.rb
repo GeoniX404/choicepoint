@@ -5,7 +5,7 @@ class ChoicePointsController < ApplicationController
     if params[:query].present?
       @choice_points = ChoicePoint.search_by_title_and_description(params[:query])
     else
-    @choice_points = ChoicePoint.all
+      @choice_points = ChoicePoint.all
     end
   end
 
@@ -27,7 +27,7 @@ class ChoicePointsController < ApplicationController
   private
 
   def choice_point_params
-    params.require(:choice_point).permit(:title, :description, :deadline)
+    params.require(:choice_point).permit(:title, :description, :deadline, options_attributes: %i[:description, :pros, :cons])
   end
 
   # def show
