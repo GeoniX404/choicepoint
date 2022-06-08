@@ -11,3 +11,31 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-login {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-login:hover {
+  opacity: 1;
+}
+
+.btn-signup {
+  color: #1E3765;
+  background: #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.btn-signup:hover {
+  opacity: 1;
+}
