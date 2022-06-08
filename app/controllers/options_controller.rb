@@ -3,6 +3,7 @@ class OptionsController < ApplicationController
     @option = Option.find(params[:id])
     @vote = @option.votes.create
     @vote.user = current_user
+    # yet to determine the correct redirect path
     redirect_to choice_points_path(@choice_points)
   end
 
