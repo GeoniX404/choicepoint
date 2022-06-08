@@ -1,4 +1,5 @@
 class OptionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def new
     @option = Option.new
@@ -16,4 +17,11 @@ class OptionsController < ApplicationController
       render 'choice_points'
     end
   end
+
+  private
+
+  def option_params
+    params.require(:option).permit(:description, :pros, :cons)
+  end
+
 end
