@@ -1,6 +1,25 @@
-<%= simple_form_for [ @choice_point ] do |f| %>
-  <%= f.input :title, placeholder: 'Please choose a name', label: false, :class => "form-field", required: true %>
-  <%= f.input :description, placeholder: 'Add a description', label:false, :class => "form-field", required: true, as: :text %>
-  <%= f.input :deadline, placeholder: 'Add a deadline', label:false, :class => "form-field", required: true, as: :date %>
-  <%= f.submit "Submit ChoicePoint", class: "btn btn-primary" %>
-<% end %>
+<div class="field-container">
+  <%= simple_form_for [ @choice_point ] do |f| %>
+    <div class="choicepoint-description-container">
+      <%= f.input :title, placeholder: 'Choose a name for your choicepoint', label: false, :class => "form-field", required: true %>
+      <%= f.input :description, placeholder: 'Describe your choicepoint', label:false, :class => "form-field", required: true, as: :text %>
+      <%# <%= f.input :tags, placeholder: 'Add relevant tags for your choicepoint', label:false, :class => "form-field", required: true %>
+      <%= f.input :deadline, placeholder: 'Add a deadline', label:false, :class => "form-field", required: true, as: :date %>
+      <%# <h4>Options:</h4>
+      <%= f.fields_for :options do |option_builder| %>
+          <%# <%= option_builder.label :description  %>
+          <%# <%= option_builder.text_field :description %>
+          <%# <%= option_builder.label :pros  %>
+          <%# <%= option_builder.text_field :pros %>
+          <%# <%= option_builder.label :cons  %>
+          <%# <%= option_builder.text_field :cons %>
+          <%# <%= option_builder.label :chosen  %>
+          <%# <%= option_builder.text_field :chosen %>
+          <%# <%= option_builder.label :score  %>
+          <%# <%= option_builder.text_field :score %>
+          <%# <% end %>
+    </div>
+
+    <%= f.submit "Next", class: "btn btn-primary" %>
+  <% end %>
+</div>
