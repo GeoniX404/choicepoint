@@ -16,6 +16,7 @@ CHOICE_POINTS = {
 DEADLINE_FIRST = Time.now
 DEADLINE_LAST = Time.new(2023)
 NUMBER_OF_CHOICE_POINTS = 3
+HIGHEST_SCORE = 100
 
 def create_users
   USERNAMES.each do |username|
@@ -51,7 +52,8 @@ def create_options(choice_point, option_descriptions)
       description: description,
       pros: Faker::Lorem.sentence,
       cons: Faker::Lorem.sentence,
-      choice_point: choice_point
+      choice_point: choice_point,
+      score: HIGHEST_SCORE * rand
     )
   end
 end
