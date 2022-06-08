@@ -1,9 +1,4 @@
 class OptionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index new create]
-
-  def index
-    @options = Option.all
-  end
 
   def new
     @option = Option.new
@@ -13,8 +8,8 @@ class OptionsController < ApplicationController
 
   def create
     @choice_point = ChoicePoint.find(params[:choice_point_id])
-    @option = Option.new
-    @option.user = current_user
+    @option = Option.new(option_params)
+    # @option.user = current_user
     @option.choice_point = @choice_point
 
     if @option.save
@@ -43,3 +38,4 @@ class OptionsController < ApplicationController
   def option_params
     params.require(:option).permit(:description, :pros, :cons)
   end
+end
