@@ -1,6 +1,6 @@
 .btn-ghost {
-  color: #1E3765;
-  border: 1px solid #1E3765;
+  color: $regal-blue;
+  border: 1px solid $regal-blue;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -10,4 +10,5 @@
 
 .btn-ghost:hover {
   opacity: 1;
+  color: $regal-blue;
 }

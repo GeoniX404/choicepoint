@@ -14,6 +14,7 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
+    raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save

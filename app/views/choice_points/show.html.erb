@@ -1,9 +1,44 @@
-<div class="show-view">
+<%# TODO: View should look different after deadline has passed %>
+
+<div class="show-container">
   <div class="show-header">
     <h1>
       <div class="asker"><%= @choice_point.user.name %> asks…</div>
       <div class="question"><%= @choice_point.title %></div>
     </h1>
-    <p><a class="">More</a></p>
+    <p><a class="btn btn-ghost" id="more" href="#">More</a></p>
   </div>
+  <form action="">
+    <div class="show-options">
+      <div class="show-option-descriptions">
+        <%# TODO: I'm sure this isn't accessible in the slightest. We'll have
+            to learn more about accessibility later, not sure there's time
+            at the moment. %>
+
+        <%# TODO: Maybe we should be dealing with times rather than dates %>
+        <%# +1 ensures that current day counts, so that if deadline is today,
+            it will say "1 day left", not "0 days left" %>
+        <p><%= pluralize((@choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
+        <% @choice_point.options.each_with_index do |option, index| %>
+          <div class="show-option-description">
+            <div>
+              <input type="radio" id="option-<%= index + 1 %>" name="option" value="<%= option.id %>">
+              <label for="option-<%= index + 1 %>"><%= option.description %></label>
+            </div>
+            <div>
+              <p><a class="btn btn-ghost" href="#">Pros</a></p>
+              <p><a class="btn btn-ghost" href="#">Cons</a></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="option-scores">
+        <p>score</p>
+        <p>800</p>
+        <p>435</p>
+        <p>667</p>
+      </div>
+    </div>
+    <input type="submit" value="Vote">
+  </form>
 </div>
