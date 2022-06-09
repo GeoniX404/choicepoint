@@ -24,7 +24,7 @@ def create_users
       email: Faker::Internet.email,
       password: Faker::Internet.password,
       name: username,
-      reputation: rand(5..100)
+      reputation: rand(5..40)
     )
     create_choice_points(user)
   end
