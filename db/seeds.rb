@@ -23,7 +23,8 @@ def create_users
     user = User.create!(
       email: Faker::Internet.email,
       password: Faker::Internet.password,
-      name: username
+      name: username,
+      reputation: rand(5..100)
     )
     create_choice_points(user)
   end
