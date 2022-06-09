@@ -9,5 +9,8 @@
   <p><a class="btn btn-ghost show-options-row-pros-and-cons" href="#">Pros</a></p>
   <p><a class="btn btn-ghost show-options-row-pros-and-cons" href="#">Cons</a></p>
   <!-- spacer div for the grid --> <div></div>
-  <p class="show-options-row show-options-row-score"><%= option.score.round(2) %></p>
+  <% width = option.score.zero? ? 0 : option.score / highest_score %>
+  <!-- Not accessible! Should be fixed -->
+  <div class="show-options-row show-options-row-score"
+     style="width: calc(<%= width * 100 %>% - <%= 24 * width %>px);"></div>
 <% end %>

@@ -14,6 +14,7 @@ class ChoicePointsController < ApplicationController
   def show
     @choice_point = ChoicePoint.find(params[:id])
     @user_has_voted = @choice_point.vote_from?(current_user)
+    @highest_score = @choice_point.highest_score
   end
 
   def new

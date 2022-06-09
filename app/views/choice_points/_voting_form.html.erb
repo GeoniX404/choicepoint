@@ -5,7 +5,7 @@
 
   <div class="show-options">
 
-    <%= render "voting_area_content", choice_point: choice_point do |option| %>
+    <%= render "voting_area_content", choice_point: choice_point, highest_score: highest_score do |option| %>
       <%= form.radio_button(
         :option,
         (option.id).to_s,

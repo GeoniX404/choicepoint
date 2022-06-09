@@ -21,4 +21,10 @@ class ChoicePoint < ApplicationRecord
       end
     end
   end
+
+  def highest_score
+    options.reduce(0) do |highest, current|
+      current.score > highest ? current.score : highest
+    end
+  end
 end

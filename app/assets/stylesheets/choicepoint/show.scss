@@ -101,6 +101,13 @@
   .show-options-row-description {
     border-radius: 0 48px 48px 0;
   }
+  .show-options-row-score {
+    background-color: $pastel-blue;
+    box-shadow: 4px 4px 0px $choice-point-yellow;
+    height: 50%;
+    margin: 0 16px;
+    padding: 0;
+  }
 }
 
 .show-container {
