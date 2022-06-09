@@ -56,9 +56,16 @@
 }
 
 .btn-info {
-  color: #FFD600;
-  border-radius: 2px solid #FFD600;
+  color: $regal-blue;
+  border-radius: 2px solid $regal-blue;
   background-color: transparent;
   padding: 6px 24px;
   border-radius: 50px;
+}
+
+.btn-info:hover {
+  background-color: #FFD600;
+  opacity: 0.9;
+  color: $regal-blue;
+  border-radius: 2px solid #1E3765;
 }
