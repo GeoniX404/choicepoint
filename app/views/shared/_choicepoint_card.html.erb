@@ -1,7 +1,9 @@
-<div class="card-product">
-  <div class="card-product-infos">
-    <h2><%= choicepoint.title %></h2>
-    <p><%= choicepoint.description %></p>
+<%= link_to choice_point_path(choicepoint) do %>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h2><%= choicepoint.title %></h2>
+      <p><%= choicepoint.description %></p>
+    </div>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   </div>
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-</div>
+<% end %>
