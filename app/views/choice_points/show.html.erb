@@ -41,28 +41,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-<!--
-    <form action=<%= vote_choice_point_path(@choice_point) %> method="post">
-      <div class="show-options">
-        <p class="show-options-header-row"><%= pluralize((@choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
-        <p class="show-options-header-row">score</p>
-        <% @choice_point.options.each_with_index do |option, index| %>
-          <div class="show-options-row">
-            <div class="show-options-row-input-and-label">
-              <input type="radio" id="option-<%= index + 1 %>" name="option" value="<%= option.id %>">
-              <label for="option-<%= index + 1 %>"><%= option.description %></label>
-            </div>
-            <div class="show-options-row-pros-and-cons">
-              <p><a class="btn btn-ghost" href="#">Pros</a></p>
-              <p><a class="btn btn-ghost" href="#">Cons</a></p>
-            </div>
-          </div>
-          <p class="show-options-row show-options-row-score"><%= option.score.round(2) %></p>
-        <% end %>
-      </div>
-      <input type="submit" value="Vote" class="btn btn-main">
-    </form>
--->
