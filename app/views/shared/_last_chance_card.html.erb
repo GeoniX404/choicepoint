@@ -1,0 +1,18 @@
+<div class="last-chance-container">
+  <p>Last chance to vote </p>
+  <% last_chance.each do |lastchance| %>
+  <%= link_to choice_point_path(last_chance) do %>
+      <div class="card-last-chance">
+
+    <%# MAKE YOUR CARD HERE %>
+    <div class="last-chance-row">
+      <p><%= lastchance.title %></p>
+      <h2> <%= lastchance.deadline %></h2>
+
+      </div>
+    <%# END CARD HERE %>
+
+     </div>
+    <% end %>
+  <% end %>
+</div>

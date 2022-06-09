@@ -7,6 +7,8 @@ class ChoicePointsController < ApplicationController
     else
       @choice_points = ChoicePoint.all
     end
+
+    @last_chance = ChoicePoint.all.order(deadline: :asc).take(10)
   end
 
   def show

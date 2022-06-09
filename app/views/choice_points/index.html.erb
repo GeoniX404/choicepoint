@@ -1,8 +1,8 @@
 <div class="index_main_text">
     <div class="large_index_image">
       <div class="title">
-        <h1 class="main-title">ChoicePoint</h1>
-        <h2 class="secondary-title">GET YOUR SOLUTION <a class="btn-info btn" href="/choice_points/new">create</a></h2>
+        <%# <h1 class="main-title">ChoicePoint</h1> %>
+        <h2 class="secondary-title"> <a class="btn-info btn" href="/choice_points/new"><strong>GET YOUR SOLUTION</strong></a></h2>
       </div>
       <h2 class="trending-text">TRENDING</h2>
     </div>
@@ -27,7 +27,7 @@
         <% end %>
       </div>
       <div class="ranking-container ms-4">
-      <div class="trending mb-4"><p>trending placeholder</p></div>
+      <div class="trending mb-4"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
 
       <div class="memo"><p>memo placeholder</p></div>
       </div>

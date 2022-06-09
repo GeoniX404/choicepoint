@@ -25,4 +25,9 @@
 a {
   text-decoration: none;
   // makes changes (no underline) to all link tags on the site
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
 }
