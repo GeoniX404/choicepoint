@@ -1,14 +1,38 @@
 body {
-  background-color: #B0C6D4;
+  background-color: #F8F9FC;
 }
 
 .index_main_text{
   text-align: center;
   font-family: Inter;
-  .large_index_image{
-    width:auto;
-  }
+  color: black;
 }
+
+  .main-title {
+    font-weight: 600;
+    font-size: 60px;
+    text-shadow:
+        0.05em 0 white,
+        0 0.05em white,
+        -0.05em 0 white,
+        0 -0.05em white,
+        -0.05em -0.05em white,
+        -0.05em 0.05em white,
+        0.05em -0.05em white,
+        0.05em 0.05em white;
+  }
+
+  .secondary-title {
+    font-size: 15px;
+    color: white;
+  }
+
+  .trending-text {
+    font-size: 40px;
+    align-self: flex-bottom;
+    letter-spacing: 60px;
+    color: white;
+  }
 
 .choicepoint {
   .card-container{
@@ -20,13 +44,14 @@ body {
 }
 
 .large_index_image{
- background-image: url("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg");
- height: 600px;
+ background-image: url("https://www.echocounseling.com/wp-content/uploads/2018/09/faq-banner.jpg");
+ height: 400px;
  background-size: cover;
  display: flex;
- flex-direction: column;
- justify-content: space-around;
- align-items: center;
+ width:auto;
+ display: grid;
+ grid-template-rows: 1fr auto;
+ place-items: center;
 }
 
 .search-bar {

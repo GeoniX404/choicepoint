@@ -9,6 +9,10 @@ class ChoicePointsController < ApplicationController
     end
   end
 
+  def show
+    @choice_point = ChoicePoint.find(params[:id])
+  end
+
   def new
     @choice_point = ChoicePoint.new
     # @choice_point.options.build
@@ -29,7 +33,4 @@ class ChoicePointsController < ApplicationController
   def choice_point_params
     params.require(:choice_point).permit(:title, :description, :deadline, options_attributes: %i[:description, :pros, :cons])
   end
-
-  # def show
-  # end
 end
