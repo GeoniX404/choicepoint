@@ -1,17 +1,7 @@
-<div class="show-options">
-  <p class="show-options-header-row"><%= pluralize((@choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
-  <p class="show-options-header-row">score</p>
-  <% @choice_point.options.order(:id).each do |option| %>
-    <div class="show-options-row">
-      <div class="show-options-row-input-and-label">
-        <div></div>
-        <div><%= option.description %></div>
-      </div>
-      <div class="show-options-row-pros-and-cons">
-        <p><a class="btn btn-ghost" href="#">Pros</a></p>
-        <p><a class="btn btn-ghost" href="#">Cons</a></p>
-      </div>
-    </div>
-    <p class="show-options-row show-options-row-score"><%= option.score.round(2) %></p>
+<div class="show-options votes-container">
+  <%= render "voting_area_content", choice_point: choice_point do |option| %>
+    <% selected = option.votes.any? { |vote| vote.user == current_user } %>
+    <p class="show-options-check-mark show-options-radio-button-space <%= "selected-area" if selected %>"><%= "✓" if selected %></p>
+    <p class="show-options-row show-options-row-description <%= "selected-area" if selected %>"><%= option.description %></p>
   <% end %>
 </div>

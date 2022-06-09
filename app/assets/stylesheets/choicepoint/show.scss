@@ -39,6 +39,9 @@
     margin: 0;
     padding: 0;
   }
+  & > .votes-container {
+    align-self: stretch;
+  }
   input.btn-main {
     text-transform: uppercase;
     font-size: $secondary-header-size;
@@ -59,46 +62,59 @@
   background-color: $white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
-  padding: 16px 0;
+  padding: 24px;
+  padding-bottom: 16px;
   margin-bottom: 48px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 43fr 8fr 8fr 5fr 34fr;
   grid-template-rows: 1fr;
   grid-auto-rows: auto;
+  // gap: 16px;
+  align-items: center;
   .show-option-descriptions {
     display: flex;
     flex-direction: column;
     flex-basis: 70%;
   }
-  .show-options-header-row {
-    padding: 8px 24px;
+  .show-options-row {
+    font-size: $secondary-header-size;
+    font-weight: 700;
+    // div {
+    //   display: flex;
+    //   flex-direction: row;
+    //   align-items: center;
+    //   gap: 16px;
+    // }
+  }
+  .show-options-row-pros-and-cons {
+    text-transform: uppercase;
+  }
+  .show-options-check-mark {
+    font-size: 20px;
+  }
+  .selected-area {
+    background-color: $choice-point-yellow-transparent;
+  }
+  .show-options-radio-button-space {
+    border-radius: 48px 0 0 48px;
+  }
+  .show-options-row-description {
+    border-radius: 0 48px 48px 0;
+  }
+}
+
+.show-container {
+  .show-options > * {
+    padding: 16px;
+    height: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+  }
+  .show-options-header-row {
     font-size: $paragraph-size;
     color: $dark-gray;
     text-transform: uppercase;
-  }
-  .show-options-row {
-    display: grid;
-    padding: 16px 24px;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    font-size: $secondary-header-size;
-    font-weight: 700;
-    div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 16px;
-    }
-    &.show-options-row-score {
-      grid-template-columns: 1fr;
-    }
-    .show-options-row-pros-and-cons > p{
-      line-height: 1;
-      text-transform: uppercase;
-    }
+    padding: 0 16px;
   }
 }
 
