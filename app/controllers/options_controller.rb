@@ -15,7 +15,7 @@ class OptionsController < ApplicationController
     if @option.save
       redirect_to choice_point_path(@choice_point)
     else
-      render 'choice_points'
+      render :new
     end
   end
 
