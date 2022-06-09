@@ -27,7 +27,14 @@
         <% end %>
       </div>
       <div class="ranking-container ms-4">
-      <div class="trending mb-4"><p>trending placeholder</p></div>
+      <div class="trending mb-4">
+        <p>Trending</p>
+        <% trending = Vote.popular %>
+
+        <% trending.each do |vote| %>
+          <%= vote.choice_point.title %>
+        <% end %>
+      </div>
 
       <div class="memo"><p>memo placeholder</p></div>
       </div>
