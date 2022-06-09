@@ -3,9 +3,9 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["options", "form"]
 
-  connect() {
-console.log("Hello")
-  }
+connect() {
+  console.log("Hello")
+}
 
 add(event) {
   console.log(event.currentTarget.id)
