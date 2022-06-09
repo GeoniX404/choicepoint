@@ -56,11 +56,17 @@
 }
 
 .btn-info {
-  color: $regal-blue;
-  border-radius: 2px solid $regal-blue;
+  color: #1E3765;
+  border: 2px solid #1E3765;
   background-color: transparent;
   padding: 6px 24px;
   border-radius: 50px;
+  &:hover{
+  background-color: #FFD600;
+  border: #FFD600;
+  color: #1E3765;
+  border: 2px solid #FFD600;
+  }
 }
 
 
