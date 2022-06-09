@@ -1,8 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "ChoicePointLogo.png" %>
-    <% end %>
+    <ul class="navbar-logo">
+      <li><a href="/choice_points"><%= image_tag "ChoicePointLogo.png" %></a></li>
+    </ul>
+    <%#= link_to "Home", class: "navbar-brand" do %>
+      <%#= image_tag "ChoicePointLogo.png" %>
+    <%# end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
