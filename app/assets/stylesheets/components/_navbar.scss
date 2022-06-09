@@ -11,3 +11,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 60px;
 }
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar-logo li img {
+  width: 100px;
+}
+
+a {
+  text-decoration: none;
+  // makes changes (no underline) to all link tags on the site
+}

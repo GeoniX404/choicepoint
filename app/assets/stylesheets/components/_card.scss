@@ -4,17 +4,17 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: top;
+  align-items: center;
   justify-content: space-between;
   position: relative;
   border-radius: 2px;
+  text-decoration: none;
 }
 
 .card-product img {
   height: 80%;
   width: 120px;
   object-fit: cover;
-  margin-top: 14px;
   margin-right: 12px;
 }
 
@@ -34,4 +34,8 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-container a {
+  text-decoration: none;
 }
