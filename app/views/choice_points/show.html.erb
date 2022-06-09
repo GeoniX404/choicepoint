@@ -8,10 +8,7 @@
       </h1>
       <p><a class="btn btn-ghost" id="more" href="#">More</a></p>
     </div>
-    <% if @user_has_voted %>
-      <p>You've already voted!</p>
-    <% else %>
-      <%= render "voting_form", choice_point: @choice_point %>
-    <% end %>
+    <%= render (@user_has_voted ? "results" : "voting_form"),
+               choice_point: @choice_point %>
   </div>
 </div>
