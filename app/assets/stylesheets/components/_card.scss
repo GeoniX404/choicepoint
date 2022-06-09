@@ -38,4 +38,46 @@
 
 .card-container a {
   text-decoration: none;
+  color: black;
+}
+
+.last-chance-container{
+  background-color: #1E3765;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .card-last-chance{
+    padding: 0.50em;
+    margin: 0 auto;
+    margin-bottom: 3px;
+    width: 98%;
+    overflow: hidden;
+    background: white;
+    padding: 0.50em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: black;
+  }
+}
+.card-last-chance p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-last-chance h2 {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.last-chance-row{
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
 }
