@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_141621) do
+ActiveRecord::Schema.define(version: 2022_06_09_100409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_141621) do
   create_table "options", force: :cascade do |t|
     t.boolean "chosen"
     t.text "description"
-    t.float "score"
+    t.float "score", default: 0.0
     t.text "pros"
     t.text "cons"
     t.bigint "choice_point_id", null: false
