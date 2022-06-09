@@ -26,6 +26,7 @@ def create_users
       email: email,
       password: password,
       name: username
+      reputation: rand(5..40)
     )
     puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: #{password}"
     create_choice_points(user)

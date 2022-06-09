@@ -5,7 +5,7 @@ class ChoicePointsController < ApplicationController
     if params[:query].present?
       @choice_points = ChoicePoint.search_by_title_and_description(params[:query])
     else
-    @choice_points = ChoicePoint.all
+      @choice_points = ChoicePoint.all
     end
   end
 
