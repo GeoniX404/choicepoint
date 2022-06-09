@@ -1,6 +1,6 @@
 <div class="field-container" data-controller="options">
   <div data-options-target="options">
-      <%= simple_form_for [ @choice_point, @option ] do |f| %>
+      <%= simple_form_for [ @choice_point, @option ], html: {data:{options_target:"form"}} do |f| %>
         <div class="option-description-container">
           <%= f.input :description, placeholder: 'Option 1', label: false, :class => "form-field", required: true %>
           <%= f.input :pros, placeholder: 'What you like about it', label:false, :class => "form-field", required: true, as: :text %>
@@ -14,4 +14,5 @@
   <div data-action="click->options#add" id="<%= @choice_point.id %>">
   <p>Add another option</p>
   </div>
+  <div data-action="click->options#send"><p>Submit</p></div>
 </div>
