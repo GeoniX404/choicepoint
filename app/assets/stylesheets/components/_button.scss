@@ -69,6 +69,14 @@
   }
 }
 
+
+.btn-info:hover {
+  background-color: #FFD600;
+  opacity: 0.9;
+  color: $regal-blue;
+  border-radius: 2px solid #1E3765;
+}
+
 .signedin-button-container {
   display: flex;
   gap: 10px;
