@@ -14,6 +14,7 @@ class ChoicePoint < ApplicationRecord
     }
 
   def vote_from?(user)
+    # Not very efficient: Could be improved via techniques from Advanced DB lecture?
     options.any? do |option|
       option.votes.any? do |vote|
         vote.user == user
