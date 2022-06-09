@@ -25,7 +25,7 @@ def create_users
     user = User.create!(
       email: email,
       password: password,
-      name: username
+      name: username,
       reputation: rand(5..40)
     )
     puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: #{password}"
