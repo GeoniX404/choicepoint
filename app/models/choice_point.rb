@@ -12,4 +12,12 @@ class ChoicePoint < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def vote_from?(user)
+    options.any? do |option|
+      option.votes.any? do |vote|
+        vote.user == user
+      end
+    end
+  end
 end

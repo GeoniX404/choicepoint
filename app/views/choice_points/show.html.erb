@@ -8,36 +8,10 @@
       </h1>
       <p><a class="btn btn-ghost" id="more" href="#">More</a></p>
     </div>
-    <%= form_with(model: @choice_point,
-                  url: vote_choice_point_path(@choice_point),
-                  html: { data: { controller: 'choice-point-voting-form' } }) do |form| %>
-      <div class="show-options">
-        <p class="show-options-header-row"><%= pluralize((@choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
-        <p class="show-options-header-row">score</p>
-        <% @choice_point.options.order(:id).each do |option| %>
-          <div class="show-options-row">
-            <div class="show-options-row-input-and-label">
-              <%= form.radio_button(
-                :option,
-                (option.id).to_s,
-                data: { action: "click->choice-point-voting-form#enableVoteButton" }
-              ) %>
-              <%= form.label "option_#{(option.id).to_s}".to_sym, option.description %>
-            </div>
-            <div class="show-options-row-pros-and-cons">
-              <p><a class="btn btn-ghost" href="#">Pros</a></p>
-              <p><a class="btn btn-ghost" href="#">Cons</a></p>
-            </div>
-          </div>
-          <p class="show-options-row show-options-row-score"><%= option.score.round(2) %></p>
-        <% end %>
-      </div>
-      <%= form.submit(
-        "Vote",
-        class: "btn btn-main",
-        disabled: true,
-        data: { choice_point_voting_form_target: "voteButton" }
-      ) %>
+    <% if @user_has_voted %>
+      <p>You've already voted!</p>
+    <% else %>
+      <%= render "voting_form", choice_point: @choice_point %>
     <% end %>
   </div>
 </div>
