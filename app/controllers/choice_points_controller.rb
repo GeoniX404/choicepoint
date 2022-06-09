@@ -28,6 +28,21 @@ class ChoicePointsController < ApplicationController
     end
   end
 
+  def vote
+    @option = Option.find(params[:choice_point][:option])
+    @vote = Vote.new
+    @vote.user = current_user
+    @vote.option = @option
+    if @vote.save
+      @option.increase_score(@vote)
+      @choice_point = ChoicePoint.find(params[:id])
+      redirect_to choice_point_path(@choice_point)
+    else
+      # I don't think this will work
+      render :show
+    end
+  end
+
   private
 
   def choice_point_params
