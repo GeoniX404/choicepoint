@@ -81,3 +81,12 @@
   display: flex;
   gap: 10px;
 }
+
+.btn-submit {
+  color: $white;
+  background-color: $regal-blue;
+  padding: 9px 27px;
+  border-radius: 50px;
+  font-weight: 700;
+  float: right;
+}
