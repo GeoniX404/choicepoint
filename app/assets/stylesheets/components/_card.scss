@@ -45,8 +45,12 @@
   background-color: #1E3765;
   width: 100%;
   height: 100%;
-  align-items: center;
+  align-items: stretch;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 3px;
   .card-last-chance{
     padding: 0.50em;
     margin: 0 auto;
@@ -60,9 +64,18 @@
     position: relative;
     text-decoration: none;
     color: black;
+    border-radius: 5px;
   }
 }
+
+.last-chance-container h3 {
+  color: #FFD600;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
 .card-last-chance p {
+  color: black;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
