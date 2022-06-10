@@ -23,7 +23,7 @@ class ChoicePoint < ApplicationRecord
   end
 
   def highest_score
-    winner&.score
+    leader&.score
   end
 
   def leader
