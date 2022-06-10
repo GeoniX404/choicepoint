@@ -26,7 +26,7 @@ class ChoicePoint < ApplicationRecord
     winner&.score
   end
 
-  def winner
+  def leader
     options.reduce do |best, current|
       current.score > best.score ? current : best
     end
