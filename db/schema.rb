@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_06_09_105804) do
   create_table "options", force: :cascade do |t|
     t.boolean "chosen"
     t.text "description"
-    t.float "score"
+    t.float "score", default: 0.0
     t.text "pros"
     t.text "cons"
     t.bigint "choice_point_id", null: false
