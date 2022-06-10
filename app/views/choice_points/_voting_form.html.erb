@@ -1,0 +1,27 @@
+<%= form_with(model: choice_point,
+              url: vote_choice_point_path(choice_point),
+              html: { class: 'votes-container',
+                      data: { controller: 'choice-point-voting-form' } }) do |form| %>
+
+  <div class="show-options">
+
+    <%= render "voting_area_content", choice_point: choice_point, highest_score: highest_score do |option| %>
+      <%= form.radio_button(
+        :option,
+        (option.id).to_s,
+        data: { action: "click->choice-point-voting-form#enableVoteButton" },
+        class: "show-options-radio-button-space"
+      ) %>
+      <%= form.label "option_#{(option.id).to_s}".to_sym, option.description, class: "show-options-row show-options-row-description" %>
+    <% end %>
+
+  </div>
+
+  <%= form.submit(
+    "Vote",
+    class: "btn btn-main",
+    disabled: true,
+    data: { choice_point_voting_form_target: "voteButton" }
+  ) %>
+
+<% end %>

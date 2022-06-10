@@ -13,6 +13,15 @@ class ChoicePointsController < ApplicationController
 
   def show
     @choice_point = ChoicePoint.find(params[:id])
+    @user_has_voted = @choice_point.vote_from?(current_user)
+    @highest_score = @choice_point.highest_score
+    @belongs_to_current_user = @choice_point.user == current_user
+    if @belongs_to_current_user
+      @user_string = "You asked…"
+    else
+      @user_string = "#{@choice_point.user.name} asks…"
+    end
+    @title = @choice_point.title
   end
 
   def new

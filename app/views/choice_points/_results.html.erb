@@ -1,0 +1,7 @@
+<div class="show-options votes-container">
+  <%= render "voting_area_content", choice_point: choice_point, highest_score: highest_score do |option| %>
+    <% selected = option.votes.any? { |vote| vote.user == current_user } %>
+    <p class="show-options-check-mark show-options-radio-button-space <%= "selected-area" if selected %>"><%= "✓" if selected %></p>
+    <p class="show-options-row show-options-row-description <%= "selected-area" if selected %>"><%= option.description %></p>
+  <% end %>
+</div>
