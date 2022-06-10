@@ -1,5 +1,11 @@
 <!-- spacer div for the grid --> <div></div>
-<p class="show-options-header-row show-options-row-description"><%= pluralize((choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
+<p class="show-options-header-row show-options-row-description">
+  <% if expired %>
+    Voting done
+  <% else %>
+    <%= pluralize((choice_point.deadline - Date.today + 1).to_i, "day") %> left
+  <% end %>
+</p>
 <!-- spacer div for the grid --> <div></div>
 <!-- spacer div for the grid --> <div></div>
 <!-- spacer div for the grid --> <div></div>
@@ -12,5 +18,5 @@
   <% width = option.score.zero? ? 0 : option.score / highest_score %>
   <!-- Not accessible! Should be fixed -->
   <div class="show-options-row show-options-row-score"
-     style="width: calc(<%= width * 100 %>% - <%= 24 * width %>px);"></div>
+       style="width: calc(<%= width * 100 %>% - <%= 24 * width %>px);"></div>
 <% end %>
