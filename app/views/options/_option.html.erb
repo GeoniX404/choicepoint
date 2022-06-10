@@ -1,18 +1,10 @@
-<div class="field-container" data-controller="options">
-  <div data-options-target="options">
-      <%= simple_form_for [ @choice_point, @option ], html: {data:{options_target:"form"}} do |f| %>
-        <div class="option-description-container">
-          <%= f.input :description, placeholder: 'Option', label: false, :class => "form-field", required: true %>
-          <%= f.input :pros, placeholder: 'What you like about it', label:false, :class => "form-field", required: true, as: :text %>
-          <%= f.input :cons, placeholder: 'What you do not like', label:false, :class => "form-field", required: true, as: :text %>
-        </div>
 
-      <% end %>
+  <% @options.each do |option| %>
+  <h1> <%= option.description %> </h1>
+  <% end %>
+  <div class="">
+    <div>
+      <%= render "form_option", choice_point: @choice_point, option: @option %>
+    </div>
+
   </div>
-  <div class="btn btn-primary" data-action="click->options#add" id="<%= @choice_point.id %>">
-    <p>Add another option</p>
-  </div>
-  <div class="btn btn-primary" data-action="click->options#send">
-    <p>Submit ChoicePoint</p>
-  </div>
-</div>

@@ -12,4 +12,19 @@ class ChoicePoint < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def vote_from?(user)
+    # Not very efficient: Could be improved via techniques from Advanced DB lecture?
+    options.any? do |option|
+      option.votes.any? do |vote|
+        vote.user == user
+      end
+    end
+  end
+
+  def highest_score
+    options.reduce(0) do |highest, current|
+      current.score > highest ? current.score : highest
+    end
+  end
 end

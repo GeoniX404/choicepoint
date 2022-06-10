@@ -3,6 +3,7 @@ class OptionsController < ApplicationController
   def new
     @option = Option.new
     @choice_point = ChoicePoint.find(params[:choice_point_id])
+    @options = @choice_point.options
     @option.choice_point = @choice_point
   end
 
@@ -11,11 +12,11 @@ class OptionsController < ApplicationController
     @option = Option.new(option_params)
     # @option.user = current_user
     @option.choice_point = @choice_point
-
+    # @option.save
     if @option.save
-      redirect_to choice_point_path(@choice_point)
+      redirect_to new_choice_point_option_path(@choice_point)
     else
-      render 'choice_points'
+      render :new
     end
   end
 

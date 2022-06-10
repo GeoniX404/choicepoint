@@ -13,6 +13,15 @@ class ChoicePointsController < ApplicationController
 
   def show
     @choice_point = ChoicePoint.find(params[:id])
+    @user_has_voted = @choice_point.vote_from?(current_user)
+    @highest_score = @choice_point.highest_score
+    @belongs_to_current_user = @choice_point.user == current_user
+    if @belongs_to_current_user
+      @user_string = "You asked…"
+    else
+      @user_string = "#{@choice_point.user.name} asks…"
+    end
+    @title = @choice_point.title
   end
 
   def new
@@ -21,10 +30,11 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
+    # raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
-      redirect_to choice_points_path(@choice_point)
+      redirect_to new_choice_point_option_path(@choice_point)
     else
       render "choice_points/new"
     end

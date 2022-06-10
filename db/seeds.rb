@@ -20,12 +20,15 @@ HIGHEST_SCORE = 100
 
 def create_users
   USERNAMES.each do |username|
+    email = Faker::Internet.email
+    password = Faker::Internet.password
     user = User.create!(
-      email: Faker::Internet.email,
-      password: Faker::Internet.password,
+      email: email,
+      password: password,
       name: username,
       reputation: rand(5..40)
     )
+    puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: #{password}"
     create_choice_points(user)
   end
 end
