@@ -1,11 +1,10 @@
-<div class="field-container">
+
   <% @options.each do |option| %>
   <h1> <%= option.description %> </h1>
   <% end %>
-  <div>
-    <%= render "form_option", choice_point: @choice_point, option: @option %>
+  <div class="">
+    <div>
+      <%= render "form_option", choice_point: @choice_point, option: @option %>
+    </div>
+
   </div>
-  <div class="btn btn-primary">
-    <%= link_to "Submit ChoicePoint", choice_point_path(@choice_point) %>
-  </div>
-</div>
