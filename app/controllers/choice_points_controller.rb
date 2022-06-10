@@ -21,10 +21,11 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
+    # raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
-      redirect_to choice_points_path(@choice_point)
+      redirect_to new_choice_point_option_path(@choice_point)
     else
       render "choice_points/new"
     end
