@@ -12,7 +12,7 @@
   <% width = option.score.zero? ? nil : option.score / highest_score %>
   <!-- Not accessible! Should be fixed -->
   <p class="show-options-row show-options-row-score <%= "show-options-row-score-bar" if width %>"
-     style=<%= width ? "width: calc(#{width * 100}% - #{24 * width}px);" : "" %>>
+     style="<%= width ? "width: calc(#{width * 100}% - #{24 * width}px);" : "" %>">
     <%= "No votes yet" if width.nil? %>
   </p>
 <% end %>
