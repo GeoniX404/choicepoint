@@ -10,7 +10,8 @@
 <!-- spacer div for the grid --> <div></div>
 <!-- spacer div for the grid --> <div></div>
 <p class="show-options-header-row">score</p>
-<% choice_point.options.order(:id).each do |option| %>
+<% options = choice_point.options.order(expired ? 'score DESC' : :id) %>
+<% options.each do |option| %>
   <%= yield(option) %>
   <p><a class="btn btn-ghost show-options-row-pros-and-cons" href="#">Pros</a></p>
   <p><a class="btn btn-ghost show-options-row-pros-and-cons" href="#">Cons</a></p>
