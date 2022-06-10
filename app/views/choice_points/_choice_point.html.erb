@@ -1,10 +1,11 @@
 <div class="field-container">
   <%= simple_form_for [ @choice_point ] do |f| %>
     <div class="choicepoint-description-container">
-      <%= f.input :title, placeholder: 'Choose a name for your choicepoint', label: false, :class => "form-field", required: true %>
-      <%= f.input :description, placeholder: 'Describe your choicepoint', label:false, :class => "form-field", required: true, as: :text %>
+      <%= f.input :title, placeholder: 'What is your dilemma', label: false, :class => "form-field", required: true %>
+      <%= f.input :description, placeholder: 'Describe your dilemma', label:false, :class => "form-field", required: true, as: :text %>
       <%# <%= f.input :tags, placeholder: 'Add relevant tags for your choicepoint', label:false, :class => "form-field", required: true %>
-      <%= f.input :deadline, placeholder: 'Add a deadline', label:false, :class => "form-field", required: true, as: :date %>
+      <%= f.label :deadline %>
+      <%= f.input :deadline, label:false, :class => "form-field", required: true, as: :date %>
       <%# <h4>Options:</h4>
       <%= f.fields_for :options do |option_builder| %>
           <%# <%= option_builder.label :description  %>
@@ -20,6 +21,6 @@
           <%# <% end %>
     </div>
 
-    <%= f.submit "Next", class: "btn btn-primary" %>
+    <%= f.submit "Next", class: "btn btn-info" %>
   <% end %>
 </div>
