@@ -25,11 +25,43 @@
               <%= form.label "option_#{(option.id).to_s}".to_sym, option.description %>
             </div>
             <div class="show-options-row-pros-and-cons">
-              <p><a class="btn btn-ghost" href="#">Pros</a></p>
-              <p><a class="btn btn-ghost" href="#">Cons</a></p>
+              <p><a class="btn btn-ghost" data-bs-toggle="modal" href="#exampleModalToggle">Pros</a></p>
+              <p><a class="btn btn-ghost" href="#exampleModalToggle2" data-bs-toggle="modal">Cons</a></p>
             </div>
           </div>
           <p class="show-options-row show-options-row-score"><%= option.score.round(2) %></p>
+          <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Pros</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h1><%= option.pros %></h1>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-ghost" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Next</a>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Cons</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1><%= option.cons %></h1>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-ghost" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
         <% end %>
       </div>
       <%= form.submit(
@@ -41,7 +73,6 @@
     <% end %>
   </div>
 </div>
-
 
 
 <!--
