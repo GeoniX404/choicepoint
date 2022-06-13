@@ -63,11 +63,6 @@ class ChoicePointsController < ApplicationController
       point.expired
     end
   end
-    # if @belongs_to_current_user && @expired
-    #   redirect_to choice_points(@belongs_to_current_user)
-    # else
-    #   render "choice_points/new"
-    # end
 
   def active
     @choice_points = ChoicePoint.all

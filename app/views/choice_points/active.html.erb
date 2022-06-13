@@ -1,3 +1,18 @@
 <div class="choicepoint-form">
   <h2>My active ChoicePoints</h2>
 </div>
+<div class="show-view">
+  <div>
+    <% @ongoing.each do |point| %>
+      <div class="show-container">
+        <div class="show-header">
+          <h4><%= point.title %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+        <div class="question">
+          <%= @title %>
+        </div>
+</div>
