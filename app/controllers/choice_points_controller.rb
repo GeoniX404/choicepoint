@@ -18,7 +18,7 @@ class ChoicePointsController < ApplicationController
     @highest_score = @choice_point.highest_score
     @belongs_to_current_user = @choice_point.user == current_user
     if @belongs_to_current_user
-      @user_string = "You asked…"
+      @user_string = 'You asked…'
     else
       @user_string = "#{@choice_point.user.name} asks…"
     end
