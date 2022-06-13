@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  border-radius: 2px;
+  border-radius: 5px;
   text-decoration: none;
 }
 
@@ -45,8 +45,14 @@
   background-color: #1E3765;
   width: 100%;
   height: 100%;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: stretch;
+  box-shadow: 0 0 15px rgba(0,0,0,1.2);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 3px 3px 3px 3px;
+  border-radius: 10px;
+  border: 3px solid #FFD600;
   .card-last-chance{
     padding: 0.50em;
     margin: 0 auto;
@@ -60,9 +66,18 @@
     position: relative;
     text-decoration: none;
     color: black;
+    border-radius: 5px;
   }
 }
+
+.last-chance-container h3 {
+  color: #FFD600;
+  margin-top: 7px;
+  align-self: center;
+}
+
 .card-last-chance p {
+  color: black;
   font-size: 16px;
   font-weight: 500;
   margin: 0;

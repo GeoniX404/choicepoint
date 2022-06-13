@@ -105,12 +105,18 @@
     border-radius: 0 48px 48px 0;
     padding-left: 0;
   }
-  .show-options-row-score {
+  .show-options-row-score-bar {
     background-color: $pastel-blue;
     box-shadow: 4px 4px 0px $choice-point-yellow;
     height: 50%;
     margin: 0 16px;
     padding: 0;
+  }
+  .show-options-row-score {
+    font-size: $paragraph-size;
+    color: $black;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 }
 
