@@ -45,8 +45,6 @@
   input.btn-main {
     text-transform: uppercase;
     font-size: $secondary-header-size;
-    letter-spacing: 0.05em;
-    text-indent: 0.05em;
   }
 }
 
@@ -93,10 +91,10 @@
     font-size: 20px;
   }
   .selected-area {
-    background-color: $pastel-blue-transparent;
+    background-color: $light-gray;
   }
   .winning-area {
-    background-color: $choice-point-yellow-transparent;
+    background-color: $orange-red-transparent;
   }
   .show-options-radio-button-space {
     border-radius: 48px 0 0 48px;
@@ -106,11 +104,27 @@
     padding-left: 0;
   }
   .show-options-row-score-bar {
-    background-color: $pastel-blue;
-    box-shadow: 4px 4px 0px $choice-point-yellow;
+    background-color: $orange-red;
+    box-shadow: 4px 4px 0px $medium-gray,
+                3.75px 3.75px 0px $medium-gray,
+                3.5px 3.5px 0px $medium-gray,
+                3.25px 3.25px 0px $medium-gray,
+                3px 3px 0px $medium-gray,
+                2.75px 2.75px 0px $medium-gray,
+                2.5px 2.5px 0px $medium-gray,
+                2.25px 2.25px 0px $medium-gray,
+                2px 2px 0px $medium-gray,
+                1.75px 1.75px 0px $medium-gray,
+                1.5px 1.5px 0px $medium-gray,
+                1.25px 1.25px 0px $medium-gray,
+                1px 1px 0px $medium-gray,
+                0.75px 0.75px 0px $medium-gray,
+                0.5px 0.5px 0px $medium-gray,
+                0.25px 0.25px 0px $medium-gray;
     height: 50%;
     margin: 0 16px;
     padding: 0;
+    border-radius: 5px;
   }
   .show-options-row-score {
     font-size: $paragraph-size;
@@ -139,7 +153,7 @@
 .show-view {
   // TODO: Move this elsewhere, should be inherited
   color: $black;
-  background-color: $white-lilac;
+  background-color: $white;
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
