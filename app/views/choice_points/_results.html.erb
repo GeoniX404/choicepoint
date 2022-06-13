@@ -4,7 +4,7 @@
       highest_score: highest_score,
       expired: expired do |option| %>
         <% selected = option.votes.any? { |vote| vote.user == current_user } %>
-        <p class="show-options-check-mark show-options-radio-button-space <%= "selected-area" if selected %> <%= "winning-area" if expired && choice_point.leader == option %>"><%= "✓" if selected %></p>
-        <p class="show-options-row show-options-row-description <%= "selected-area" if selected %> <%= "winning-area" if expired && choice_point.leader == option %>"><%= option.description %></p>
+        <p class="show-options-check-mark show-options-radio-button-space <%= "selected-area" if selected && !expired %> <%= "winning-area" if expired && choice_point.leader == option %>"><%= "✓" if selected %></p>
+        <p class="show-options-row show-options-row-description <%= "selected-area" if selected && !expired%> <%= "winning-area" if expired && choice_point.leader == option %>"><%= option.description %></p>
   <% end %>
 </div>
