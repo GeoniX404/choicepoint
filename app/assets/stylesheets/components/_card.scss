@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
   text-decoration: none;
 }
 
@@ -16,6 +16,7 @@
   width: 120px;
   object-fit: cover;
   margin-right: 12px;
+  border-radius: 5px;
 }
 
 .card-product h2 {

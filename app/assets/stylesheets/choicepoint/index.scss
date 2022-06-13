@@ -53,20 +53,10 @@ body {
  place-items: center;
 }
 
-.search-bar {
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
 .form-control {
   background-color: white;
 }
 
-.search-wrapper{
-  display: flex;
-  width: 100%;
-}
 .page-container{
   width: 80%;
   margin: 30px auto;
