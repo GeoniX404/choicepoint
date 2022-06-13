@@ -13,5 +13,8 @@
                choice_point: @choice_point,
                highest_score: @highest_score,
                expired: @expired %>
+
+    <% feedback = @belongs_to_current_user && @expired %>
+    <%= render (feedback ? "feedback")%>
   </div>
 </div>

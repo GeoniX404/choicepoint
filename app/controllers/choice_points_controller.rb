@@ -56,6 +56,19 @@ class ChoicePointsController < ApplicationController
     end
   end
 
+  def feedback
+    @choice_point = ChoicePoint.find(params[:id])
+    @expired = @choice_point.expired
+    @belongs_to_current_user = @choice_point.user == current_user
+
+    # if @belongs_to_current_user && @expired
+    #   # render feedback button
+    #   # feedback form asks user to select chosen option (sets option chosen to true)
+    #   # describe if it was successful or not
+    #   # and in turn adjusts voter rep accordingly
+    # end
+  end
+
   private
 
   def choice_point_params
