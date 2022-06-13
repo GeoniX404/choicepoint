@@ -35,6 +35,16 @@ def create_users
   end
 end
 
+def make_users_vote
+  User.all.each do |user|
+    choice_points.each do |choice_point|
+      unless choice_point.user == user
+        choice_point.vote(sample(choice_point.options))
+      end
+    end
+  end
+end
+
 def create_choice_points(user)
   NUMBER_OF_CHOICE_POINTS.times do
     title, option_descriptions = CHOICE_POINTS.sample
@@ -68,4 +78,5 @@ puts "Destroying existing users and choice points"
 User.destroy_all
 puts "Creating seeds..."
 create_users
+make_users_vote
 puts "New seeds created"
