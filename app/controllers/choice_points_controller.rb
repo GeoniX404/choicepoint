@@ -8,7 +8,7 @@ class ChoicePointsController < ApplicationController
       @choice_points = ChoicePoint.all
     end
 
-    @last_chance = ChoicePoint.all.order(deadline: :asc).take(10)
+    @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
   end
 
   def show
