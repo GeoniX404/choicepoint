@@ -35,4 +35,8 @@ class ChoicePoint < ApplicationRecord
   def expired
     deadline < Date.today
   end
+
+  def ongoing
+    deadline >= Date.today
+  end
 end

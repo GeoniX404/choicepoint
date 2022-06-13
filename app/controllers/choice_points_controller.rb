@@ -31,7 +31,6 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
-    # raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
@@ -67,6 +66,26 @@ class ChoicePointsController < ApplicationController
     #   # describe if it was successful or not
     #   # and in turn adjusts voter rep accordingly
     # end
+  end
+  def past
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @expired = @belongs_to_current_user.filter do |point|
+      point.expired
+    end
+  end
+    # if @belongs_to_current_user && @expired
+    #   redirect_to choice_points(@belongs_to_current_user)
+    # else
+    #   render "choice_points/new"
+    # end
+
+  def active
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @ongoing = @belongs_to_current_user.filter do |point|
+      point.ongoing
+    end
   end
 
   private
