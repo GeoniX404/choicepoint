@@ -73,7 +73,7 @@ def create_options(choice_point, option_descriptions)
       pros: Faker::Lorem.sentence,
       cons: Faker::Lorem.sentence,
       choice_point: choice_point,
-      # score: HIGHEST_SCORE * rand
+      score: HIGHEST_SCORE * rand
     )
   end
 end
