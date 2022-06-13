@@ -19,28 +19,32 @@ DEADLINE_FIRST = Time.now - (DAY_RANGE * seconds_per_day)
 DEADLINE_LAST = Time.now + (DAY_RANGE * seconds_per_day)
 NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
+# Odds that a user votes for a particular choice point.
+VOTE_PROBABILITY = 2.0 / 3.0
 
 def create_users
   USERNAMES.each do |username|
-    email = Faker::Internet.email
-    password = Faker::Internet.password
+    email = "#{username}@mail.com"
+    password = '123456'
     user = User.create!(
       email: email,
       password: password,
       name: username,
       reputation: rand(5..40)
     )
-    puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: #{password}"
+    puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: '#{password}'"
     create_choice_points(user)
   end
 end
 
 def make_users_vote
   User.all.each do |user|
-    choice_points.each do |choice_point|
-      unless choice_point.user == user
-        choice_point.vote(sample(choice_point.options))
-      end
+    ChoicePoint.all.each do |choice_point|
+      next if choice_point.user == user || rand > VOTE_PROBABILITY
+
+      option = choice_point.options.sample
+      vote = Vote.create!(option: option, user: user)
+      option.increase_score(vote)
     end
   end
 end
@@ -69,7 +73,7 @@ def create_options(choice_point, option_descriptions)
       pros: Faker::Lorem.sentence,
       cons: Faker::Lorem.sentence,
       choice_point: choice_point,
-      score: HIGHEST_SCORE * rand
+      # score: HIGHEST_SCORE * rand
     )
   end
 end
