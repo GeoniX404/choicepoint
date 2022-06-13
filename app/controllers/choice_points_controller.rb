@@ -51,7 +51,7 @@ class ChoicePointsController < ApplicationController
       @choice_point = ChoicePoint.find(params[:id])
       redirect_to choice_point_path(@choice_point)
     else
-      # I don't think this will work
+      # I don't think this will work. Is this branch even needed?
       render :show
     end
   end
