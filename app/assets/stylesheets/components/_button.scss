@@ -1,64 +1,64 @@
 .btn-ghost {
-  color: $red;
-  border: 1px solid $red;
+  color: $orange-red;
+  border: 1px solid $orange-red;
   padding: 6px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active {
+  &:hover,&:focus,&:active,&:disabled {
     opacity: 1;
-    color: $red;
+    color: $orange-red;
   }
 }
 
 .btn-main {
-  color: $reddish-white;
-  background-color: $red;
+  color: $white;
+  background-color: $orange-red;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: 700;
-  border: 3px solid $red;
-  &:hover,&:focus,&:active {
-    background-color: $red;
-    color: $reddish-white;
-    border: 3px solid $red;
+  border: 3px solid $orange-red;
+  &:hover,&:focus,&:active,&:disabled {
+    background-color: $orange-red;
+    color: $white;
+    border: 3px solid $orange-red;
     box-shadow: 0px 0px 6px $black;
   }
 }
 
 .btn-login {
-  color: $reddish-white;
-  border: 1px solid $reddish-white;
+  color: $white;
+  border: 1px solid $white;
   padding: 6px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active {
-    color: $reddish-white;
+  &:hover,&:focus,&:active,&:disabled {
+    color: $white;
     opacity: 1;
   }
 }
 
 .btn-signup {
-  color: $red;
-  background: $reddish-white;
+  color: $orange-red;
+  background: $white;
   padding: 6px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active {
+  &:hover,&:focus,&:active,&:disabled {
     opacity: 1;
-    color: $red;
+    color: $orange-red;
   }
 }
 
 .btn-info {
-  color: $red;
-  border: 2px solid $red;
-  background-color: $reddish-white;
+  color: $orange-red;
+  border: 2px solid $orange-red;
+  background-color: $white;
   padding: 6px 24px;
   border-radius: 50px;
   text-transform: uppercase;
@@ -66,10 +66,10 @@
   font-size: 18px;
   letter-spacing: 1px;
   text-indent: 1px;
-  &:hover,&:focus,&:active {
+  &:hover,&:focus,&:active,&:disabled {
     background-color: $white;
-    color: $red;
-    border: 2px solid $red;
+    color: $orange-red;
+    border: 2px solid $orange-red;
   }
 }
 
@@ -80,7 +80,7 @@
 
 .btn-submit {
   color: $white;
-  background-color: $regal-blue;
+  background-color: $orange-red;
   padding: 9px 27px;
   border-radius: 50px;
   font-weight: 700;

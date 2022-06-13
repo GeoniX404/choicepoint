@@ -7,29 +7,63 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 USERNAMES = ['rmgodfrey', 'aackle00', 'GeoniX404', 'chriswall24']
+NUMBER_OF_ADDITIONAL_USERS = 50
 # Turn this hash into an array to get a random sample
 CHOICE_POINTS = {
   "What should I wear to my job interview?" => ["Button-up shirt", "Suit", "T-shirt"],
   "What car should I buy?" => ["Chevrolet", "Toyota"],
   "Where should I live?" => ["Tokyo", "New York", "London", "Paris", "Sydney", "Berlin"]
 }.to_a
-DEADLINE_FIRST = Time.now
-DEADLINE_LAST = Time.new(2023)
+DAY_RANGE = 30
+seconds_per_day = 86_400
+DEADLINE_FIRST = Time.now - (DAY_RANGE * seconds_per_day)
+DEADLINE_LAST = Time.now + (DAY_RANGE * seconds_per_day)
 NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
+# Odds that a user votes for a particular choice point.
+VOTE_PROBABILITY = 2.0 / 3.0
+REPUTATION_RANGE = 5..40
 
 def create_users
   USERNAMES.each do |username|
-    email = Faker::Internet.email
-    password = Faker::Internet.password
+    email = "#{username}@mail.com"
+    password = '123456'
     user = User.create!(
       email: email,
       password: password,
       name: username,
-      reputation: rand(5..40)
+      reputation: rand(REPUTATION_RANGE)
     )
-    puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: #{password}"
+    puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: '#{password}'"
     create_choice_points(user)
+  end
+  create_additional_users
+end
+
+def make_users_vote
+  User.all.each do |user|
+    ChoicePoint.all.each do |choice_point|
+      next if choice_point.user == user || rand > VOTE_PROBABILITY
+
+      option = choice_point.options.sample
+      vote = Vote.create!(option: option, user: user)
+      option.increase_score(vote)
+    end
+    puts "#{user.name} has voted"
+  end
+end
+
+def create_additional_users
+  NUMBER_OF_ADDITIONAL_USERS.times do
+    user = Faker::Internet.user
+    # Could be refactored
+    User.create!(
+      email: user[:email],
+      password: '123456',
+      name: user[:username],
+      reputation: rand(REPUTATION_RANGE)
+    )
+    puts "Created #{user[:username]}"
   end
 end
 
@@ -66,4 +100,5 @@ puts "Destroying existing users and choice points"
 User.destroy_all
 puts "Creating seeds..."
 create_users
+make_users_vote
 puts "New seeds created"

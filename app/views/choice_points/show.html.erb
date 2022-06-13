@@ -8,8 +8,11 @@
       </h1>
       <p><a class="btn btn-ghost spaced" id="more" href="#">More</a></p>
     </div>
-    <%= render (@user_has_voted || @belongs_to_current_user ? "results" : "voting_form"),
+    <h3 class="description"><%= @choice_point.description %></h3>
+    <% no_vote = @user_has_voted || @belongs_to_current_user || @expired %>
+    <%= render (no_vote ? "results" : "voting_form"),
                choice_point: @choice_point,
-               highest_score: @highest_score %>
+               highest_score: @highest_score,
+               expired: @expired %>
   </div>
 </div>

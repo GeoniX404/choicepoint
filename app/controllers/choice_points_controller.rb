@@ -13,6 +13,7 @@ class ChoicePointsController < ApplicationController
 
   def show
     @choice_point = ChoicePoint.find(params[:id])
+    @expired = @choice_point.expired
     @user_has_voted = @choice_point.vote_from?(current_user)
     @highest_score = @choice_point.highest_score
     @belongs_to_current_user = @choice_point.user == current_user
@@ -30,7 +31,6 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
-    # raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
@@ -50,8 +50,29 @@ class ChoicePointsController < ApplicationController
       @choice_point = ChoicePoint.find(params[:id])
       redirect_to choice_point_path(@choice_point)
     else
-      # I don't think this will work
+      # I don't think this will work. Is this branch even needed?
       render :show
+    end
+  end
+
+  def past
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @expired = @belongs_to_current_user.filter do |point|
+      point.expired
+    end
+  end
+    # if @belongs_to_current_user && @expired
+    #   redirect_to choice_points(@belongs_to_current_user)
+    # else
+    #   render "choice_points/new"
+    # end
+
+  def active
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @ongoing = @belongs_to_current_user.filter do |point|
+      point.ongoing
     end
   end
 
