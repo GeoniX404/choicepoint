@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 USERNAMES = ['rmgodfrey', 'aackle00', 'GeoniX404', 'chriswall24']
+NUMBER_OF_ADDITIONAL_USERS = 50
 # Turn this hash into an array to get a random sample
 CHOICE_POINTS = {
   "What should I wear to my job interview?" => ["Button-up shirt", "Suit", "T-shirt"],
@@ -21,6 +22,7 @@ NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
 # Odds that a user votes for a particular choice point.
 VOTE_PROBABILITY = 2.0 / 3.0
+REPUTATION_RANGE = 5..40
 
 def create_users
   USERNAMES.each do |username|
@@ -30,11 +32,12 @@ def create_users
       email: email,
       password: password,
       name: username,
-      reputation: rand(5..40)
+      reputation: rand(REPUTATION_RANGE)
     )
     puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: '#{password}'"
     create_choice_points(user)
   end
+  create_additional_users
 end
 
 def make_users_vote
@@ -46,6 +49,20 @@ def make_users_vote
       vote = Vote.create!(option: option, user: user)
       option.increase_score(vote)
     end
+    puts "#{user.name} has voted"
+  end
+end
+
+def create_additional_users
+  NUMBER_OF_ADDITIONAL_USERS.times do
+    user = Faker::Internet.user
+    User.create!(
+      email: user[:email],
+      password: '123456',
+      name: user[:username],
+      reputation: rand(REPUTATION_RANGE)
+    )
+    puts "Created #{user[:username]}"
   end
 end
 
