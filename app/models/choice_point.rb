@@ -25,6 +25,13 @@ class ChoicePoint < ApplicationRecord
     end
   end
 
+  def total_votes
+    # Gets the total number of votes for a choice point
+    options.reduce(0) do |tally, option|
+      tally + option.votes.count
+    end
+  end
+
   def highest_score
     # Returns the actual score of the leading option.
     leader&.score

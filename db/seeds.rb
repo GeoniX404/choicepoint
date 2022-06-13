@@ -56,6 +56,7 @@ end
 def create_additional_users
   NUMBER_OF_ADDITIONAL_USERS.times do
     user = Faker::Internet.user
+    # Could be refactored
     User.create!(
       email: user[:email],
       password: '123456',
