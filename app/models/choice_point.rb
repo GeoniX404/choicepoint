@@ -14,7 +14,10 @@ class ChoicePoint < ApplicationRecord
     }
 
   def vote_from?(user)
-    # Not very efficient: Could be improved via techniques from Advanced DB lecture?
+    # Returns true if user has voted on the choice point, false otherwise.
+
+    # NOTE: Not very efficient: Could be improved via techniques from Advanced
+    # DB lecture?
     options.any? do |option|
       option.votes.any? do |vote|
         vote.user == user
@@ -23,16 +26,21 @@ class ChoicePoint < ApplicationRecord
   end
 
   def highest_score
+    # Returns the actual score of the leading option.
     leader&.score
   end
 
   def leader
+    # Searches through a choice point's options, returns the one with the
+    # highest score.
     options.reduce do |best, current|
       current.score > best.score ? current : best
     end
   end
 
   def expired
+    # Returns true if the choice point has expired, false otherwise.
+    # TODO: Should have named this method with a question mark at the end...
     deadline < Date.today
   end
 end
