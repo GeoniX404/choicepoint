@@ -1,10 +1,17 @@
 <!-- spacer div for the grid --> <div></div>
-<p class="show-options-header-row show-options-row-description"><%= pluralize((choice_point.deadline - Date.today + 1).to_i, "day") %> left</p>
+<p class="show-options-header-row show-options-row-description">
+  <% if expired %>
+    Voting done
+  <% else %>
+    <%= pluralize((choice_point.deadline - Date.today + 1).to_i, "day") %> left
+  <% end %>
+</p>
 <!-- spacer div for the grid --> <div></div>
 <!-- spacer div for the grid --> <div></div>
 <!-- spacer div for the grid --> <div></div>
 <p class="show-options-header-row">score</p>
-<% choice_point.options.order(:id).each_with_index do |option| %>
+<% options = choice_point.options.order(expired ? 'score DESC' : :id) %>
+<% options.each do |option| %>
   <%= yield(option) %>
   <div>
     <p><a class="btn btn-ghost show-options-row-pros-and-cons" data-bs-toggle="modal" href="#prosToggle<%= option.id %>">Pros</a></p>
