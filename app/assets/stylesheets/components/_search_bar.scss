@@ -1,0 +1,30 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.search-wrapper{
+  display: flex;
+  width: 100%;
+}
+
+.inner-search-bar {
+  border-radius: 10px 0 0 10px;
+  &:focus {
+    border: 1px solid #ced4da;
+    box-shadow: none;
+    background-color: $white;
+    border-right: none;
+  }
+  border-right: none;
+}
+
+.search-button {
+  border-radius: 0 10px 10px 0;
+  padding: 0 12px;
+  border: 1px solid #ced4da;
+  background-color: white;
+  border-left: none;
+}
