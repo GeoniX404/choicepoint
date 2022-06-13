@@ -91,7 +91,7 @@
     font-size: 20px;
   }
   .selected-area {
-    background-color: $light-tan;
+    background-color: #eeeeee;
   }
   .show-options-radio-button-space {
     border-radius: 48px 0 0 48px;
@@ -102,25 +102,26 @@
   }
   .show-options-row-score-bar {
     background-color: $red;
-    box-shadow: 4px 4px 0px #ffab74,
-                3.75px 3.75px 0px #ffab74,
-                3.5px 3.5px 0px #ffab74,
-                3.25px 3.25px 0px #ffab74,
-                3px 3px 0px #ffab74,
-                2.75px 2.75px 0px #ffab74,
-                2.5px 2.5px 0px #ffab74,
-                2.25px 2.25px 0px #ffab74,
-                2px 2px 0px #ffab74,
-                1.75px 1.75px 0px #ffab74,
-                1.5px 1.5px 0px #ffab74,
-                1.25px 1.25px 0px #ffab74,
-                1px 1px 0px #ffab74,
-                0.75px 0.75px 0px #ffab74,
-                0.5px 0.5px 0px #ffab74,
-                0.25px 0.25px 0px #ffab74;
+    box-shadow: 4px 4px 0px #cccccc,
+                3.75px 3.75px 0px #cccccc,
+                3.5px 3.5px 0px #cccccc,
+                3.25px 3.25px 0px #cccccc,
+                3px 3px 0px #cccccc,
+                2.75px 2.75px 0px #cccccc,
+                2.5px 2.5px 0px #cccccc,
+                2.25px 2.25px 0px #cccccc,
+                2px 2px 0px #cccccc,
+                1.75px 1.75px 0px #cccccc,
+                1.5px 1.5px 0px #cccccc,
+                1.25px 1.25px 0px #cccccc,
+                1px 1px 0px #cccccc,
+                0.75px 0.75px 0px #cccccc,
+                0.5px 0.5px 0px #cccccc,
+                0.25px 0.25px 0px #cccccc;
     height: 50%;
     margin: 0 16px;
     padding: 0;
+    border-radius: 5px;
   }
   .show-options-row-score {
     font-size: $paragraph-size;
