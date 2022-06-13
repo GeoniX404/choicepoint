@@ -31,4 +31,8 @@ class ChoicePoint < ApplicationRecord
       current.score > best.score ? current : best
     end
   end
+
+  def expired
+    deadline < Date.today
+  end
 end
