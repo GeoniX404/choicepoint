@@ -50,4 +50,8 @@ class ChoicePoint < ApplicationRecord
     # TODO: Should have named this method with a question mark at the end...
     deadline < Date.today
   end
+
+  def ongoing
+    deadline >= Date.today
+  end
 end
