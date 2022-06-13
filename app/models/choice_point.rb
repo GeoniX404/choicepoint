@@ -37,6 +37,6 @@ class ChoicePoint < ApplicationRecord
   end
 
   def ongoing
-    deadline > Date.today
+    deadline >= Date.today
   end
 end
