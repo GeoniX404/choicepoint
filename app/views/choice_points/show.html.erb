@@ -8,6 +8,9 @@
       </h1>
       <p><a class="btn btn-ghost" id="more" href="#">More</a></p>
     </div>
+
+    <h3 class="description"><%= @choice_point.description %></h3>
+
     <%= render (@user_has_voted || @belongs_to_current_user ? "results" : "voting_form"),
                choice_point: @choice_point,
                highest_score: @highest_score %>
