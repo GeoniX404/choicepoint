@@ -6,22 +6,17 @@
         <% selected = option.votes.any? { |vote| vote.user == current_user } %>
         <p class="show-options-check-mark
                   show-options-radio-button-space
-                  <% if expired %>
-                    <%= "winning-area" if choice_point.leader == option %>
-                  <% elsif selected %>
-                    <%= "selected-area" %>
-                  <% end %>">
+                  <%= "winning-area" if expired && choice_point.leader == option %>
+                  <%= "selected-area" if selected%>">
           <%== "<i class='far fa-check-circle selected-icon'></i>" if selected %>
           <%== "&nbsp;" if expired && choice_point.leader == option && selected %>
           <%== "<i class='fas fa-award'></i>" if expired && choice_point.leader == option %>
         </p>
         <p class="show-options-row
                   show-options-row-description
-                  <% if expired %> <%# not DRY %>
-                    <%= "winning-area" if choice_point.leader == option %>
-                  <% elsif selected %>
-                    <%= "selected-area" %>
-                  <% end %>">
+                  <%# Not DRY %>
+                  <%= "winning-area" if expired && choice_point.leader == option %>
+                  <%= "selected-area" if selected%>">
           <%= option.description %>
         </p>
   <% end %>
