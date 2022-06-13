@@ -23,8 +23,16 @@ class ChoicePoint < ApplicationRecord
   end
 
   def highest_score
-    options.reduce(0) do |highest, current|
-      current.score > highest ? current.score : highest
+    leader&.score
+  end
+
+  def leader
+    options.reduce do |best, current|
+      current.score > best.score ? current : best
     end
+  end
+
+  def expired
+    deadline < Date.today
   end
 end
