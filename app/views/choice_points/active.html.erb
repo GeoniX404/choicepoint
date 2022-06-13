@@ -3,16 +3,13 @@
 </div>
 <div class="show-view">
   <div>
-    <% @ongoing.each do |point| %>
+    <% @ongoing.each do |choice| %>
       <div class="show-container">
-        <div class="show-header">
-          <h4><%= point.title %></h4>
-        </div>
+        <%= render "results",
+              choice_point: @choice_point,
+              highest_score: @highest_score,
+              expired: @expired %>
       </div>
     <% end %>
   </div>
-
-        <div class="question">
-          <%= @title %>
-        </div>
 </div>
