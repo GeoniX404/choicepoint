@@ -27,6 +27,9 @@
             <li class="nav-item">
               <%= link_to "CREATE", new_choice_point_path, class: "btn btn-signup" %>
             </li>
+            <li class="nav-username">
+              <%= current_user.name %>
+            </li>
           </div>
           <li class="nav-item dropdown">
             <%= image_tag "menu-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
