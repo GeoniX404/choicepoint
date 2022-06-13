@@ -17,11 +17,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <div class="signedin-button-container">
-            <li class="nav-item active">
-              <%= link_to "Home", choice_points_path, class: "btn btn-login" %>
+            <li class="nav-item">
+              <!-- TODO: Create about page -->
+              <%= link_to "ABOUT", choice_points_path, class: "btn btn-login" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Create", new_choice_point_path, class: "btn btn-login" %>
+              <%= link_to "BROWSE", choice_points_path, class: "btn btn-login" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "CREATE", new_choice_point_path, class: "btn btn-signup" %>
+            </li>
+            <li class="nav-username">
+              <%= current_user.name %>
             </li>
           </div>
           <li class="nav-item dropdown">
@@ -34,8 +41,8 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "LOG IN", new_user_session_path, class: "btn btn-login" %>
-            <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-signup" %>
+            <%= link_to "LOG IN", new_user_session_path, class: "btn btn-login spaced" %>
+            <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-signup spaced" %>
           </li>
         <% end %>
       </ul>

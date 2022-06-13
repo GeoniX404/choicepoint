@@ -6,7 +6,7 @@
         <div class="asker"><%= @user_string %></div>
         <div class="question"><%= @title %></div>
       </h1>
-      <p><a class="btn btn-ghost" id="more" href="#">More</a></p>
+      <p><a class="btn btn-ghost spaced" id="more" href="#">More</a></p>
     </div>
     <h3 class="description"><%= @choice_point.description %></h3>
     <% no_vote = @user_has_voted || @belongs_to_current_user || @expired %>
