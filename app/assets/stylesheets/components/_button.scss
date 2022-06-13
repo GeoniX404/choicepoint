@@ -19,11 +19,14 @@
   border-radius: 50px;
   font-weight: 700;
   border: 3px solid $orange-red;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  transition: all 0.3s ease;
   &:hover,&:focus,&:active,&:disabled {
-    background-color: $orange-red;
+    background-color: $dark-red;
     color: $white;
-    border: 3px solid $orange-red;
-    box-shadow: 0px 0px 6px $black;
+    border: 3px solid $dark-red;
   }
 }
 
