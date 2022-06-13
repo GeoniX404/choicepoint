@@ -56,6 +56,27 @@ class ChoicePointsController < ApplicationController
     end
   end
 
+  def past
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @expired = @belongs_to_current_user.filter do |point|
+      point.expired
+    end
+  end
+    # if @belongs_to_current_user && @expired
+    #   redirect_to choice_points(@belongs_to_current_user)
+    # else
+    #   render "choice_points/new"
+    # end
+
+  def active
+    @choice_points = ChoicePoint.all
+    @belongs_to_current_user = @choice_points.where(user: current_user)
+    @ongoing = @belongs_to_current_user.filter do |point|
+      point.ongoing
+    end
+  end
+
   private
 
   def choice_point_params
