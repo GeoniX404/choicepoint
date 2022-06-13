@@ -15,7 +15,8 @@
                highest_score: @highest_score,
                expired: @expired %>
 
-    <% feedback = @belongs_to_current_user && @expired %>
-    <%= render (feedback ? "feedback")%>
+    <% if @belongs_to_current_user && @expired %>
+      <%= render "feedback" %>
+    <% end %>
   </div>
 </div>

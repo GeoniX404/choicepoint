@@ -1,6 +1,7 @@
-<%#= simple_form_for [ @choice_point ] do |f| %>
-  <%# <div class="choicepoint-description-container"> %>
-    <%#= f.input :option, placeholder: 'Option', label: 'Successful Option', :class => "form-field", required: true %>
-  <%# </div> %>
-<%# end %>
-<h1>hello world</h1>
+<%# ChoicePoint.options.description for dropdown to pick chosen option %>
+<h1>Feedback</h1>
+<%= simple_form_for [ @choice_point ] do |f| %>
+  <div class="choicepoint-description-container">
+    <%= f.input :chosen, :collection => @choice_point.options{:description}, required: true %>
+  </div>
+<% end %>
