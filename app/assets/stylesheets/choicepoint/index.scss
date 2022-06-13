@@ -1,41 +1,36 @@
 body {
-  background-color: #F8F9FC;
+  background-color: $white;
 }
 
 .index_main_text{
   text-align: center;
-  font-family: Inter;
-  color: black;
+  font-family: $body-font;
+  color: $black;
 }
 
-  .main-title {
-    color: white;
-    font-weight: 500;
-    font-size: 60px;
-    margin-top: 14px;
-    margin-left: 10px;
-  }
+.secondary-title {
+  font-size: 56px;
+  color: $orange-red;
+  text-shadow: 0px 0px 16px #FFF8F7;
+  font-weight: 600;
+}
 
-  .secondary-title {
-    font-size: 15px;
-    color: white;
-  }
-
-  .trending-text {
-    font-size: 40px;
-    align-self: flex-bottom;
-    letter-spacing: 60px;
-    color: #1E3765;
-    text-shadow:
-        0.05em 0 #FFD600,
-        0 0.05em #FFD600,
-        -0.05em 0 #FFD600,
-        0 -0.05em #FFD600,
-        -0.05em -0.05em #FFD600,
-        -0.05em 0.05em #FFD600,
-        0.05em -0.05em #FFD600,
-        0.05em 0.05em #FFD600;
-  }
+// .trending-text {
+//   font-size: 40px;
+//   align-self: flex-bottom;
+//   letter-spacing: 60px;
+//   text-indent: 60px;
+//   color: #1E3765;
+//   text-shadow:
+//       0.05em 0 #FFD600,
+//       0 0.05em #FFD600,
+//       -0.05em 0 #FFD600,
+//       0 -0.05em #FFD600,
+//       -0.05em -0.05em #FFD600,
+//       -0.05em 0.05em #FFD600,
+//       0.05em -0.05em #FFD600,
+//       0.05em 0.05em #FFD600;
+// }
 
 .choicepoint {
   .card-container{
@@ -47,30 +42,21 @@ body {
 }
 
 .large_index_image{
- background-image: url("https://www.echocounseling.com/wp-content/uploads/2018/09/faq-banner.jpg");
+ background-image: url(asset_path("question_mark_hands.jpeg"));
  height: 350px;
  background-size: cover;
  display: flex;
  width:auto;
  display: grid;
- grid-template-rows: 1fr auto;
+ grid-template-rows: 1fr 1fr;
+ padding: 88px;
  place-items: center;
-}
-
-.search-bar {
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .form-control {
   background-color: white;
 }
 
-.search-wrapper{
-  display: flex;
-  width: 100%;
-}
 .page-container{
   width: 80%;
   margin: 30px auto;
@@ -85,4 +71,10 @@ body {
 .memo {
   height: 200px;
   background-color: white;
+}
+
+.ranking-container {
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }

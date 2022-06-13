@@ -8,7 +8,7 @@ class ChoicePointsController < ApplicationController
       @choice_points = ChoicePoint.all
     end
 
-    @last_chance = ChoicePoint.all.order(deadline: :asc).take(10)
+    @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
   end
 
   def show
@@ -18,7 +18,7 @@ class ChoicePointsController < ApplicationController
     @highest_score = @choice_point.highest_score
     @belongs_to_current_user = @choice_point.user == current_user
     if @belongs_to_current_user
-      @user_string = "You asked…"
+      @user_string = 'You asked…'
     else
       @user_string = "#{@choice_point.user.name} asks…"
     end
@@ -31,7 +31,6 @@ class ChoicePointsController < ApplicationController
   end
 
   def create
-    # raise
     @choice_point = ChoicePoint.new(choice_point_params)
     @choice_point.user = current_user
     if @choice_point.save
