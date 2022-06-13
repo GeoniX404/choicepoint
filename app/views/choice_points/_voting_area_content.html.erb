@@ -54,13 +54,8 @@
   <!-- spacer div for the grid --> <div></div>
   <% width = option.score.zero? ? 0 : option.score / highest_score %>
   <!-- Not accessible! Should be fixed -->
-<<<<<<< Updated upstream
-  <div class="show-options-row show-options-row-score"
-       style="width: calc(<%= width * 100 %>% - <%= 24 * width %>px);"></div>
-=======
   <p class="show-options-row show-options-row-score <%= 'show-options-row-score-bar' if width %>"
      style="<%= width ? "width: calc(#{width * 100}% - #{24 * width}px);" : "" %>">
     <%= "No votes yet" if width.nil? %>
   </p>
->>>>>>> Stashed changes
 <% end %>
