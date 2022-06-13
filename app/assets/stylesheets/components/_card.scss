@@ -19,13 +19,13 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -42,17 +42,17 @@
 }
 
 .last-chance-container{
-  background-color: #1E3765;
+  background-color: $red;
   width: 100%;
   height: 100%;
   align-items: stretch;
-  box-shadow: 0 0 15px rgba(0,0,0,1.2);
+  box-shadow: 0 0 15px #d16464;
   display: flex;
   flex-direction: column;
   gap: 3px;
   padding: 3px 3px 3px 3px;
   border-radius: 10px;
-  border: 3px solid #FFD600;
+  border: 3px solid $light-tan;
   .card-last-chance{
     padding: 0.50em;
     margin: 0 auto;
@@ -71,7 +71,7 @@
 }
 
 .last-chance-container h3 {
-  color: #FFD600;
+  color: $light-tan;
   margin-top: 7px;
   align-self: center;
 }

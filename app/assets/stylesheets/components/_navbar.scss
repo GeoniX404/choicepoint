@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: #1E3765;
-  border-bottom: 5px solid #FFD600;
+  background-color: $red;
+  // border-bottom: 5px solid $light-tan;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,10 +16,12 @@
   display: flex;
   align-items: center;
   list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 .navbar-logo li img {
-  width: 100px;
+  width: 80px;
 }
 
 a {
@@ -30,4 +32,25 @@ a {
 
 a:hover {
   color: inherit;
+}
+
+.main-title {
+  color: $light-tan;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.navbar {
+  & > .container-fluid {
+    padding: 0 44px;
+  }
+  .btn-signup {
+    margin-left: 16px;
+  }
+  .dropdown {
+    margin-left: 8px;
+  }
 }
