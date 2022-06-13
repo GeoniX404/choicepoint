@@ -93,6 +93,9 @@
     font-size: 20px;
   }
   .selected-area {
+    background-color: $pastel-blue-transparent;
+  }
+  .winning-area {
     background-color: $choice-point-yellow-transparent;
   }
   .show-options-radio-button-space {

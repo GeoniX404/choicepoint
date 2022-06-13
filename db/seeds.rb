@@ -13,8 +13,10 @@ CHOICE_POINTS = {
   "What car should I buy?" => ["Chevrolet", "Toyota"],
   "Where should I live?" => ["Tokyo", "New York", "London", "Paris", "Sydney", "Berlin"]
 }.to_a
-DEADLINE_FIRST = Time.now
-DEADLINE_LAST = Time.new(2023)
+DAY_RANGE = 30
+seconds_per_day = 86_400
+DEADLINE_FIRST = Time.now - (DAY_RANGE * seconds_per_day)
+DEADLINE_LAST = Time.now + (DAY_RANGE * seconds_per_day)
 NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
 
