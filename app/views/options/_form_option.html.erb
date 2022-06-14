@@ -3,17 +3,23 @@
     <%= f.input :description,
                 label: "Option:",
                 placeholder: (
-                  is_first_option ? "University of California, Berkeley" : ""
+                  "University of California, Berkeley" if is_first_option
                 ),
                 class: "form-field",
                 required: true,
                 as: :string %>
     <%= f.input :pros,
                 label: 'Pros:',
+                placeholder: (
+                  "It's close to home" if is_first_option
+                ),
                 class: "form-field",
                 as: :text %>
     <%= f.input :cons,
                 label: 'Cons:',
+                placeholder: (
+                  "It’s hard to get good grades" if is_first_option
+                ),
                 class: "form-field",
                 as: :text %>
   </div>
