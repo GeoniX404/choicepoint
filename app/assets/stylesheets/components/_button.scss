@@ -80,6 +80,12 @@
   gap: 0px;
 }
 
+.login-btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .btn-submit {
   color: $white;
   background-color: $orange-red;
