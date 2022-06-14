@@ -121,3 +121,21 @@
   border-radius: 50px;
   font-weight: lighter;
 }
+
+.btn-view {
+  color: $white;
+  background-color:  lightgrey !important;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  border: 3px solid $orange-red;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  transition: all 0.3s ease;
+  &:hover,&:focus,&:active,&:disabled {
+    background-color: $orange-red !important;
+    color: $white !important;
+    border: 3px solid $orange-red;
+  }
+}

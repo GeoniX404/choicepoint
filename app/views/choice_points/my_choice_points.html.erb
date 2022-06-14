@@ -1,44 +1,61 @@
-<div class="tabs">
-  <nav>
-    <a href="#active">Active ChoicePoints</a>
-    <a href="#past">Past ChoicePoints</a>
-  </nav>
-<!--My active ChoicePoints -->
-  <div class=" content show-view" id="active">
-    <% @ongoing.each do |choice| %>
-    <div class="show-container">
-      <div class="show-header">
-        <h1 class="question">
-          <%= choice.title %>
-        </h1>
+<!-- Tab links -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="btn-view nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Active ChoicePoints</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="btn-view nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Past ChoicePoints</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="btn-view nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#" type="button" role="tab" aria-controls="#" aria-selected="false">Saved ChoicePoints</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <!--My active ChoicePoints -->
+    <div class="show-view">
+      <% @ongoing.each do |choice| %>
+      <div class="show-container">
+        <div class="show-header">
+          <h1 class="question">
+            <%= choice.title %>
+          </h1>
+        </div>
+        <h4 class="description"><%= choice.description %></h4>
+            <% no_vote = true %>
+            <%= render (no_vote ? "results" : "voting_form"),
+                choice_point: choice,
+                highest_score: 0,
+                expired: choice.expired %>
       </div>
-      <h4 class="description"><%= choice.description %></h4>
-          <% no_vote = true %>
-          <%= render (no_vote ? "results" : "voting_form"),
-              choice_point: choice,
-              highest_score: 0,
-              expired: choice.expired %>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 <!--My active ChoicePoints -->
-<!--My past ChoicePoints -->
-  <div class="content show-view" id="past">
-    <% @expired.each do |choice| %>
-    <div class="show-container">
-      <div class="show-header">
-        <h1 class="question">
-          <%= choice.title %>
-        </h1>
-      </div>
-      <h4 class="description"><%= choice.description %></h4>
-          <% no_vote = true %>
-          <%= render (no_vote ? "results" : "voting_form"),
-              choice_point: choice,
-              highest_score: 0,
-              expired: choice.expired %>
-    </div>
-    <% end %>
   </div>
-<!--My past ChoicePoints -->
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <!--My past ChoicePoints -->
+    <div class="show-view">
+      <% @expired.each do |choice| %>
+      <div class="show-container">
+        <div class="show-header">
+          <h1 class="question">
+            <%= choice.title %>
+          </h1>
+        </div>
+        <h4 class="description"><%= choice.description %></h4>
+            <% no_vote = true %>
+            <%= render (no_vote ? "results" : "voting_form"),
+                choice_point: choice,
+                highest_score: 0,
+                expired: choice.expired %>
+      </div>
+      <% end %>
+    </div>
+  <!--My past ChoicePoints -->
+  </div>
+  <!--Saved ChoicePoints -->
+  <div>
+    <p>Work in progress</p>
+  </div>
+  <!--Saved ChoicePoints -->
 </div>
