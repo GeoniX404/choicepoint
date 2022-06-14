@@ -6,7 +6,7 @@
       <p><%= choicepoint.description %></p>
       <div class="card-product-save">
         <% if choicepoint.vote_from?(current_user)%>
-          <i class="far fa-check-circle"></i> voted
+          <i class="far fa-check-circle" class= "cp-card-voted-color"></i> voted
         <% else %>
           <i class="far fa-circle"></i> vote
         <% end %>
