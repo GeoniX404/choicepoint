@@ -5,12 +5,15 @@
   .button-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
   .form-select {
     margin: 0 !important;
   }
   .question-mark-animation {
     justify-self: center;
+  }
+  .choice_point_deadline {
+    margin-bottom: 0 !important;
   }
 }
