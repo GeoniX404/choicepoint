@@ -1,12 +1,15 @@
-<div class="mt-3">
+<div>
   <div>
     <h2>Add some options</h3>
-    <%= render "form_option", choice_point: @choice_point, option: @option %>
+    <%= render "form_option",
+        choice_point: @choice_point,
+        option: @option,
+        is_first_option: @options.empty? %>
   </div>
 </div>
 
-<div>
-  <h4 class="options-heading"><%= @choice_point.title %></h4>
+<div class="options-list">
+  <h3 class="options-heading"><%= @choice_point.title %></h4>
   <% if @options.empty? %>
     <p>Waiting for your first option…</p>
   <% else %>

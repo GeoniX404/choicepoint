@@ -12,8 +12,13 @@
 }
 
 .options-page {
-  display: flex;
+  display: grid;
   margin: 80px auto;
-  width: 60%;
-  justify-content: space-between;
+  width: 80%;
+  gap: 80px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.options-heading {
+  font-size: 24px;
 }

@@ -1,21 +1,24 @@
 <%= simple_form_for([ choice_point, option ], html: {data:{options_target:"form"}}, remote: true, authenticity_token: true) do |f| %>
   <div class="option-description-container">
     <%= f.input :description,
-                label: "Option #{@options.count + 1}",
+                label: "Option:",
+                placeholder: (
+                  is_first_option ? "University of California, Berkeley" : ""
+                ),
                 class: "form-field",
                 required: true,
                 as: :string %>
     <%= f.input :pros,
-                label: 'What do you like about it?',
+                label: 'Pros:',
                 class: "form-field",
                 as: :text %>
     <%= f.input :cons,
-                label: 'What don’t you like about it?',
+                label: 'Cons:',
                 class: "form-field",
                 as: :text %>
   </div>
   <div class="option-btn-container">
-    <%= f.button :submit, class: "btn-info" %>
+    <%= f.button :submit, "Add", class: "btn-info" %>
     <div class="btn btn-main">
       <%= link_to "Submit", choice_point_path(@choice_point) %>
     </div>
