@@ -6,7 +6,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     opacity: 1;
     color: $orange-red;
   }
@@ -23,7 +23,7 @@
   letter-spacing: 1px;
   text-indent: 1px;
   transition: all 0.3s ease;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     background-color: $dark-red;
     color: $white;
     border: 3px solid $dark-red;
@@ -38,7 +38,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     color: $white;
     opacity: 1;
   }
@@ -52,7 +52,7 @@
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     opacity: 1;
     color: $orange-red;
   }
@@ -69,7 +69,7 @@
   font-size: 18px;
   letter-spacing: 1px;
   text-indent: 1px;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     background-color: $white;
     color: $orange-red;
     border: 2px solid $orange-red;
@@ -106,7 +106,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  &:hover,&:focus,&:active,&:disabled {
+  &:hover,&:focus,&:active {
     opacity: 1;
     color: $orange-red;
   }
