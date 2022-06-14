@@ -23,6 +23,10 @@ class ChoicePointsController < ApplicationController
       @user_string = "#{@choice_point.user.name} asks…"
     end
     @title = @choice_point.title
+
+    @options = Option.all
+    @choice_point_options = @options.where(choice_point_id: @choice_point[:id])
+    @descriptions = @choice_point_options.map(&:description)
   end
 
   def new
@@ -53,6 +57,31 @@ class ChoicePointsController < ApplicationController
       # I don't think this will work. Is this branch even needed?
       render :show
     end
+  end
+
+  def update
+    @choice_point = ChoicePoint.find(params[:id])
+    @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
+    @chosen_option.chosen = true
+    if params[:choice_point][:successful] == "1"
+      @choice_point.successful = true
+    elsif params[:choice_point][:successful] == "0"
+      @choice_point.successful = false
+    end
+    @choice_point.feedback = "Feedback Provided"
+    @choice_point.save
+    @chosen_users = @chosen_option.users
+    if @choice_point.successful
+      @chosen_users.each do |user|
+        user.update(reputation: user.reputation + 5)
+      end
+    end
+    redirect_to choice_point_path(@choice_point)
+    # if @belongs_to_current_user && @expired
+    #   # render feedback form asks user to select chosen option (sets option chosen to true)
+    #   # successful or not (adds true or false to ChoicePoint.success)
+    #   # and in turn adjusts voter rep accordingly
+    # end
   end
 
   def past
