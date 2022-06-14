@@ -1,46 +1,44 @@
 <div class="tabs">
   <nav>
-    <a href="#active">My active ChoicePoints</a>
-    <a href="#past">My past ChoicePoints</a>
+    <a href="#active">Active ChoicePoints</a>
+    <a href="#past">Past ChoicePoints</a>
   </nav>
-  <div class="show-view">
-    <div>
-      <% @ongoing.each do |choice| %>
-      <div class="show-container">
-        <div class="show-header">
-          <h1 class="question">
-            <%= choice.title %>
-          </h1>
-        </div>
-        <h4 class="description"><%= choice.description %></h4>
-            <% no_vote = true %>
-            <%= render (no_vote ? "results" : "voting_form"),
-                choice_point: choice,
-                highest_score: 0,
-                expired: choice.expired %>
+<!--My active ChoicePoints -->
+  <div class=" content show-view" id="active">
+    <% @ongoing.each do |choice| %>
+    <div class="show-container">
+      <div class="show-header">
+        <h1 class="question">
+          <%= choice.title %>
+        </h1>
       </div>
-      <% end %>
+      <h4 class="description"><%= choice.description %></h4>
+          <% no_vote = true %>
+          <%= render (no_vote ? "results" : "voting_form"),
+              choice_point: choice,
+              highest_score: 0,
+              expired: choice.expired %>
     </div>
+    <% end %>
   </div>
-
-
-  <div class="show-view">
-    <div>
-      <% @expired.each do |choice| %>
-      <div class="show-container">
-        <div class="show-header">
-          <h1 class="question">
-            <%= choice.title %>
-          </h1>
-        </div>
-        <h4 class="description"><%= choice.description %></h4>
-            <% no_vote = true %>
-            <%= render (no_vote ? "results" : "voting_form"),
-                choice_point: choice,
-                highest_score: 0,
-                expired: choice.expired %>
+<!--My active ChoicePoints -->
+<!--My past ChoicePoints -->
+  <div class="content show-view" id="past">
+    <% @expired.each do |choice| %>
+    <div class="show-container">
+      <div class="show-header">
+        <h1 class="question">
+          <%= choice.title %>
+        </h1>
       </div>
-      <% end %>
+      <h4 class="description"><%= choice.description %></h4>
+          <% no_vote = true %>
+          <%= render (no_vote ? "results" : "voting_form"),
+              choice_point: choice,
+              highest_score: 0,
+              expired: choice.expired %>
     </div>
+    <% end %>
   </div>
+<!--My past ChoicePoints -->
 </div>
