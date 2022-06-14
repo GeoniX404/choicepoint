@@ -2,6 +2,10 @@
 <h1>Feedback</h1>
 <%= simple_form_for [ @choice_point ] do |f| %>
   <div class="choicepoint-description-container">
-    <%= f.input :chosen, :collection => @choice_point.options{:description}, required: true %>
+    <%= f.input :successful, label: "Successful Option?", required: true %>
+    <%= f.simple_fields_for :option do |o| %>
+      <%= o.input :description, label: "Chosen Option", :collection => @descriptions, required: true %>
+    <% end %>
+    <%= f.button :submit, class: "btn-info" %>
   </div>
 <% end %>

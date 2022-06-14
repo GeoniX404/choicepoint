@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/active", to: "choice_points#active", as: :active
   get "/past", to: "choice_points#past", as: :past
   # get "/:id/feedback", to: "choice_points#feedback", as: :feedback
-  resources :choice_points, only: %i[index show new create] do
+  resources :choice_points, only: %i[index show new create update] do
     resources :options, only: %i[index new create]
     member do
       patch :vote

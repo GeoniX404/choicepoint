@@ -3,6 +3,7 @@ class ChoicePoint < ApplicationRecord
   belongs_to :user
   has_many :options, dependent: :destroy
   has_many :tags, dependent: :destroy
+  accepts_nested_attributes_for :options
   validates :title, presence: true
   validates :description, presence: true
   validates :deadline, presence: true

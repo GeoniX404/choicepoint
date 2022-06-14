@@ -23,6 +23,10 @@ class ChoicePointsController < ApplicationController
       @user_string = "#{@choice_point.user.name} asks…"
     end
     @title = @choice_point.title
+
+    @options = Option.all
+    @choice_point_options = @options.where(choice_point_id: @choice_point[:id])
+    @descriptions = @choice_point_options.map(&:description)
   end
 
   def new
@@ -55,12 +59,8 @@ class ChoicePointsController < ApplicationController
     end
   end
 
-  def feedback
-    @choice_point = ChoicePoint.find(params[:id])
-    @options = Option.all
-    @choice_point_options = @options.where(choice_point_id: @choice_point[:id])
-    @expired = @choice_point.expired
-    @belongs_to_current_user = @choice_point.user == current_user
+  def update
+    raise
 
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
