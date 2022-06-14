@@ -1,11 +1,19 @@
-
-  <% @options.each do |option| %>
-  <span class="btn btn-outline-secondary"><%= option.description %></span>
-  <% end %>
-  <div class="mt-3">
-    <div>
-      <h3>Add options to your ChoicePoint</h3>
-      <%= render "form_option", choice_point: @choice_point, option: @option %>
-    </div>
-
+<div class="mt-3">
+  <div>
+    <h2>Add some options</h3>
+    <%= render "form_option", choice_point: @choice_point, option: @option %>
   </div>
+</div>
+
+<div>
+  <h4 class="options-heading"><%= @choice_point.title %></h4>
+  <% if @options.empty? %>
+    <p>Waiting for your first option…</p>
+  <% else %>
+    <ul class="options-container">
+      <% @options.each do |option| %>
+        <li class="option"><%= option.description %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
