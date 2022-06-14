@@ -60,8 +60,21 @@ class ChoicePointsController < ApplicationController
   end
 
   def update
-    raise
-
+    @choice_point = ChoicePoint.find(params[:id])
+    @chosen_option = Option.find(params[:choice_point][:options])
+    @chosen_option.chosen = true
+    if params[:choice_point][:successful] == "1"
+      @choice_point.successful = true
+    end
+    @choice_point.feedback = "Feedback Provided"
+    @choice_point.save
+    @chosen_users = @chosen_option.users
+    if @choice_point.successful
+      @chosen_users.each do |user|
+        user.update(reputation: user.reputation + 5)
+      end
+    end
+    redirect_to choice_point_path(@choice_point)
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
     #   # successful or not (adds true or false to ChoicePoint.success)
