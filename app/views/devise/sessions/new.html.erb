@@ -14,9 +14,13 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-ghost" %>
+      <div class="login-btn-container">
+        <%= f.button :submit, "LOG IN", class: "btn btn-ghost" %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+
+
 </div>
