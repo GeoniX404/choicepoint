@@ -74,7 +74,6 @@ class ChoicePointsController < ApplicationController
         user.update(reputation: user.reputation + 5)
       end
     end
-    raise
     redirect_to choice_point_path(@choice_point)
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
