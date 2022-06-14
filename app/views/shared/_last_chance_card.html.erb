@@ -7,6 +7,11 @@
     <%# MAKE YOUR CARD HERE %>
     <div class="last-chance-row">
       <p><%= lastchance.title %></p>
+      <% if lastchance.votes.where(user: current_user).empty?%>
+      <button class="btn-ghost-vote">VOTE</button>
+      <% else %>
+      <button class="btn-ghost-voted">VOTED</button>
+      <% end %>
       <h2> <%= (lastchance.deadline - Date.today).to_i%> Days left</h2>
       </div>
     <%# END CARD HERE %>
