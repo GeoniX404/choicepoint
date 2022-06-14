@@ -52,3 +52,24 @@ nav a.active {
     margin-bottom: -.08em;
   }
 }
+
+.tab-round {
+  a::before {
+     border-bottom: none;
+     border-radius: none;
+     background: none;
+     transform: none;
+   }
+
+   nav > a::before {
+     border: none;
+   }
+
+   nav a.active {
+     &::before {
+       background-color: #fff;
+       margin-bottom: 0;
+       border-radius: 30px;
+     }
+   }
+ }

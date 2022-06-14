@@ -59,9 +59,6 @@ class ChoicePointsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-  def my_choice_points
-=======
   def update
     @choice_point = ChoicePoint.find(params[:id])
     @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
@@ -87,21 +84,13 @@ class ChoicePointsController < ApplicationController
     # end
   end
 
-  def past
-    @choice_points = ChoicePoint.all
-    @belongs_to_current_user = @choice_points.where(user: current_user)
-    @expired = @belongs_to_current_user.filter do |point|
-      point.expired
-    end
-  end
     # if @belongs_to_current_user && @expired
     #   redirect_to choice_points(@belongs_to_current_user)
     # else
     #   render "choice_points/new"
     # end
 
-  def active
->>>>>>> master
+  def my_choice_points
     @choice_points = ChoicePoint.all
     @belongs_to_current_user = @choice_points.where(user: current_user)
     @ongoing = @belongs_to_current_user.filter do |point|
