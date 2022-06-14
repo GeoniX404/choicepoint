@@ -3,8 +3,11 @@
 <%= simple_form_for [ @choice_point ] do |f| %>
   <div class="choicepoint-description-container">
     <%= f.input :successful, label: "Successful Option?", required: true %>
-    <%= f.input :options, collection: @choice_point_options,
-        label_method: :description, value_method: :id, required: true %>
+    <%= f.simple_fields_for :chosen_option do |o| %>
+      <%= o.input :id, label: "Chosen Option",
+          collection: @choice_point_options, label_method: :description,
+          value_method: :id, required: true %>
+    <% end %>
     <%= f.button :submit, class: "btn-info" %>
   </div>
 <% end %>

@@ -61,7 +61,7 @@ class ChoicePointsController < ApplicationController
 
   def update
     @choice_point = ChoicePoint.find(params[:id])
-    @chosen_option = Option.find(params[:choice_point][:options])
+    @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
     @chosen_option.chosen = true
     if params[:choice_point][:successful] == "1"
       @choice_point.successful = true
@@ -74,6 +74,7 @@ class ChoicePointsController < ApplicationController
         user.update(reputation: user.reputation + 5)
       end
     end
+    raise
     redirect_to choice_point_path(@choice_point)
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
