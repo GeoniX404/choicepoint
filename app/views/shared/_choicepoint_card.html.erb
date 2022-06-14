@@ -1,4 +1,3 @@
-
 <%= link_to choice_point_path(choicepoint) do %>
   <div class="card-product">
     <div class="card-product-infos">
@@ -6,8 +5,13 @@
       <h2><%= choicepoint.title %></h2>
       <p><%= choicepoint.description %></p>
       <div class="card-product-save">
-       <i class="far fa-bookmark"></i> save <i class="far fa-circle"></i> vote
-       </div>
+        <% if choicepoint.vote_from?(current_user)%>
+          <i class="far fa-check-circle"></i> voted
+        <% else %>
+          <i class="far fa-circle"></i> vote
+        <% end %>
+        <i class="far fa-bookmark"></i> save
+      </div>
     </div>
     <img src="https://source.unsplash.com/random/?<%= choicepoint.title %>" />
   </div>
