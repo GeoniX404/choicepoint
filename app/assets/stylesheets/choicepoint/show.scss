@@ -56,6 +56,13 @@
   gap: 48px;
 }
 
+.feedback-container {
+  background-color: $white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
+  border-radius: 16px;
+  padding: 24px;
+}
+
 .show-container .show-options {
   background-color: $white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
