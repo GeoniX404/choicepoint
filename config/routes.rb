@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :options, only: %i[index new create]
     member do
       patch :vote
+      patch :feedback
     end
   end
 end

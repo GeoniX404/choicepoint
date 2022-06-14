@@ -3,8 +3,9 @@ class ChoicePoint < ApplicationRecord
   belongs_to :user
   has_many :options, dependent: :destroy
   has_many :tags, dependent: :destroy
+  has_many :votes, through: :options
+  accepts_nested_attributes_for :options
   validates :title, presence: true
-  validates :description, presence: true
   validates :deadline, presence: true
 
   pg_search_scope :search_by_title_and_description,
