@@ -1,3 +1,11 @@
+ul {
+  padding-left: unset;
+}
+
+ul > li {
+  list-style: none;
+}
+
 .spaced {
   letter-spacing: 1px;
   text-indent: 1px;

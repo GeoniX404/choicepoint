@@ -1,13 +1,32 @@
 <%= simple_form_for([ choice_point, option ], html: {data:{options_target:"form"}}, remote: true, authenticity_token: true) do |f| %>
   <div class="option-description-container">
-    <%= f.input :description, placeholder: 'Option', label: false, :class => "form-field", required: true %>
-    <%= f.input :pros, placeholder: 'What you like about it', label:false, :class => "form-field", required: true, as: :text %>
-    <%= f.input :cons, placeholder: 'What you do not like', label:false, :class => "form-field", required: true, as: :text %>
+    <%= f.input :description,
+                label: "Option:",
+                placeholder: (
+                  "University of California, Berkeley" if is_first_option
+                ),
+                class: "form-field",
+                required: true,
+                as: :string %>
+    <%= f.input :pros,
+                label: 'Pros:',
+                placeholder: (
+                  "It's close to home" if is_first_option
+                ),
+                class: "form-field",
+                as: :text %>
+    <%= f.input :cons,
+                label: 'Cons:',
+                placeholder: (
+                  "It’s hard to get good grades" if is_first_option
+                ),
+                class: "form-field",
+                as: :text %>
   </div>
   <div class="option-btn-container">
-    <%= f.button :submit, class: "btn-info" %>
-    <div class="btn btn-info">
-      <%= link_to "Submit ChoicePoint", choice_point_path(@choice_point) %>
+    <%= f.button :submit, "Add", class: "btn-info" %>
+    <div class="btn btn-main">
+      <%= link_to "Submit", choice_point_path(@choice_point) %>
     </div>
   </div>
 <% end %>

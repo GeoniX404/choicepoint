@@ -1,0 +1,24 @@
+.options-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.option {
+  border: 2px solid $orange-red;
+  color: $orange-red;
+  border-radius: 50px;
+  padding: 8px 16px;
+}
+
+.options-page {
+  display: grid;
+  margin: 80px auto;
+  width: 80%;
+  gap: 80px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.options-heading {
+  font-size: 24px;
+}
