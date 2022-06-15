@@ -1,4 +1,4 @@
-<div class="show-options votes-container">
+<div class="show-options votes-container <%= "active-votes-container" unless expired %>">
   <%= render "voting_area_content",
       choice_point: choice_point,
       highest_score: highest_score,

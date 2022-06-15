@@ -1,7 +1,9 @@
 <%= form_with(model: choice_point,
               url: vote_choice_point_path(choice_point),
               html: { class: 'votes-container',
-                      data: { controller: 'choice-point-voting-form' } }) do |form| %>
+                      data: { controller: 'choice-point-voting-form',
+                              choice_point_voting_form_target: 'form',
+                              action: "submit->choice-point-voting-form#update" } }) do |form| %>
 
   <div class="show-options">
 
