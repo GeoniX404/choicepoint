@@ -2,28 +2,26 @@
     <div class="large_index_image">
       <h2 class="secondary-title">Can’t decide? Ask us.</h2>
       <p><%= link_to "Get Your Solution", new_choice_point_path, class: "btn-large btn-info btn" %></p>
-      <!-- <h2 class="trending-text">TRENDING</h2> -->
+       <!-- <h2 class="trending-text">TRENDING</h2> -->
     </div>
   </div>
 
-<div class="page-container choice-points-index-container">
+<div class="page-container choice-points-index-container" data-controller="search">
   <div class="choicepoint">
     <div class="card-container">
 
       <div class="search-bar mb-4 container-left">
-        <%= form_tag choice_points_path, method: :get, class: "search-wrapper" do %>
+        <%= form_tag choice_points_path, method: :get, class: "search-wrapper", data: { search_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control inner-search-bar",
-            placeholder: "Search ChoicePoint"%>
+            placeholder: "Search ChoicePoint",
+            value: params[:query],
+            data: { search_target: 'input', action: 'keyup->search#update' }%>
           <%= button_tag raw("<i class='fas fa-search'></i>"), class: "search-button" %>
         <% end %>
       </div>
-      <% @choice_points.each do |choicepoint| %>
-        <div class="position-relative mb-4" >
-          <%= render "shared/choicepoint_card", choicepoint: choicepoint %>
-        </div>
-      <% end %>
+      <%= render 'list', choice_points: @choice_points %>
     </div>
 
     <div class="ranking-container">
