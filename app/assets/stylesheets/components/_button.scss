@@ -2,7 +2,7 @@
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 6px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -16,7 +16,7 @@
   color: $white;
   background-color: $orange-red;
   padding: 8px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: 700;
   border: 3px solid $orange-red;
   text-transform: uppercase;
@@ -34,8 +34,9 @@
   color: $white;
   border: 1px solid $white;
   padding: 6px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  font-weight: 900;
   opacity: 0.6;
   transition: opacity 0.3s ease;
   &:hover,&:focus,&:active {
@@ -48,7 +49,8 @@
   color: $orange-red;
   background: $white;
   padding: 6px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -63,7 +65,7 @@
   border: 2px solid $orange-red;
   background-color: $white;
   padding: 6px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   letter-spacing: 1px;
@@ -90,7 +92,7 @@
   color: $white;
   background-color: $orange-red;
   padding: 9px 27px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: 700;
   float: right;
 }
@@ -108,7 +110,7 @@
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 2px 20px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -124,7 +126,7 @@
   color: white;
   border: 1px solid $orange-red;
   padding: 2px 15px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: lighter;
 }
 
@@ -136,7 +138,7 @@
   color: $white;
   background-color:  lightgrey !important;
   padding: 8px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: 700;
   border: 3px solid $orange-red;
   text-transform: uppercase;
