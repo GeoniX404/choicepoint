@@ -21,7 +21,7 @@ body {
   width: 60%;
   }
   .ranking-container{
-  width: 38%;
+  width: 40%;
   }
 }
 
@@ -48,12 +48,12 @@ body {
     width: revert;
   }
   .container-left {
-    padding-left: 138px;
+    padding-left: 21%;
     border-width: 2px 2px 2px 0px;
     border-radius: 0px 16px 16px 0px;
   }
   .container-right {
-    padding-right: 138px;
+    padding-right: 27%;
     border-width: 2px 0px 2px 2px;
     border-radius: 16px 0 0 16px;
   }
@@ -62,7 +62,7 @@ body {
 .choicepoint {
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 160px;
 }
 
 .memo {
@@ -77,4 +77,9 @@ body {
 
 #what-is-backdrop {
   background-color: $orange-red-transparent;
+}
+
+.index-bottom-links {
+  display: flex;
+  gap: 16px;
 }

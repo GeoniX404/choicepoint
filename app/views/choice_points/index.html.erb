@@ -30,9 +30,8 @@
       <div class="trending mb-4 container-right general-card"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
       <div class="trending mb-4 container-right" id="what-is-backdrop"><%= render "shared/info_card"%></div>
       <%# <div class="memo"><p>memo placeholder</p></div> %>
-      <div>
+      <div class="index-bottom-links">
         <p><%= link_to "My ChoicePoints", my_choice_points_path, class: "btn-ghost btn-bolder" %></p>
-        <br>
         <p><%= link_to "New ChoicePoint", new_choice_point_path, class: "btn-ghost btn-bolder btn-filled" %></p>
       </div>
     </div>
