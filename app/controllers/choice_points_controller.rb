@@ -9,6 +9,10 @@ class ChoicePointsController < ApplicationController
     end
 
     @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'choice_points/list', locals: { choice_points: @choice_points }, formats: [:html] }
+    end
   end
 
   def show
