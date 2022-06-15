@@ -21,7 +21,7 @@ DEADLINE_LAST = Time.now + (DAY_RANGE * seconds_per_day)
 NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
 # Odds that a user votes for a particular choice point.
-VOTE_PROBABILITY = 2.0 / 3.0
+VOTE_PROBABILITY = 1.0 / 2.0
 REPUTATION_RANGE = 5..40
 
 def create_users

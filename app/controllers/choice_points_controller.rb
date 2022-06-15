@@ -49,13 +49,20 @@ class ChoicePointsController < ApplicationController
     @vote = Vote.new
     @vote.user = current_user
     @vote.option = @option
-    if @vote.save
-      @option.increase_score(@vote)
-      @choice_point = ChoicePoint.find(params[:id])
-      redirect_to choice_point_path(@choice_point)
-    else
-      # I don't think this will work. Is this branch even needed?
-      render :show
+    @vote.save!
+    @option.increase_score(@vote)
+    @choice_point = ChoicePoint.find(params[:id])
+    respond_to do |format|
+      format.html do
+        redirect_to choice_point_path(@choice_point)
+      end
+      format.text do
+        render partial: "choice_points/results",
+               locals: { choice_point: @choice_point,
+                         highest_score: @choice_point.highest_score,
+                         expired: @choice_point.expired },
+               formats: [:html]
+      end
     end
   end
 
