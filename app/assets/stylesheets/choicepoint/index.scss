@@ -26,15 +26,16 @@ body {
 }
 
 .large_index_image{
-  background-image: url(asset_path("question_mark_hands.jpeg"));
-  height: 350px;
+  //background-image: url(asset_path("question_mark_hands.jpeg"));
+  height: 200px;
   background-size: cover;
   display: flex;
   width:auto;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  padding: 88px;
+  padding: 48px;
   place-items: center;
+  gap: 20px;
 }
 
 .page-container{

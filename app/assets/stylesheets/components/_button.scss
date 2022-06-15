@@ -32,6 +32,21 @@
   }
 }
 
+.btn-nav {
+  color: $orange-red;
+  border: 1px solid $orange-red;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  font-weight: 900;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover,&:focus,&:active {
+    color: $orange-red;
+    opacity: 1;
+  }
+}
+
 .btn-login {
   color: $off-white;
   border: 1px solid $off-white;
@@ -102,7 +117,7 @@
 
 .signedin-button-container {
   display: flex;
-  gap: 0px;
+  gap: 8px;
 }
 
 .login-btn-container {
