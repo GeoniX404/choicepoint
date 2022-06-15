@@ -26,24 +26,42 @@ body {
 }
 
 .large_index_image{
- background-image: url(asset_path("question_mark_hands.jpeg"));
- height: 350px;
- background-size: cover;
- display: flex;
- width:auto;
- display: grid;
- grid-template-rows: 1fr 1fr;
- padding: 88px;
- place-items: center;
+  background-image: url(asset_path("question_mark_hands.jpeg"));
+  height: 350px;
+  background-size: cover;
+  display: flex;
+  width:auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 88px;
+  place-items: center;
 }
 
 .page-container{
-  width: 75%;
+  // width: 75%;
   margin: 35px auto;
+}
+
+.choice-points-index-container {
+  &.page-container {
+    width: revert;
+  }
+  .container-left {
+    padding-left: 138px;
+    border-width: 2px 2px 2px 0px;
+    border-radius: 0px 16px 16px 0px;
+  }
+  .container-right {
+    padding-right: 138px;
+    border-width: 2px 0px 2px 2px;
+    border-radius: 16px 0 0 16px;
+  }
 }
 
 .choicepoint {
   display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .memo {
@@ -54,4 +72,8 @@ body {
   height: 100vh;
   position: sticky;
   top: 0;
+}
+
+#what-is-backdrop {
+  background-color: $light-gray;
 }

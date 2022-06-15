@@ -6,29 +6,35 @@
     </div>
   </div>
 
-<div class="page-container">
-    <div class="choicepoint">
-      <div class="card-container">
-        <div class="search-bar mb-4">
-          <%= form_tag choice_points_path, method: :get, class: "search-wrapper" do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control inner-search-bar",
-              placeholder: "Search ChoicePoint"%>
-            <%= button_tag raw("<i class='fas fa-search'></i>"), class: "search-button" %>
-          <% end %>
+<div class="page-container choice-points-index-container">
+  <div class="choicepoint">
+    <div class="card-container">
 
-        </div>
-        <% @choice_points.each do |choicepoint| %>
-          <div class="position-relative mb-4" >
-            <%= render "shared/choicepoint_card", choicepoint: choicepoint %>
-          </div>
+      <div class="search-bar mb-4 container-left">
+        <%= form_tag choice_points_path, method: :get, class: "search-wrapper" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control inner-search-bar",
+            placeholder: "Search ChoicePoint"%>
+          <%= button_tag raw("<i class='fas fa-search'></i>"), class: "search-button" %>
         <% end %>
       </div>
-      <div class="ranking-container ms-4">
-      <div class="trending mb-4"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
-      <div class="trending mb-4"><%= render "shared/info_card"%></div>
+      <% @choice_points.each do |choicepoint| %>
+        <div class="position-relative mb-4" >
+          <%= render "shared/choicepoint_card", choicepoint: choicepoint %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="ranking-container">
+      <div class="trending mb-4 container-right general-card"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
+      <div class="trending mb-4 container-right" id="what-is-backdrop"><%= render "shared/info_card"%></div>
       <%# <div class="memo"><p>memo placeholder</p></div> %>
+      <div>
+        <p><%= link_to "My ChoicePoints", my_choice_points_path, class: "btn-ghost btn-bolder" %></p>
+        <p><%= link_to "New ChoicePoint", new_choice_point_path, class: "btn-ghost btn-bolder btn-filled" %></p>
       </div>
     </div>
+
+  </div>
 </div>

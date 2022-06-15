@@ -178,3 +178,19 @@
     border: 3px solid $orange-red;
   }
 }
+
+.btn-bolder {
+  font-weight: 400;
+  border-width: 2px;
+  opacity: 1;
+}
+
+.btn-filled {
+  color: $white;
+  background-color: $orange-red;
+  &:hover,&:focus,&:active {
+    background-color: $dark-red;
+    color: $white;
+  }
+  opacity: 1;
+}
