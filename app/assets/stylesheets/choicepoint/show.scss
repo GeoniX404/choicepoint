@@ -57,7 +57,7 @@
 }
 
 .feedback-container {
-  background-color: $white;
+  background-color: $off-white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
   padding: 24px;
@@ -68,7 +68,7 @@
 }
 
 .show-container .show-options {
-  background-color: $white;
+  background-color: $off-white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
   padding: 24px;
@@ -174,7 +174,7 @@
 .show-view {
   // TODO: Move this elsewhere, should be inherited
   color: $black;
-  background-color: $white;
+  background-color: $off-white;
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;

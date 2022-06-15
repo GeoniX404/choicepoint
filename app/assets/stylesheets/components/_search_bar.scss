@@ -18,7 +18,7 @@
   &:focus {
     border: 1px solid #ced4da;
     box-shadow: none;
-    background-color: $white;
+    background-color: $off-white;
     border-right: none;
   }
   border-right: none;
@@ -28,6 +28,6 @@
   border-radius: 0 10px 10px 0;
   padding: 0 12px;
   border: 1px solid #ced4da;
-  background-color: white;
+  background-color: $off-white;
   border-left: none;
 }
