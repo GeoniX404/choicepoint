@@ -14,7 +14,7 @@
 }
 
 .btn-main {
-  color: $white;
+  color: $off-white;
   background-color: $orange-red;
   padding: 4px 10px 0px 10px;
   //border-radius: 50px;
@@ -33,8 +33,8 @@
 }
 
 .btn-login {
-  color: $white;
-  border: 1px solid $white;
+  color: $off-white;
+  border: 1px solid $off-white;
   padding: 5px 15px 3px 15px;
   //border-radius: 50px;
   font-family: 'Martel';
@@ -49,7 +49,7 @@
 
 .btn-signup {
   color: $orange-red;
-  background: $white;
+  background: $off-white;
   padding: 5px 15px 3px 15px;
   //border-radius: 50px;
   font-family: 'Martel';
@@ -63,7 +63,7 @@
 }
 
 .btn-info {
-  color: white;
+  color: $off-white;
   //border: 2px solid $orange-red;
   background-color: $orange-red;
   padding: 5px 15px 3px 15px;
@@ -75,7 +75,7 @@
   text-indent: 1px;
   border-color: $orange-red;
   &:hover,&:focus,&:active {
-    background-color: $white;
+    background-color: $off-white;
     color: $orange-red;
     border: 2px solid $orange-red;
   }
@@ -112,7 +112,7 @@
 }
 
 .btn-submit {
-  color: $white;
+  color: $off-white;
   background-color: $orange-red;
   padding: 9px 27px;
   //border-radius: 50px;
@@ -129,7 +129,7 @@
 
 .btn-ghost-vote {
 
-  background-color: $white;
+  background-color: transparent;
   height: 35px;
   color: $orange-red;
   border: 1px solid $orange-red;
@@ -148,7 +148,7 @@
 .btn-ghost-voted {
   background-color: $orange-red;
   height: 35px;
-  color: white;
+  color: $off-white;
   border: 1px solid $orange-red;
   padding: 7px 10px 15px 10px;
   //border-radius: 50px;
@@ -162,7 +162,7 @@
 }
 
 .btn-view {
-  color: $white;
+  color: $off-white;
   background-color:  lightgrey !important;
   padding: 8px 24px;
   //border-radius: 50px;
@@ -174,7 +174,7 @@
   transition: all 0.3s ease;
   &:hover,&:focus,&:active {
     background-color: $orange-red !important;
-    color: $white !important;
+    color: $off-white !important;
     border: 3px solid $orange-red;
   }
 }
