@@ -1,5 +1,5 @@
 body {
-  background-color: $white;
+  background-color: $off-white;
 }
 
 .index_main_text{
@@ -11,26 +11,10 @@ body {
 .secondary-title {
   font-size: 56px;
   color: $orange-red;
-  text-shadow: 0px 0px 16px #FFF8F7;
+  //text-shadow: 0px 0px 16px #FFF8F7;
+  font-family: 'Martel';
   font-weight: 600;
 }
-
-// .trending-text {
-//   font-size: 40px;
-//   align-self: flex-bottom;
-//   letter-spacing: 60px;
-//   text-indent: 60px;
-//   color: #1E3765;
-//   text-shadow:
-//       0.05em 0 #FFD600,
-//       0 0.05em #FFD600,
-//       -0.05em 0 #FFD600,
-//       0 -0.05em #FFD600,
-//       -0.05em -0.05em #FFD600,
-//       -0.05em 0.05em #FFD600,
-//       0.05em -0.05em #FFD600,
-//       0.05em 0.05em #FFD600;
-// }
 
 .choicepoint {
   .card-container{
@@ -51,10 +35,6 @@ body {
   grid-template-rows: 1fr 1fr;
   padding: 88px;
   place-items: center;
-}
-
-.form-control {
-  background-color: white;
 }
 
 .page-container{
@@ -83,12 +63,9 @@ body {
   justify-content: space-between;
   gap: 40px;
 }
-.trending {
-  background-color: white;
-}
+
 .memo {
   height: 200px;
-  background-color: white;
 }
 
 .ranking-container {

@@ -18,7 +18,7 @@
   <%= yield(option) %>
   <!-- spacer div for the grid --> <div></div>
   <div class="pros-and-cons-container">
-    <p><a class="btn btn-info show-options-row-pros-and-cons" data-bs-toggle="modal" href="#prosToggle<%= option.id %>">Pros</a></p>
+    <p><a class="btn btn-procon show-options-row-pros-and-cons" data-bs-toggle="modal" href="#prosToggle<%= option.id %>">Pros</a></p>
     <div class="modal fade" id="prosToggle<%= option.id %>" aria-hidden="true" aria-labelledby="prosToggleLabel<%= option.id %>" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <p><a class="btn btn-info show-options-row-pros-and-cons" data-bs-toggle="modal" href="#consToggle<%= option.id %>">Cons</a></p>
+    <p><a class="btn btn-procon show-options-row-pros-and-cons" data-bs-toggle="modal" href="#consToggle<%= option.id %>">Cons</a></p>
     <div class="modal fade" id="consToggle<%= option.id %>" aria-hidden="true" aria-labelledby="consToggleLabel<%= option.id %>" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

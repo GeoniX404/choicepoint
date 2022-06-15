@@ -24,7 +24,7 @@
   border-radius: unset;
   &:focus {
     box-shadow: none;
-    background-color: $white;
+    background-color: $off-white;
     border-right: none;
   }
   border-right: none;
@@ -35,5 +35,5 @@
   border: unset;
   border-radius: unset;
   padding: 0 12px;
-  background-color: white;
+  background-color: $off-white;
 }

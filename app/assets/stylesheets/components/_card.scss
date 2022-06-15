@@ -1,8 +1,8 @@
 .card-product {
   overflow: hidden;
   height: 140px;
-  background: white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: $off-white;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -66,7 +66,7 @@
 }
 
 .last-chance-container{
-  background-color: white;
+  background-color: $off-white;
   width: 100%;
   height: 100%;
   align-items: stretch;
@@ -76,13 +76,13 @@
   gap: 3px;
   padding: 13px;
   border-radius: 32px;
-  // border: 3px solid $white;
+  // border: 3px solid $off-white;
   .card-last-chance{
     padding: 0.50em;
     margin-bottom: 3px;
     width: 98%;
     overflow: hidden;
-    background: $white;
+    background: $off-white;
     padding: 0.50em;
     // box-shadow: 0 0 15px rgba(0,0,0,0.2);
     position: relative;
@@ -119,6 +119,7 @@
 }
 
 .card-what-is {
+<<<<<<< HEAD
   padding: 13px;
   .info-text p {
     font-size: 16px;
@@ -126,6 +127,9 @@
   .info-text a:hover {
     text-decoration: underline;
   }
+=======
+  background-color: $off-white;
+>>>>>>> master
 }
 
 .what-is {
