@@ -2,7 +2,8 @@
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 6px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -15,11 +16,12 @@
 .btn-main {
   color: $white;
   background-color: $orange-red;
-  padding: 8px 24px;
-  border-radius: 50px;
+  padding: 4px 10px 0px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: 700;
   border: 3px solid $orange-red;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   letter-spacing: 1px;
   text-indent: 1px;
   transition: all 0.3s ease;
@@ -33,9 +35,10 @@
 .btn-login {
   color: $white;
   border: 1px solid $white;
-  padding: 6px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  font-weight: 900;
   opacity: 0.6;
   transition: opacity 0.3s ease;
   &:hover,&:focus,&:active {
@@ -47,8 +50,9 @@
 .btn-signup {
   color: $orange-red;
   background: $white;
-  padding: 6px 24px;
-  border-radius: 50px;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -59,19 +63,40 @@
 }
 
 .btn-info {
-  color: $orange-red;
-  border: 2px solid $orange-red;
-  background-color: $white;
-  padding: 6px 24px;
-  border-radius: 50px;
-  text-transform: uppercase;
+  color: white;
+  //border: 2px solid $orange-red;
+  background-color: $orange-red;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  //text-transform: uppercase;
   transition: all 0.3s ease;
   letter-spacing: 1px;
   text-indent: 1px;
+  border-color: $orange-red;
   &:hover,&:focus,&:active {
     background-color: $white;
     color: $orange-red;
     border: 2px solid $orange-red;
+  }
+}
+
+.btn-procon {
+  color: $orange-red;
+  //border: 2px solid $orange-red;
+  background-color: white;
+  padding: 5px 15px 3px 15px !important;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  //text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  border-color: $orange-red;
+  &:hover,&:focus,&:active {
+    background-color: $orange-red;
+    color: white;
+    //border: 2px solid $orange-red;
   }
 }
 
@@ -90,7 +115,8 @@
   color: $white;
   background-color: $orange-red;
   padding: 9px 27px;
-  border-radius: 50px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: 700;
   float: right;
 }
@@ -107,8 +133,9 @@
   height: 35px;
   color: $orange-red;
   border: 1px solid $orange-red;
-  padding: 2px 20px;
-  border-radius: 50px;
+  padding: 7px 10px 15px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel' !important;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -123,20 +150,22 @@
   height: 35px;
   color: white;
   border: 1px solid $orange-red;
-  padding: 2px 15px;
-  border-radius: 50px;
+  padding: 7px 10px 15px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
 }
 
 .btn.btn-large {
   font-size: 18px;
+  font-family: 'Martel';
 }
 
 .btn-view {
   color: $white;
   background-color:  lightgrey !important;
   padding: 8px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: 700;
   border: 3px solid $orange-red;
   text-transform: uppercase;
