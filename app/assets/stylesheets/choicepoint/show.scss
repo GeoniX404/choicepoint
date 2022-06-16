@@ -3,16 +3,16 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 48px;
+  gap: 32px;
   margin: 48px auto;
   width: 80%;
 
-  h1 {
+  .cp-asker-and-question {
     // TODO: Add CSS reset
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -42,9 +42,8 @@
   & > .votes-container {
     align-self: stretch;
   }
-  input.btn-main {
-    text-transform: uppercase;
-    font-size: $secondary-header-size;
+  .description {
+    font-size: 20px;
   }
 }
 
@@ -178,4 +177,33 @@
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+}
+
+.cp-title-and-description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cp-info-and-feedback {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.feedback-heading {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.feedback-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.votes-container{
+  input.btn-main {
+    text-transform: uppercase;
+    font-size: $secondary-header-size;
+  }
 }

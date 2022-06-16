@@ -1,23 +1,27 @@
 <div class="show-view">
   <div class="show-container">
-    <div class="show-header">
-      <h1>
-        <div class="asker"><%= @user_string %></div>
-        <div class="question"><%= @title %></div>
-      </h1>
+    <div class="cp-info-and-feedback">
+      <div class="cp-title-and-description">
+        <div class="show-header">
+          <h2 class="cp-asker-and-question">
+            <div class="asker"><%= @user_string %></div>
+            <div class="question"><%= @title %></div>
+          </h2>
+        </div>
+        <p class="description"><%= @choice_point.description %></p>
+      </div>
+      <% if @belongs_to_current_user && @expired %>
+        <% if @choice_point.feedback %>
+          <%#= render #TODO %>
+        <% else %>
+          <%= render "feedback" %>
+        <% end %>
+      <% end %>
     </div>
-    <h3 class="description"><%= @choice_point.description %></h3>
     <% no_vote = @user_has_voted || @belongs_to_current_user || @expired %>
     <%= render (no_vote ? "results" : "voting_form"),
                choice_point: @choice_point,
                highest_score: @highest_score,
                expired: @expired %>
-    <% if @belongs_to_current_user && @expired %>
-      <% if @choice_point.feedback %>
-        <%#= render #TODO %>
-      <% else %>
-        <%= render "feedback" %>
-      <% end %>
-    <% end %>
   </div>
 </div>
