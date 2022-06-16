@@ -62,14 +62,17 @@
 
 .card-product-infos h2 {
   font-family: 'Martel';
+  color: $orange-red;
 }
 
 .card-product-infos h5 {
   font-family: 'Chivo';
+  color: #6B98A8;
 }
 
 .card-product-infos p {
   font-family: 'Chivo';
+  color: #6B98A8;
 }
 
 .card-container a {
@@ -106,12 +109,12 @@
 
 .last-chance-container h3 {
   font-family: 'Martel';
-  color: black;
+  color: $orange-red;
 }
 
 .card-last-chance p {
   font-family: 'Chivo';
-  color: $black;
+  color: #6B98A8;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
@@ -136,9 +139,11 @@
   padding: 13px;
   .info-text p {
     font-size: 16px;
+    color: black;
   }
   .info-text a {
     text-decoration: underline;
+    color: #6b97a8;
   }
 }
 
