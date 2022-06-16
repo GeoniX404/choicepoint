@@ -1,11 +1,9 @@
 <div>
-  <div>
-    <h2>Add an option</h3>
-    <%= render "form_option",
-        choice_point: @choice_point,
-        option: @option,
-        is_first_option: @options.empty? %>
-  </div>
+  <h2>Add an option</h3>
+  <%= render "form_option",
+      choice_point: @choice_point,
+      option: @option,
+      is_first_option: @options.empty? %>
 </div>
 
 <div class="options-list">

@@ -28,3 +28,14 @@
   font-family: 'Chivo';
   font-size: 24px;
 }
+
+.options-page-submit-choice-point {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  h3 {
+    color: $orange-red;
+    font-size: 24px;
+    margin-top: 15px;
+  }
+}

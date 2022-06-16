@@ -157,8 +157,13 @@
   .show-options-row-score {
     font-size: $paragraph-size;
     color: $black;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: 700;
+    padding-left: 0;
+    margin-left: 16px;
+    font-family: $body-font;
+    color: $blue-gray;
+    font-size: 20px;
   }
 }
 
