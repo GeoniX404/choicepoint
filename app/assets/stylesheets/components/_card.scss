@@ -104,8 +104,11 @@
     text-decoration: none;
     color: $black;
     border-bottom: 1px solid $medium-gray;
-      .card-last-chance:last-child { border-bottom: none; }
   }
+}
+
+.card-last-chance-outer:last-child .card-last-chance {
+  border-bottom: none;
 }
 
 .last-chance-container h3 {
