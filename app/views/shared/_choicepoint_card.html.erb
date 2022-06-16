@@ -32,7 +32,7 @@
                            "fas cp-card-voted-color" : "far") %>
                       fa-bookmark"
                data-id="<%= choicepoint.id %>"></i>
-            <%= current_user.favorited?(choicepoint) ? "remove" : "save" %>
+            <span class="save-target"><%= current_user.favorited?(choicepoint) ? "remove" : "save" %></span>
 
           <% end %>
 
