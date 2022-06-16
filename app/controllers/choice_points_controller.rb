@@ -117,6 +117,7 @@ class ChoicePointsController < ApplicationController
     @expired = @belongs_to_current_user.filter do |point|
       point.expired
     end
+
   end
 
   private

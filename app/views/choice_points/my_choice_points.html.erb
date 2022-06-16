@@ -56,19 +56,20 @@
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
     <!--Saved ChoicePoints -->
     <div class="show-view">
-        <% @current_user.all_favorited.each do |favorite| %>
+        <% @current_user.all_favorites.each do |favorite| %>
         <div class="show-container">
           <div class="show-header">
             <h1 class="question">
-              <%= choice.title %>
+<!-- favorite.favoritable reurns the instance of choice_point that has been favorited -->
+              <%= favorite.favoritable.title %>
             </h1>
           </div>
-          <h4 class="description"><%= choice.description %></h4>
+          <h4 class="description"><%= favorite.favoritable.description %></h4>
               <% no_vote = true %>
               <%= render (no_vote ? "results" : "voting_form"),
-                  choice_point: choice,
-                  highest_score: choice.highest_score,
-                  expired: choice.expired %>
+                  choice_point: favorite.favoritable,
+                  highest_score: favorite.favoritable.highest_score,
+                  expired: favorite.favoritable.expired %>
         </div>
         <% end %>
       </div>
