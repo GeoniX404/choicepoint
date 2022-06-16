@@ -60,6 +60,18 @@
   align-items: flex-start;
 }
 
+.card-product-infos h2 {
+  font-family: 'Martel';
+}
+
+.card-product-infos h5 {
+  font-family: 'Chivo';
+}
+
+.card-product-infos p {
+  font-family: 'Chivo';
+}
+
 .card-container a {
   text-decoration: none;
   color: $black;
@@ -93,10 +105,12 @@
 }
 
 .last-chance-container h3 {
+  font-family: 'Martel';
   color: black;
 }
 
 .card-last-chance p {
+  font-family: 'Chivo';
   color: $black;
   font-size: 16px;
   font-weight: 500;
