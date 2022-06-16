@@ -7,4 +7,11 @@
     font-size: 25px;
     font-weight: 700;
   }
+  color: $orange-red;
+  .modal-body {
+    h1 {
+      font-family: $body-font;
+    }
+    color: $blue-gray;
+  }
 }
