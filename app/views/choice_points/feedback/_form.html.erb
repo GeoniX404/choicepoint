@@ -1,0 +1,33 @@
+<%# ChoicePoint.options.description for dropdown to pick chosen option %>
+
+<%# Shouldn't really be doing this here... %>
+<% options = choice_point.options.order('score DESC') %>
+
+<div class="feedback-container"
+     data-controller="choice-point-feedback-form"
+     data-choice-point-feedback-form-target="container"
+     >
+  <h3 class="feedback-heading">How did it go?</h3>
+  <br>
+  <%= simple_form_for [ choice_point ], html: { data: {
+        choice_point_feedback_form_target: "form",
+        action: "submit->choice-point-feedback-form#update"
+      } } do |f| %>
+    <div class="choicepoint-description-container">
+      <%= f.simple_fields_for :chosen_option do |o| %>
+        <%= o.input :id, label: "What did you pick?",
+            collection: options, label_method: :description,
+            value_method: :id, required: true, input_html: { class: "small-select" } %>
+      <% end %>
+      <div class="feedback-last-row">
+        <%= f.input :successful,
+                    label: "Did it work out?",
+                    as: :select,
+                    required: true,
+                    input_html: { class: "small-select" },
+                    wrapper_html: { class: "margin-bottom-override" } %>
+        <%= f.button :submit, "Submit", class: "btn-main feedback-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>
