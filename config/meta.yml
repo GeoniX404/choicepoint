@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "ChoicePoint"
+meta_title: "ChoicePoint - Let us decide"
+meta_description: "Can't decide? Ask us!"
+meta_image: "OldCPLogo.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
