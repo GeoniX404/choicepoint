@@ -75,9 +75,9 @@ class ChoicePointsController < ApplicationController
     @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
     @chosen_option.chosen = true
     @chosen_option.save
-    if params[:choice_point][:successful] == "1"
+    if params[:choice_point][:successful] == "true"
       @choice_point.successful = true
-    elsif params[:choice_point][:successful] == "0"
+    elsif params[:choice_point][:successful] == "false"
       @choice_point.successful = false
     end
     @choice_point.feedback = "Feedback Provided"

@@ -1,0 +1,15 @@
+<div class="feedback-report-container">
+  <% if @choice_point.successful %>
+    <h3 class="feedback-heading">
+      You chose <strong><%= @choice_point.chosen.description %></strong>, and it worked out great!
+    </h3>
+    <p>Everyone who voted for <strong><%= @choice_point.chosen.description %></strong> gets +5 reputation.</p>
+
+  <% else %>
+        <h3 class="feedback-heading">
+      You chose <strong><%= @choice_point.chosen.description %></strong>, but it didn’t work out.
+    </h3>
+    <p>Sorry to hear that. 😢 ChoicePoint isn’t perfect, but we do our best!</p>
+
+  <% end %>
+</div>
