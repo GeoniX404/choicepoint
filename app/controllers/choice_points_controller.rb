@@ -1,5 +1,5 @@
 class ChoicePointsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index new show create]
+  skip_before_action :authenticate_user!, only: %i[index new show create toggle_favourite]
 
   def index
     if params[:query].present?
@@ -13,6 +13,11 @@ class ChoicePointsController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: 'choice_points/list', locals: { choice_points: @choice_points }, formats: [:html] }
     end
+  end
+
+  def toggle_favorite
+    @choicepoint = ChoicePoint.find(params[:id])
+    current_user.favorited?(@choicepoint) ? current_user.unfavorite(@choicepoint) : current_user.favorite(@choicepoint)
   end
 
   def show
@@ -124,6 +129,7 @@ class ChoicePointsController < ApplicationController
     @expired = @belongs_to_current_user.filter do |point|
       point.expired
     end
+
   end
 
   private

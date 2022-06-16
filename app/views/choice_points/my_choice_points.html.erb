@@ -7,7 +7,7 @@
     <button class="btn-view nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Past ChoicePoints</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="btn-view nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#" type="button" role="tab" aria-controls="#" aria-selected="false">Saved ChoicePoints</button>
+    <button class="btn-view nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Saved ChoicePoints</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -49,10 +49,26 @@
     </div>
   <!--My past ChoicePoints -->
   </div>
-
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
+    <!--Saved ChoicePoints -->
+    <div class="show-view">
+        <% @current_user.all_favorites.each do |favorite| %>
+        <div class="show-container">
+          <div class="show-header">
+            <h1 class="question">
+<!-- favorite.favoritable reurns the instance of choice_point that has been favorited -->
+              <%= favorite.favoritable.title %>
+            </h1>
+          </div>
+          <h4 class="description"><%= favorite.favoritable.description %></h4>
+              <% no_vote = true %>
+              <%= render (no_vote ? "results" : "voting_form"),
+                  choice_point: favorite.favoritable,
+                  highest_score: favorite.favoritable.highest_score,
+                  expired: favorite.favoritable.expired %>
+        </div>
+        <% end %>
+      </div>
   <!--Saved ChoicePoints -->
-  <div>
-    <p>Work in progress</p>
   </div>
-  <!--Saved ChoicePoints -->
 </div>

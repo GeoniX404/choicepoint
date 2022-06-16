@@ -1,6 +1,6 @@
 <%= link_to choice_point_path(choicepoint) do %>
   <div class="card-product general-card container-left">
-    <div class="card-product-infos">
+    <div class="card-product-infos" data-controller="favorite">
       <%# <div class="asker"><%= @user_string %>
       <h5>posted by <%= choicepoint.user.name %></h5>
       <h2><%= choicepoint.title %></h2>
@@ -11,7 +11,9 @@
         <% else %>
           <i class="far fa-circle"></i> vote
         <% end %>
-        <i class="far fa-bookmark"></i> save
+          <%= link_to toggle_favorite_choice_point_path(choicepoint), remote: true , method: :post, data: {action: "click->favorite#toggle"} do %>
+            <i class="<%= current_user.favorited?(choicepoint) ? "fas cp-card-voted-color" : "far" %> fa-bookmark" data-id="<%= choicepoint.id %>"> <%= current_user.favorited?(choicepoint) ? "Remove" : "Save" %> </i>
+          <% end %>
       </div>
     </div>
     <img src="https://source.unsplash.com/random/?<%= choicepoint.title %>" />
