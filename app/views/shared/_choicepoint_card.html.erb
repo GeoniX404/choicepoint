@@ -4,7 +4,7 @@
       <%# <div class="asker"><%= @user_string %>
       <h5>posted by <%= choicepoint.user.name %></h5>
       <h2><%= choicepoint.title %></h2>
-      <p><%= choicepoint.description %></p>
+      <p><%= truncate(choicepoint.description, :length => 60) %></p>
       <div class="card-product-save container-left">
         <% if choicepoint.vote_from?(current_user)%>
           <i class="far fa-check-circle" class= "cp-card-voted-color"></i> voted
