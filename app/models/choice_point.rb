@@ -8,8 +8,11 @@ class ChoicePoint < ApplicationRecord
   validates :title, presence: true
   validates :deadline, presence: true
 
-  pg_search_scope :search_by_title_and_description,
+  pg_search_scope :search_by_title_and_description_and_user,
     against: %i[ title description ],
+    associated_against: {
+      user: [:name]
+    },
     using: {
       tsearch: { prefix: true }
     }
