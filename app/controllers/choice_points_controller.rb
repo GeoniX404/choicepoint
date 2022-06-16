@@ -5,7 +5,7 @@ class ChoicePointsController < ApplicationController
     if params[:query].present?
       @choice_points = ChoicePoint.search_by_title_and_description_and_user(params[:query])
     else
-      @choice_points = ChoicePoint.all
+      @choice_points = ChoicePoint.all.order(deadline: :desc)
     end
 
     @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
