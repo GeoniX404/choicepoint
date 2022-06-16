@@ -16,6 +16,9 @@
           <% end %>
       </div>
     </div>
-    <img src="https://source.unsplash.com/random/?<%= choicepoint.title %>" />
+      <div class="calendar-icon">
+      <i class="far fa-calendar" style="font-size:100px; position: relative;"></i>
+         <h2 style="position: absolute;"> <%=choicepoint.deadline.strftime("%b %d")%></h2>
+      </div>
   </div>
 <% end %>

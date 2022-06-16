@@ -1,21 +1,19 @@
 .card-product {
   overflow: hidden;
-  height: 150px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background: $off-white;
+  height: 140px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
   position: relative;
   border-radius: 10px;
   text-decoration: none;
-  &:hover {
-    background-color: $orange-red-transparent;
-  }
+
 }
 .card-product-save {
   position: absolute;
-  left: 0;
-  bottom: 13px;
+  left: 14px;
+  bottom: 5px;
   font-family: 'Kumbh Sans', sans-serif;
   color: #CCCCCC;
 }
@@ -26,11 +24,21 @@
   height: 80%;
   width: 120px;
   object-fit: cover;
-  margin: 15px;
+  margin-right: 12px;
   border-radius: 5px;
   align-items: center;
   position: relative;
   justify-content: center;
+  margin-top: 14px;
+}
+
+.calendar-icon {
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  color: #CCCCCC
 }
 
 .card-product h2 {
@@ -38,6 +46,7 @@
   font-weight: bold;
   margin: 0;
 }
+
 
 .card-product p {
   font-size: 16px;
@@ -51,28 +60,17 @@
   color: #CCCCCC;
 }
 
+.calendar-text {
+  margin-top:.3em;
+  font-size: 16px;
+}
+
 .card-product .card-product-infos {
-  padding: 13px;
-  padding-left: 0;
+  padding: 16px;
 }
 
 .card-product-infos {
   align-items: flex-start;
-}
-
-.card-product-infos h2 {
-  font-family: 'Martel';
-  color: $orange-red;
-}
-
-.card-product-infos h5 {
-  font-family: 'Chivo';
-  color: #6B98A8;
-}
-
-.card-product-infos p {
-  font-family: 'Chivo';
-  color: #6B98A8;
 }
 
 .card-container a {
@@ -81,25 +79,26 @@
 }
 
 .last-chance-container{
-  background-color: $off-white;
+  background-color: white;
   width: 100%;
   height: 100%;
   align-items: stretch;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 13px;
-  border-radius: 32px;
-  // border: 3px solid $off-white;
+  padding: 3px 3px 3px 3px;
+  border-radius: 10px;
+  border: 3px solid $white;
   .card-last-chance{
     padding: 0.50em;
+    margin: 0 auto;
     margin-bottom: 3px;
     width: 98%;
     overflow: hidden;
-    background: $off-white;
+    background: $white;
     padding: 0.50em;
-    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     position: relative;
     text-decoration: none;
     color: $black;
@@ -112,13 +111,12 @@
 }
 
 .last-chance-container h3 {
-  font-family: 'Martel';
-  color: $orange-red;
+  color: black;
+  margin-top: 7px;
 }
 
 .card-last-chance p {
-  font-family: 'Chivo';
-  color: #6B98A8;
+  color: $black;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
@@ -139,18 +137,6 @@
   align-items: center;
 }
 
-.card-what-is {
-  padding: 13px;
-  .info-text p {
-    font-size: 16px;
-    color: black;
-  }
-  .info-text a {
-    text-decoration: underline;
-    color: #6b97a8;
-  }
-}
-
 .what-is {
   overflow: hidden;
   height: 250px;
@@ -163,8 +149,7 @@
   text-decoration: none;
 }
 
-.general-card {
-  border: 2px solid $orange-red;
-  border-radius: 16px;
-  box-shadow: revert;
+.info-text {
+  position: absolute;
+  z-index: 1;
 }
