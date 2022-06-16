@@ -196,9 +196,11 @@
   margin-bottom: 0;
 }
 
-.feedback-submit {
+.feedback-last-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
 }
 
 .votes-container{

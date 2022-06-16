@@ -13,13 +13,14 @@
             collection: options, label_method: :description,
             value_method: :id, required: true, input_html: { class: "small-select" } %>
       <% end %>
-      <%= f.input :successful,
-                  label: "Did it work out?",
-                  as: :select,
-                  required: true,
-                  input_html: { class: "small-select" } %>
-      <div class="feedback-submit">
-        <%= f.button :submit, "Submit", class: "btn-main" %>
+      <div class="feedback-last-row">
+        <%= f.input :successful,
+                    label: "Did it work out?",
+                    as: :select,
+                    required: true,
+                    input_html: { class: "small-select" },
+                    wrapper_html: { class: "margin-bottom-override" } %>
+        <%= f.button :submit, "Submit", class: "btn-main feedback-submit" %>
       </div>
     </div>
   <% end %>
