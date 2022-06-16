@@ -83,7 +83,7 @@
 .show-container .show-options {
   background-color: $off-white;
   border-radius: 16px;
-  padding: 24px;
+  padding-top: 24px;
   padding-bottom: 16px;
   display: grid;
   grid-template-columns: 0fr 43fr 2fr 16fr 2fr 34fr;
@@ -118,7 +118,7 @@
     font-size: 20px;
   }
   .selected-area {
-    background-color: $light-gray;
+    background-color: $blue-gray-transparent;
   }
   .winning-area {
     background-color: $orange-red-transparent;

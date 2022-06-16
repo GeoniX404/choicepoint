@@ -1,4 +1,5 @@
-<div class="show-options votes-container <%= "active-votes-container" unless expired %>">
+<div class="show-options votes-container <%= "active-votes-container" unless expired %>"
+     <%== "style='margin-left: -26px;'" if belongs_to_current_user && !expired %>>
   <%= render "voting_area_content",
       choice_point: choice_point,
       highest_score: highest_score,

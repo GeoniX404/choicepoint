@@ -116,7 +116,7 @@
 
 .signedin-button-container {
   display: flex;
-  gap: 8px;
+  gap: 16px;
 }
 
 .login-btn-container {
@@ -156,6 +156,7 @@
     opacity: 1;
     color: $orange-red;
   }
+  width: 81.2969px;
 }
 
 .btn-ghost-voted {

@@ -18,9 +18,7 @@
   color: #CCCCCC;
   gap: 16px;
 }
-.cp-card-voted-color {
-  color: black;
-}
+
 .card-product img {
   height: 80%;
   width: 120px;
@@ -41,7 +39,6 @@
 .card-product p {
   font-size: 16px;
   line-height: 1.4;
-  opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -90,16 +87,16 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 13px;
+  padding: 24px;
+  padding-right: 0;
   border-radius: 32px;
   // border: 3px solid $off-white;
   .card-last-chance{
-    padding: 0.50em;
+    padding: 0.50em 0;
     margin-bottom: 3px;
     width: 98%;
     overflow: hidden;
     background: $off-white;
-    padding: 0.50em;
     // box-shadow: 0 0 15px rgba(0,0,0,0.2);
     position: relative;
     text-decoration: none;
@@ -110,6 +107,7 @@
 
 .card-last-chance-outer:last-child .card-last-chance {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .last-chance-container h3 {
@@ -131,6 +129,8 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
+  width: 11%;
+  text-align: right;
 }
 
 .last-chance-row{
@@ -141,10 +141,10 @@
 }
 
 .card-what-is {
-  padding: 13px;
+  padding: 24px;
   .info-text p {
     font-size: 16px;
-    color: black;
+    color: #343434;
     margin-bottom: 0;
   }
   .info-text a {
@@ -190,5 +190,6 @@
 
 .card-product-save {
   font-family: 'Chivo';
-  color: $black;
+  color: $blue-gray;
+  opacity: 0.7;
 }
