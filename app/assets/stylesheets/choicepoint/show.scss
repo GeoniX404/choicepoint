@@ -17,11 +17,14 @@
     align-items: flex-start;
   }
   .asker {
+    font-family: 'Chivo';
     font-size: $paragraph-size;
     color: $dark-gray;
     font-weight: 400;
   }
   .question {
+    font-family: 'Martel';
+    color: $orange-red;
     font-size: $main-header-size;
     font-weight: 700;
   }
@@ -169,6 +172,9 @@
     color: $dark-gray;
     text-transform: uppercase;
     padding: 0 16px;
+  }
+  .description {
+    font-family: 'Chivo';
   }
 }
 

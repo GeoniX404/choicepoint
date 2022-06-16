@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 140px;
+  height: 150px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background: $off-white;
   display: flex;
@@ -26,7 +26,7 @@
   height: 80%;
   width: 120px;
   object-fit: cover;
-  margin: 13px;
+  margin: 15px;
   border-radius: 5px;
   align-items: center;
   position: relative;
@@ -58,6 +58,21 @@
 
 .card-product-infos {
   align-items: flex-start;
+}
+
+.card-product-infos h2 {
+  font-family: 'Martel';
+  color: $orange-red;
+}
+
+.card-product-infos h5 {
+  font-family: 'Chivo';
+  color: #6B98A8;
+}
+
+.card-product-infos p {
+  font-family: 'Chivo';
+  color: #6B98A8;
 }
 
 .card-container a {
@@ -92,12 +107,18 @@
   }
 }
 
+.card-last-chance-outer:last-child .card-last-chance {
+  border-bottom: none;
+}
+
 .last-chance-container h3 {
-  color: black;
+  font-family: 'Martel';
+  color: $orange-red;
 }
 
 .card-last-chance p {
-  color: $black;
+  font-family: 'Chivo';
+  color: #6B98A8;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
@@ -122,9 +143,11 @@
   padding: 13px;
   .info-text p {
     font-size: 16px;
+    color: black;
   }
   .info-text a {
     text-decoration: underline;
+    color: #6b97a8;
   }
 }
 

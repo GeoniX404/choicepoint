@@ -18,10 +18,10 @@ body {
 
 .choicepoint {
   .card-container{
-  width: 60%;
+  width: 55%;
   }
   .ranking-container{
-  width: 40%;
+  width: 45%;
   }
 }
 
@@ -48,12 +48,12 @@ body {
     width: revert;
   }
   .container-left {
-    padding-left: 21%;
+    padding-left: 24%;
     border-width: 2px 2px 2px 0px;
     border-radius: 0px 16px 16px 0px;
   }
   .container-right {
-    padding-right: 27%;
+    padding-right: 25%;
     border-width: 2px 0px 2px 2px;
     border-radius: 16px 0 0 16px;
   }
@@ -62,7 +62,7 @@ body {
 .choicepoint {
   display: flex;
   justify-content: space-between;
-  gap: 160px;
+  gap: 40px;
 }
 
 .memo {
@@ -72,7 +72,7 @@ body {
 .ranking-container {
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 36px;
 }
 
 #what-is-backdrop {
@@ -81,5 +81,6 @@ body {
 
 .index-bottom-links {
   display: flex;
-  gap: 16px;
+  gap: 20px;
+  padding-top: 8px;
 }
