@@ -1,8 +1,8 @@
 <div>
   <%= simple_form_for [ @choice_point ] do |f| %>
     <div class="choicepoint-description-container">
-      <%= f.input :title, placeholder: 'Where should I go for college?', label: 'What decision do you need to make?', :class => "form-field", required: true %>
-      <%= f.input :description, placeholder: "I live in the western United States, and I'm interested in studying science.", label: 'Provide some additional information:', :class => "form-field", input_html: { class: "large-text-area" }, as: :text %>
+      <%= f.input :title, placeholder: 'What decision do you need to make?', label: false, :class => "form-field", required: true %>
+      <%= f.input :description, placeholder: 'Provide some additional information.', label: false, :class => "form-field", input_html: { class: "large-text-area" }, as: :text %>
     </div>
     <div class="button-container">
       <%= f.input :deadline, label: 'Add a deadline:', :class => "form-field", required: true, as: :date, html5: true %>

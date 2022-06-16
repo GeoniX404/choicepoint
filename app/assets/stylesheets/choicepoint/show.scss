@@ -6,6 +6,7 @@
   gap: 32px;
   margin: 48px auto;
   width: 80%;
+  color: $blue-gray;
 
   .cp-asker-and-question {
     // TODO: Add CSS reset
@@ -19,7 +20,7 @@
   .asker {
     font-family: 'Chivo';
     font-size: $paragraph-size;
-    color: $dark-gray;
+    color: $blue-gray;
     font-weight: 400;
   }
   .question {
@@ -60,7 +61,6 @@
 
 .feedback-container {
   background-color: $off-white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
   padding: 24px;
   flex-basis: 300px;
@@ -71,8 +71,9 @@
   h3 {
     margin-bottom: 8px;
   }
-  flex-basis: 300px;
+  flex-basis: 374px;
   flex-shrink: 0;
+  text-align: right;
 }
 
 .show-options {
@@ -81,7 +82,6 @@
 
 .show-container .show-options {
   background-color: $off-white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
   border-radius: 16px;
   padding: 24px;
   padding-bottom: 16px;
@@ -98,8 +98,9 @@
     flex-basis: 70%;
   }
   .show-options-row {
+    font-family: $headers-font;
     font-size: $secondary-header-size;
-    font-weight: 700;
+    color: $orange-red;
     // div {
     //   display: flex;
     //   flex-direction: row;
@@ -108,7 +109,6 @@
     // }
   }
   .show-options-row-pros-and-cons {
-    text-transform: uppercase;
     padding: 6px 16px;
   }
   .pros-and-cons-container {
@@ -122,6 +122,7 @@
   }
   .winning-area {
     background-color: $orange-red-transparent;
+    color: $orange-red;
   }
   .show-options-radio-button-space {
     border-radius: 48px 0 0 48px;
@@ -132,22 +133,22 @@
   }
   .show-options-row-score-bar {
     background-color: $orange-red;
-    box-shadow: 4px 4px 0px $medium-gray,
-                3.75px 3.75px 0px $medium-gray,
-                3.5px 3.5px 0px $medium-gray,
-                3.25px 3.25px 0px $medium-gray,
-                3px 3px 0px $medium-gray,
-                2.75px 2.75px 0px $medium-gray,
-                2.5px 2.5px 0px $medium-gray,
-                2.25px 2.25px 0px $medium-gray,
-                2px 2px 0px $medium-gray,
-                1.75px 1.75px 0px $medium-gray,
-                1.5px 1.5px 0px $medium-gray,
-                1.25px 1.25px 0px $medium-gray,
-                1px 1px 0px $medium-gray,
-                0.75px 0.75px 0px $medium-gray,
-                0.5px 0.5px 0px $medium-gray,
-                0.25px 0.25px 0px $medium-gray;
+    box-shadow: 4px 4px 0px $blue-gray-transparent,
+                3.75px 3.75px 0px $blue-gray-transparent,
+                3.5px 3.5px 0px $blue-gray-transparent,
+                3.25px 3.25px 0px $blue-gray-transparent,
+                3px 3px 0px $blue-gray-transparent,
+                2.75px 2.75px 0px $blue-gray-transparent,
+                2.5px 2.5px 0px $blue-gray-transparent,
+                2.25px 2.25px 0px $blue-gray-transparent,
+                2px 2px 0px $blue-gray-transparent,
+                1.75px 1.75px 0px $blue-gray-transparent,
+                1.5px 1.5px 0px $blue-gray-transparent,
+                1.25px 1.25px 0px $blue-gray-transparent,
+                1px 1px 0px $blue-gray-transparent,
+                0.75px 0.75px 0px $blue-gray-transparent,
+                0.5px 0.5px 0px $blue-gray-transparent,
+                0.25px 0.25px 0px $blue-gray-transparent;
     height: 50%;
     margin: 0 16px;
     padding: 0;
@@ -172,7 +173,7 @@
   }
   .show-options-header-row {
     font-size: $paragraph-size;
-    color: $dark-gray;
+    color: $blue-gray;
     text-transform: uppercase;
     padding: 0 16px;
   }
@@ -211,6 +212,7 @@
 .feedback-heading {
   font-size: 24px;
   margin-bottom: 0;
+  color: $orange-red;
 }
 
 .feedback-last-row {
@@ -220,9 +222,13 @@
   gap: 16px;
 }
 
-.votes-container{
+.votes-container {
   input.btn-main {
     text-transform: uppercase;
     font-size: $secondary-header-size;
   }
+}
+
+.feedback-chosen-option {
+  text-decoration: underline;
 }
