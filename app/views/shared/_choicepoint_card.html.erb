@@ -1,11 +1,11 @@
 <%= link_to choice_point_path(choicepoint) do %>
-  <div class="card-product">
+  <div class="card-product general-card container-left">
     <div class="card-product-infos" data-controller="favorite">
       <%# <div class="asker"><%= @user_string %>
       <h5>posted by <%= choicepoint.user.name %></h5>
       <h2><%= choicepoint.title %></h2>
       <p><%= choicepoint.description %></p>
-      <div class="card-product-save">
+      <div class="card-product-save container-left">
         <% if choicepoint.vote_from?(current_user)%>
           <i class="far fa-check-circle" class= "cp-card-voted-color"></i> voted
         <% else %>

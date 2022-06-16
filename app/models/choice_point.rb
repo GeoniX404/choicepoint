@@ -9,11 +9,14 @@ class ChoicePoint < ApplicationRecord
   validates :deadline, presence: true
   acts_as_favoritable
 
-  pg_search_scope :search_by_title_and_description,
-    against: %i[ title description ],
-    using: {
-      tsearch: { prefix: true }
-    }
+  pg_search_scope :search_by_title_and_description_and_user,
+                  against: %i[title description],
+                  associated_against: {
+                    user: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def vote_from?(user)
     # Returns true if user has voted on the choice point, false otherwise.

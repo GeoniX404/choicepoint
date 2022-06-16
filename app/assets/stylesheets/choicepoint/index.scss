@@ -1,5 +1,5 @@
 body {
-  background-color: $white;
+  background-color: $off-white;
 }
 
 .index_main_text{
@@ -11,70 +11,75 @@ body {
 .secondary-title {
   font-size: 56px;
   color: $orange-red;
-  text-shadow: 0px 0px 16px #FFF8F7;
+  //text-shadow: 0px 0px 16px #FFF8F7;
+  font-family: 'Martel';
   font-weight: 600;
 }
-
-// .trending-text {
-//   font-size: 40px;
-//   align-self: flex-bottom;
-//   letter-spacing: 60px;
-//   text-indent: 60px;
-//   color: #1E3765;
-//   text-shadow:
-//       0.05em 0 #FFD600,
-//       0 0.05em #FFD600,
-//       -0.05em 0 #FFD600,
-//       0 -0.05em #FFD600,
-//       -0.05em -0.05em #FFD600,
-//       -0.05em 0.05em #FFD600,
-//       0.05em -0.05em #FFD600,
-//       0.05em 0.05em #FFD600;
-// }
 
 .choicepoint {
   .card-container{
   width: 60%;
   }
   .ranking-container{
-  width: 38%;
+  width: 40%;
   }
 }
 
 .large_index_image{
- background-image: url(asset_path("question_mark_hands.jpeg"));
- height: 350px;
- background-size: cover;
- display: flex;
- width:auto;
- display: grid;
- grid-template-rows: 1fr 1fr;
- padding: 88px;
- place-items: center;
-}
-
-.form-control {
-  background-color: white;
+  //background-image: url(asset_path("question_mark_hands.jpeg"));
+  height: 200px;
+  background-size: cover;
+  display: flex;
+  width:auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 48px;
+  place-items: center;
+  gap: 20px;
 }
 
 .page-container{
-  width: 75%;
+  // width: 75%;
   margin: 35px auto;
+}
+
+.choice-points-index-container {
+  &.page-container {
+    width: revert;
+  }
+  .container-left {
+    padding-left: 21%;
+    border-width: 2px 2px 2px 0px;
+    border-radius: 0px 16px 16px 0px;
+  }
+  .container-right {
+    padding-right: 27%;
+    border-width: 2px 0px 2px 2px;
+    border-radius: 16px 0 0 16px;
+  }
 }
 
 .choicepoint {
   display: flex;
+  justify-content: space-between;
+  gap: 160px;
 }
-.trending {
-  background-color: white;
-}
+
 .memo {
   height: 200px;
-  background-color: white;
 }
 
 .ranking-container {
   height: 100vh;
   position: sticky;
   top: 0;
+}
+
+#what-is-backdrop {
+  background-color: $orange-red-transparent;
+}
+
+.index-bottom-links {
+  display: flex;
+  gap: 16px;
 }

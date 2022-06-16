@@ -2,7 +2,8 @@
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 6px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -13,13 +14,14 @@
 }
 
 .btn-main {
-  color: $white;
+  color: $off-white;
   background-color: $orange-red;
-  padding: 8px 24px;
-  border-radius: 50px;
+  padding: 4px 10px 0px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: 700;
   border: 3px solid $orange-red;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   letter-spacing: 1px;
   text-indent: 1px;
   transition: all 0.3s ease;
@@ -30,12 +32,28 @@
   }
 }
 
+.btn-nav {
+  color: $orange-red;
+  border: 1px solid $orange-red;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  font-weight: 900;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover,&:focus,&:active {
+    color: $orange-red;
+    opacity: 1;
+  }
+}
+
 .btn-login {
-  color: $white;
-  border: 1px solid $white;
-  padding: 6px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  color: $off-white;
+  border: 1px solid $off-white;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  font-weight: 900;
   opacity: 0.6;
   transition: opacity 0.3s ease;
   &:hover,&:focus,&:active {
@@ -46,9 +64,10 @@
 
 .btn-signup {
   color: $orange-red;
-  background: $white;
-  padding: 6px 24px;
-  border-radius: 50px;
+  background: $off-white;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -59,25 +78,46 @@
 }
 
 .btn-info {
-  color: $orange-red;
-  border: 2px solid $orange-red;
-  background-color: $white;
-  padding: 6px 24px;
-  border-radius: 50px;
-  text-transform: uppercase;
+  color: $off-white;
+  //border: 2px solid $orange-red;
+  background-color: $orange-red;
+  padding: 5px 15px 3px 15px;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  //text-transform: uppercase;
   transition: all 0.3s ease;
   letter-spacing: 1px;
   text-indent: 1px;
+  border-color: $orange-red;
   &:hover,&:focus,&:active {
-    background-color: $white;
+    background-color: $off-white;
     color: $orange-red;
     border: 2px solid $orange-red;
   }
 }
 
+.btn-procon {
+  color: $orange-red;
+  //border: 2px solid $orange-red;
+  background-color: white;
+  padding: 5px 15px 3px 15px !important;
+  //border-radius: 50px;
+  font-family: 'Martel';
+  //text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  border-color: $orange-red;
+  &:hover,&:focus,&:active {
+    background-color: $orange-red;
+    color: white;
+    //border: 2px solid $orange-red;
+  }
+}
+
 .signedin-button-container {
   display: flex;
-  gap: 0px;
+  gap: 8px;
 }
 
 .login-btn-container {
@@ -87,10 +127,11 @@
 }
 
 .btn-submit {
-  color: $white;
+  color: $off-white;
   background-color: $orange-red;
   padding: 9px 27px;
-  border-radius: 50px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: 700;
   float: right;
 }
@@ -103,12 +144,13 @@
 
 .btn-ghost-vote {
 
-  background-color: $white;
+  background-color: transparent;
   height: 35px;
   color: $orange-red;
   border: 1px solid $orange-red;
-  padding: 2px 20px;
-  border-radius: 50px;
+  padding: 7px 10px 15px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel' !important;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -121,22 +163,24 @@
 .btn-ghost-voted {
   background-color: $orange-red;
   height: 35px;
-  color: white;
+  color: $off-white;
   border: 1px solid $orange-red;
-  padding: 2px 15px;
-  border-radius: 50px;
+  padding: 7px 10px 15px 10px;
+  //border-radius: 50px;
+  font-family: 'Martel';
   font-weight: lighter;
 }
 
 .btn.btn-large {
   font-size: 18px;
+  font-family: 'Martel';
 }
 
 .btn-view {
-  color: $white;
+  color: $off-white;
   background-color:  lightgrey !important;
   padding: 8px 24px;
-  border-radius: 50px;
+  //border-radius: 50px;
   font-weight: 700;
   border: 3px solid $orange-red;
   text-transform: uppercase;
@@ -145,7 +189,23 @@
   transition: all 0.3s ease;
   &:hover,&:focus,&:active {
     background-color: $orange-red !important;
-    color: $white !important;
+    color: $off-white !important;
     border: 3px solid $orange-red;
   }
+}
+
+.btn-bolder {
+  font-weight: 400;
+  border-width: 2px;
+  opacity: 1;
+}
+
+.btn-filled {
+  color: $white;
+  background-color: $orange-red;
+  &:hover,&:focus,&:active {
+    background-color: $dark-red;
+    color: $white;
+  }
+  opacity: 1;
 }

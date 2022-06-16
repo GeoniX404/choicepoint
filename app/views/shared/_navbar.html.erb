@@ -19,13 +19,13 @@
           <div class="signedin-button-container">
             <li class="nav-item">
               <!-- TODO: Create about page -->
-              <%= link_to "ABOUT", choice_points_path, class: "btn btn-login" %>
+              <%= link_to "About", choice_points_path, class: "btn btn-nav" %>
             </li>
             <li class="nav-item">
-              <%= link_to "BROWSE", choice_points_path, class: "btn btn-login" %>
+              <%= link_to "Browse", choice_points_path, class: "btn btn-nav" %>
             </li>
             <li class="nav-item">
-              <%= link_to "CREATE", new_choice_point_path, class: "btn btn-signup" %>
+              <%= link_to "Create", new_choice_point_path, class: "btn btn-nav" %>
             </li>
             <li class="nav-username">
               <%= current_user.name %>
@@ -40,8 +40,8 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "LOG IN", new_user_session_path, class: "btn btn-login spaced" %>
-            <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-signup spaced" %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-nav" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-nav" %>
           </li>
         <% end %>
       </ul>

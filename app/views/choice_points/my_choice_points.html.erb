@@ -25,7 +25,7 @@
             <% no_vote = true %>
             <%= render (no_vote ? "results" : "voting_form"),
                 choice_point: choice,
-                highest_score: 0,
+                highest_score: choice.highest_score,
                 expired: choice.expired %>
       </div>
       <% end %>
@@ -46,7 +46,7 @@
             <% no_vote = true %>
             <%= render (no_vote ? "results" : "voting_form"),
                 choice_point: choice,
-                highest_score: 0,
+                highest_score: choice.highest_score,
                 expired: choice.expired %>
       </div>
       <% end %>

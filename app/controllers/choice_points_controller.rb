@@ -3,12 +3,16 @@ class ChoicePointsController < ApplicationController
 
   def index
     if params[:query].present?
-      @choice_points = ChoicePoint.search_by_title_and_description(params[:query])
+      @choice_points = ChoicePoint.search_by_title_and_description_and_user(params[:query])
     else
       @choice_points = ChoicePoint.all
     end
 
     @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'choice_points/list', locals: { choice_points: @choice_points }, formats: [:html] }
+    end
   end
 
   def toggle_favorite
