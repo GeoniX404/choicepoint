@@ -88,7 +88,19 @@ class ChoicePointsController < ApplicationController
         user.update(reputation: user.reputation + 5)
       end
     end
-    redirect_to choice_point_path(@choice_point)
+    respond_to do |format|
+      format.html do
+        redirect_to my_choice_points_path
+      end
+      format.text do
+        render partial: "choice_points/feedback/completed",
+               locals: { choice_point: @choice_point },
+               formats: [:html]
+      end
+    end
+
+
+    # redirect_to choice_point_path(@choice_point)
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
     #   # successful or not (adds true or false to ChoicePoint.success)
