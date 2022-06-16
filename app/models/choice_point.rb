@@ -59,4 +59,8 @@ class ChoicePoint < ApplicationRecord
   def ongoing
     deadline >= Date.today
   end
+
+  def chosen
+    options.find(&:chosen)
+  end
 end
