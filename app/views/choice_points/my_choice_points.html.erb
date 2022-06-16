@@ -13,7 +13,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <!--My active ChoicePoints -->
-    <div class="show-view">
+    <div class="show-view my-choice-points">
       <% @ongoing.each do |choice| %>
       <div class="show-container">
         <div class="show-header">
@@ -32,27 +32,24 @@
     </div>
 <!--My active ChoicePoints -->
   </div>
+
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <!--My past ChoicePoints -->
-    <div class="show-view">
+  <!--My past ChoicePoints -->
+    <div class="show-view my-choice-points">
       <% @expired.each do |choice| %>
-      <div class="show-container">
-        <div class="show-header">
-          <h1 class="question">
-            <%= choice.title %>
-          </h1>
-        </div>
-        <h4 class="description"><%= choice.description %></h4>
-            <% no_vote = true %>
-            <%= render (no_vote ? "results" : "voting_form"),
-                choice_point: choice,
-                highest_score: choice.highest_score,
-                expired: choice.expired %>
-      </div>
+        <%= render "show_container",
+                   choice_point: choice,
+                   user_string: "You asked…",
+                   title: choice.title,
+                   belongs_to_current_user: true,
+                   expired: true,
+                   user_has_voted: false,
+                   highest_score: choice.highest_score %>
       <% end %>
     </div>
   <!--My past ChoicePoints -->
   </div>
+
   <!--Saved ChoicePoints -->
   <div>
     <p>Work in progress</p>

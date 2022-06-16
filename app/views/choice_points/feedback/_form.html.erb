@@ -1,12 +1,12 @@
 <%# ChoicePoint.options.description for dropdown to pick chosen option %>
 
 <%# Shouldn't really be doing this here... %>
-<% options = @choice_point.options.order('score DESC') %>
+<% options = choice_point.options.order('score DESC') %>
 
 <div class="feedback-container">
   <h3 class="feedback-heading">How did it go?</h3>
   <br>
-  <%= simple_form_for [ @choice_point ] do |f| %>
+  <%= simple_form_for [ choice_point ] do |f| %>
     <div class="choicepoint-description-container">
       <%= f.simple_fields_for :chosen_option do |o| %>
         <%= o.input :id, label: "What did you pick?",
