@@ -1,5 +1,5 @@
 class ChoicePointsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index new show create]
+  skip_before_action :authenticate_user!, only: %i[index new show create toggle_favourite]
 
   def index
     if params[:query].present?
@@ -9,6 +9,11 @@ class ChoicePointsController < ApplicationController
     end
 
     @last_chance = ChoicePoint.all.order(deadline: :asc).select{|choicepoint| choicepoint.deadline > Date.today}.take(5)
+  end
+
+  def toggle_favorite
+    @choicepoint = ChoicePoint.find(params[:id])
+    current_user.favorited?(@choicepoint) ? current_user.unfavorite(@choicepoint) : current_user.favorite(@choicepoint)
   end
 
   def show

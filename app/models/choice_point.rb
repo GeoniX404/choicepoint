@@ -7,6 +7,7 @@ class ChoicePoint < ApplicationRecord
   accepts_nested_attributes_for :options
   validates :title, presence: true
   validates :deadline, presence: true
+  acts_as_favoritable
 
   pg_search_scope :search_by_title_and_description,
     against: %i[ title description ],
