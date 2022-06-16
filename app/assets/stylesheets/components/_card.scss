@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 140px;
+  height: 150px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background: $off-white;
   display: flex;
@@ -26,7 +26,7 @@
   height: 80%;
   width: 120px;
   object-fit: cover;
-  margin: 13px;
+  margin: 15px;
   border-radius: 5px;
   align-items: center;
   position: relative;
@@ -89,6 +89,7 @@
     text-decoration: none;
     color: $black;
     border-bottom: 1px solid $medium-gray;
+      .card-last-chance:last-child { border-bottom: none; }
   }
 }
 
