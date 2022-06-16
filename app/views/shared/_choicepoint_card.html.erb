@@ -14,7 +14,9 @@
       <% end %>
       <div>
         <%= link_to toggle_favorite_choice_point_path(choicepoint), remote: true , method: :post, data: {action: "click->favorite#toggle"} do %>
-          <i class="<%= current_user.favorited?(choicepoint) ? "fas cp-card-voted-color" : "far" %> fa-bookmark" data-id="<%= choicepoint.id %>"> <%= current_user.favorited?(choicepoint) ? "Remove" : "Save" %> </i>
+          <% if current_user %>
+            <i class="<%= current_user.favorited?(choicepoint) ? "fas cp-card-voted-color" : "far" %> fa-bookmark" data-id="<%= choicepoint.id %>"> <%= current_user.favorited?(choicepoint) ? "Remove" : "Save" %> </i>
+          <% end %>
         <% end %>
       </div>
     </div>
