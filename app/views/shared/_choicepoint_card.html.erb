@@ -1,17 +1,19 @@
 <%= link_to choice_point_path(choicepoint) do %>
   <div class="card-product general-card container-left">
-    <div class="card-product-infos">
+    <div class="card-product-infos" data-controller="favorite">
       <%# <div class="asker"><%= @user_string %>
       <h5>posted by <%= choicepoint.user.name %></h5>
       <h2><%= choicepoint.title %></h2>
-      <p><%= choicepoint.description %></p>
+      <p><%= truncate(choicepoint.description, :length => 60) %></p>
       <div class="card-product-save container-left">
         <% if choicepoint.vote_from?(current_user)%>
           <i class="far fa-check-circle" class= "cp-card-voted-color"></i> voted
         <% else %>
           <i class="far fa-circle"></i> vote
         <% end %>
-        <i class="far fa-bookmark"></i> save
+          <%= link_to toggle_favorite_choice_point_path(choicepoint), remote: true , method: :post, data: {action: "click->favorite#toggle"} do %>
+            <i class="<%= current_user.favorited?(choicepoint) ? "fas cp-card-voted-color" : "far" %> fa-bookmark" data-id="<%= choicepoint.id %>"> <%= current_user.favorited?(choicepoint) ? "Remove" : "Save" %> </i>
+          <% end %>
       </div>
     </div>
       <div class="calendar-icon">

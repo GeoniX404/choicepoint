@@ -1,7 +1,7 @@
 <div class="last-chance-container">
   <h3>Last chance to vote! </h3>
   <% last_chance.each do |lastchance| %>
-  <%= link_to choice_point_path(lastchance) do %>
+    <%= link_to choice_point_path(lastchance), class: "card-last-chance-outer" do %>
       <div class="card-last-chance">
 
     <%# MAKE YOUR CARD HERE %>
@@ -15,8 +15,7 @@
       <h2> <%= pluralize((lastchance.deadline - Date.today + 1).to_i, "day") %></h2>
       </div>
     <%# END CARD HERE %>
-
-     </div>
+      </div>
     <% end %>
   <% end %>
 </div>

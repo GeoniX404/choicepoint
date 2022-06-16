@@ -1,5 +1,5 @@
 class ChoicePointsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index new show create]
+  skip_before_action :authenticate_user!, only: %i[index new show create toggle_favourite]
 
   def index
     if params[:query].present?
@@ -13,6 +13,11 @@ class ChoicePointsController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: 'choice_points/list', locals: { choice_points: @choice_points }, formats: [:html] }
     end
+  end
+
+  def toggle_favorite
+    @choicepoint = ChoicePoint.find(params[:id])
+    current_user.favorited?(@choicepoint) ? current_user.unfavorite(@choicepoint) : current_user.favorite(@choicepoint)
   end
 
   def show
@@ -75,9 +80,9 @@ class ChoicePointsController < ApplicationController
     @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
     @chosen_option.chosen = true
     @chosen_option.save
-    if params[:choice_point][:successful] == "1"
+    if params[:choice_point][:successful] == "true"
       @choice_point.successful = true
-    elsif params[:choice_point][:successful] == "0"
+    elsif params[:choice_point][:successful] == "false"
       @choice_point.successful = false
     end
     @choice_point.feedback = "Feedback Provided"
@@ -88,7 +93,19 @@ class ChoicePointsController < ApplicationController
         user.update(reputation: user.reputation + 5)
       end
     end
-    redirect_to choice_point_path(@choice_point)
+    respond_to do |format|
+      format.html do
+        redirect_to my_choice_points_path
+      end
+      format.text do
+        render partial: "choice_points/feedback/completed",
+               locals: { choice_point: @choice_point },
+               formats: [:html]
+      end
+    end
+
+
+    # redirect_to choice_point_path(@choice_point)
     # if @belongs_to_current_user && @expired
     #   # render feedback form asks user to select chosen option (sets option chosen to true)
     #   # successful or not (adds true or false to ChoicePoint.success)
@@ -112,6 +129,7 @@ class ChoicePointsController < ApplicationController
     @expired = @belongs_to_current_user.filter do |point|
       point.expired
     end
+
   end
 
   private
