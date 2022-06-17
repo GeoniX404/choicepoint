@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+USERNAMES = ['rmgodfrey', 'GeoniX404', 'aackle00', 'chriswall24', 'donwaffle37']
+NUMBER_OF_ADDITIONAL_USERS = 50
 seconds_per_day = 86_400
 DEADLINE_FIRST = Time.now - (15 * seconds_per_day) # 15 days before now
 DEADLINE_LAST = Time.now + (30 * seconds_per_day) # 30 days after now
@@ -370,10 +371,10 @@ end
 
 def create_choice_points(user)
   NUMBER_OF_CHOICE_POINTS.times do
-    title, description, options = CHOICE_POINTS.pop
+    cp = CHOICE_POINTS.pop
     choice_point = ChoicePoint.create!(
-      title: title,
-      description: description,
+      title: cp[:title],
+      description: cp[:description],
       user: user,
       # Gets a random time between DEADLINE_FIRST and DEADLINE_LAST
       # See "https://stackoverflow.com/questions/2683857/how-to-generate-a-random-date-and-time-between-two-dates"
@@ -381,16 +382,16 @@ def create_choice_points(user)
         ((DEADLINE_LAST.to_f - DEADLINE_FIRST.to_f) * rand) + DEADLINE_FIRST.to_f
       )
     )
-    create_options(choice_point, options)
+    create_options(choice_point, cp[:options])
   end
 end
 
 def create_options(choice_point, options)
   options.each do |option|
     Option.create!(
-      description: option.description,
-      pros: option.pros,
-      cons: option.cons,
+      description: option[:description],
+      pros: option[:pros],
+      cons: option[:cons],
       choice_point: choice_point,
       score: HIGHEST_SCORE * rand
     )

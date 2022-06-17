@@ -4,7 +4,7 @@
     <%= link_to choice_point_path(choicepoint) do %>
       <h5>posted by <%= choicepoint.user.name %></h5>
       <h2><%= choicepoint.title %></h2>
-      <p><%= truncate(choicepoint.description, :length => 60) %></p>
+      <p><%= truncate(choicepoint.description, :length => 59) %></p>
     <% end %>
     <div class="card-product-save">
 
