@@ -67,9 +67,41 @@ a:hover {
   color: white;
   background-color: $orange-red;
   align-self: center;
-  border-radius: 21px;
-  height: 30px;
-  width: 30px;
-  padding-left: 7px;
-  padding-top: 3px;
+  border-radius: 50%;
+  padding: 5px 8px;
+  min-width: 35px;
+  text-align: center;
+}
+
+#navbarDropdown {
+  cursor: pointer;
+}
+
+.username-and-reputation {
+  display: flex;
+  gap: 8px;
+  padding-right: 1rem;
+}
+
+.nav-item {
+  margin-top: 4px;
+}
+
+.navbar-expand-sm .navbar-nav .dropdown-menu {
+  cursor: pointer;
+  padding-right: 0;
+  text-align: right;
+}
+
+.dropdown-item {
+  color: $blue-gray;
+  &:active {
+    background-color: #e9ecef;
+  }
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  background-color: unset;
 }

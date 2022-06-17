@@ -27,15 +27,16 @@
             <li class="nav-item">
               <%= link_to "Create", new_choice_point_path, class: "btn btn-nav" %>
             </li>
-            <li class="nav-username">
-              <%= current_user.name %>
-            </li>
-            <li class="nav-rep">
-              <%= current_user.reputation %>
-            </li>
           </div>
           <li class="nav-item dropdown">
-            <%= image_tag "menu-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <ul class="username-and-reputation" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li class="nav-username">
+                <%= current_user.name %>
+              </li>
+              <li class="nav-rep">
+                <%= current_user.reputation %>
+              </li>
+            </ul>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My ChoicePoints", my_choice_points_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

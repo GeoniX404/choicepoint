@@ -6,19 +6,39 @@
       <h2><%= choicepoint.title %></h2>
       <p><%= truncate(choicepoint.description, :length => 60) %></p>
     <% end %>
-    <div class="card-product-save container-left">
-      <% if choicepoint.vote_from?(current_user)%>
-        <i class="far fa-check-circle" class= "cp-card-voted-color"></i> voted
-      <% else %>
-        <i class="far fa-circle"></i> vote
-      <% end %>
-      <div>
+    <div class="card-product-save">
+
+        <% if choicepoint.vote_from?(current_user)%>
+          <div class="card-voted-container">
+            <i class="far fa-check-circle"></i> voted
+          </div>
+        <% else %>
+          <div class="card-voted-container">
+            <%= link_to choice_point_path(choicepoint) do %>
+              <i class="far fa-circle"></i> vote
+            <% end %>
+          </div>
+        <% end %>
+
+      <div class="card-save-container">
         <% if current_user %>
-          <%= link_to toggle_favorite_choice_point_path(choicepoint), remote: true , method: :post, data: {action: "click->favorite#toggle"} do %>
-            <i class="<%= current_user.favorited?(choicepoint) ? "fas cp-card-voted-color" : "far" %> fa-bookmark" data-id="<%= choicepoint.id %>"> <%= current_user.favorited?(choicepoint) ? "Remove" : "Save" %> </i>
+
+          <%= link_to toggle_favorite_choice_point_path(choicepoint),
+                      remote: true,
+                      method: :post,
+                      data: {action: "click->favorite#toggle"} do %>
+
+            <i class="<%= (current_user.favorited?(choicepoint) ?
+                           "fas cp-card-voted-color" : "far") %>
+                      fa-bookmark"
+               data-id="<%= choicepoint.id %>"></i>
+            <span class="save-target"><%= current_user.favorited?(choicepoint) ? "remove" : "save" %></span>
+
           <% end %>
+
         <% end %>
       </div>
+
     </div>
   </div>
    <div class="calendar-icon">

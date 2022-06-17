@@ -9,18 +9,17 @@ export default class extends Controller {
 
   toggle(event) {
 
+    let text = event.currentTarget.querySelector(".save-target")
     let i = event.currentTarget.querySelector("i")
-    console.log("i", i)
+    console.log(i)
     if (i.classList.contains("fas")) {
       i.classList.remove("fas")
-      i.classList.remove("cp-card-voted-color")
       i.classList.add("far")
-      i.innerText = " Save"
+      text.innerText = " save"
     } else {
       i.classList.add("fas")
-      i.classList.remove("cp-card-voted-color")
       i.classList.remove("far")
-      i.innerText = " Saved"
+      text.innerText = "saved"
     }
   }
 }

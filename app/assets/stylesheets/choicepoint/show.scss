@@ -62,7 +62,7 @@
 .feedback-container {
   background-color: $off-white;
   border-radius: 16px;
-  padding: 24px;
+  padding-left: 24px;
   flex-basis: 300px;
   flex-shrink: 0;
 }
@@ -71,7 +71,7 @@
   h3 {
     margin-bottom: 8px;
   }
-  flex-basis: 374px;
+  flex-basis: 377px;
   flex-shrink: 0;
   text-align: right;
 }
@@ -83,10 +83,10 @@
 .show-container .show-options {
   background-color: $off-white;
   border-radius: 16px;
-  padding: 24px;
+  padding-top: 24px;
   padding-bottom: 16px;
   display: grid;
-  grid-template-columns: 0fr 43fr 2fr 16fr 2fr 34fr;
+  grid-template-columns: 0fr 12fr 2fr 11fr 0fr 34fr;
   grid-template-rows: 1fr;
   grid-auto-rows: auto;
   // gap: 16px;
@@ -113,23 +113,35 @@
   }
   .pros-and-cons-container {
     gap: 16px;
+    background-color: $blue-gray-transparent;
+    border-radius: 0 48px 48px 0;
+    padding-right: 26px;
   }
   .show-options-check-mark {
     font-size: 20px;
   }
-  .selected-area {
-    background-color: $light-gray;
-  }
+  // .selected-area {
+  //   background-color: $blue-gray-transparent;
+  // }
   .winning-area {
     background-color: $orange-red-transparent;
     color: $orange-red;
   }
   .show-options-radio-button-space {
     border-radius: 48px 0 0 48px;
+    background-color: $blue-gray-transparent;
+    width: 40px;
+  }
+  .show-options-radio-button {
+    position: absolute;
+    width: 19px;
+    transform: scale(1.3);
+    filter: hue-rotate(158deg);
   }
   .show-options-row-description {
-    border-radius: 0 48px 48px 0;
+    border-radius: 0;
     padding-left: 0;
+    background-color: $blue-gray-transparent;
   }
   .show-options-row-score-bar {
     background-color: $orange-red;
@@ -149,7 +161,7 @@
                 0.75px 0.75px 0px $blue-gray-transparent,
                 0.5px 0.5px 0px $blue-gray-transparent,
                 0.25px 0.25px 0px $blue-gray-transparent;
-    height: 50%;
+    height: 30px;
     margin: 0 16px;
     padding: 0;
     border-radius: 5px;
@@ -157,8 +169,13 @@
   .show-options-row-score {
     font-size: $paragraph-size;
     color: $black;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: 700;
+    padding-left: 0;
+    margin-left: 16px;
+    font-family: $body-font;
+    color: $blue-gray;
+    font-size: 20px;
   }
 }
 
@@ -176,6 +193,9 @@
     color: $blue-gray;
     text-transform: uppercase;
     padding: 0 16px;
+    &.show-options-row-description {
+      background-color: revert;
+    }
   }
   .description {
     font-family: 'Chivo';
@@ -231,4 +251,18 @@
 
 .feedback-chosen-option {
   text-decoration: underline;
+}
+
+.prize-and-check-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selected-icon {
+  color: $blue-gray;
+}
+
+.award-icon {
+  color: $orange-red;
 }

@@ -116,7 +116,7 @@
 
 .signedin-button-container {
   display: flex;
-  gap: 8px;
+  gap: 16px;
 }
 
 .login-btn-container {
@@ -139,6 +139,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
+  align-items: center;
 }
 
 .btn-ghost-vote {
@@ -156,6 +157,7 @@
     opacity: 1;
     color: $orange-red;
   }
+  width: 81.2969px;
 }
 
 .btn-ghost-voted {
@@ -201,9 +203,11 @@
 .btn-filled {
   color: $white;
   background-color: $orange-red;
+  transition: all 0.3s ease;
+  opacity: 1;
   &:hover,&:focus,&:active {
     background-color: $dark-red;
     color: $white;
+    border-color: $dark-red;
   }
-  opacity: 1;
 }

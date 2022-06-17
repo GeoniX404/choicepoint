@@ -69,7 +69,8 @@ class ChoicePointsController < ApplicationController
         render partial: "choice_points/results",
                locals: { choice_point: @choice_point,
                          highest_score: @choice_point.highest_score,
-                         expired: @choice_point.expired },
+                         expired: @choice_point.expired,
+                         belongs_to_current_user: false },
                formats: [:html]
       end
     end
