@@ -322,7 +322,7 @@ def create_users
       email: email,
       password: password,
       name: username,
-      reputation: rand(REPUTATION_RANGE)
+      reputation: username == "donwaffle37" ? 34 : rand(REPUTATION_RANGE)
     )
     puts "Created user #{username}\n\tEmail: #{email}\n\tPassword: '#{password}'"
     create_choice_points(user)
