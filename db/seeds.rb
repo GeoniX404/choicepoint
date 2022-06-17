@@ -16,6 +16,7 @@ HIGHEST_SCORE = 100
 # Odds that a user votes for a particular choice point.
 VOTE_PROBABILITY = 1.0 / 2.0
 FEEDBACK_PROBABILITY = 0.5/2.0
+FAVORITE_PROBABILITY = 0.5/2.0
 REPUTATION_RANGE = 5..40
 
 CHOICE_POINTS = [
@@ -329,7 +330,7 @@ def create_users
   create_additional_users
 end
 
-def make_users_vote_and_provide_feedback
+def make_users_do_things
   User.all.each do |user|
     ChoicePoint.all.each do |choice_point|
       if choice_point.user == user && choice_point.expired && rand < FEEDBACK_PROBABILITY
@@ -350,8 +351,11 @@ def make_users_vote_and_provide_feedback
         vote = Vote.create!(option: option, user: user)
         option.increase_score(vote)
       end
+      if choice_point.user != user && rand < FAVORITE_PROBABILITY
+        user.favorite(choice_point)
+      end
     end
-    puts "#{user.name} has voted and provided feedback"
+    puts "#{user.name} has voted, provided feedback, and favorited choice points"
   end
 end
 
@@ -402,5 +406,5 @@ puts "Destroying existing users and choice points"
 User.destroy_all
 puts "Creating seeds..."
 create_users
-make_users_vote_and_provide_feedback
+make_users_do_things
 puts "New seeds created"
