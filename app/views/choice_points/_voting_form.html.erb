@@ -11,12 +11,14 @@
         choice_point: choice_point,
         highest_score: highest_score,
         expired: expired do |option| %>
-      <%= form.radio_button(
-        :option,
-        (option.id).to_s,
-        data: { action: "click->choice-point-voting-form#enableVoteButton" },
-        class: "show-options-radio-button-space"
-      ) %>
+      <div class="show-options-radio-button-space">
+        <%= form.radio_button(
+          :option,
+          (option.id).to_s,
+          data: { action: "click->choice-point-voting-form#enableVoteButton" },
+          class: "show-options-radio-button"
+        ) %>
+      </div>
       <%= form.label "option_#{(option.id).to_s}".to_sym, option.description, class: "show-options-row show-options-row-description" %>
     <% end %>
 
@@ -24,7 +26,7 @@
 
   <%= form.submit(
     "Vote",
-    class: "btn btn-main really-spaced",
+    class: "btn btn-main really-spaced vote-button",
     disabled: true,
     data: { choice_point_voting_form_target: "voteButton" }
   ) %>

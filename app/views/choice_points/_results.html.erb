@@ -1,23 +1,24 @@
-<div class="show-options votes-container <%= "active-votes-container" unless expired %>"
-     <%== "style='margin-left: -26px;'" if belongs_to_current_user && !expired %>>
+<div class="show-options votes-container <%= "active-votes-container" unless expired %>">
   <%= render "voting_area_content",
       choice_point: choice_point,
       highest_score: highest_score,
       expired: expired do |option| %>
         <% selected = option.votes.any? { |vote| vote.user == current_user } %>
-        <p class="show-options-check-mark
-                  show-options-radio-button-space
-                  <%= "winning-area" if expired && choice_point.leader == option %>
-                  <%= "selected-area" if selected%>">
-          <%== "<i class='far fa-check-circle selected-icon'></i>" if selected %>
-          <%== "&nbsp;" if expired && choice_point.leader == option && selected %>
-          <%== "<i class='fas fa-award'></i>" if expired && choice_point.leader == option %>
-        </p>
+        <div class="show-options-check-mark
+                  show-options-radio-button-space">
+          <% if expired && choice_point.leader == option && selected %>
+            <div class="prize-and-check-mark">
+              <i class="fas fa-award award-icon"></i>
+              <i class="far fa-check-circle selected-icon"></i>
+            </div>
+          <% elsif expired && choice_point.leader == option %>
+            <i class="fas fa-award award-icon"></i>
+          <% elsif selected %>
+            <i class='far fa-check-circle selected-icon'></i>
+          <% end %>
+        </div>
         <p class="show-options-row
-                  show-options-row-description
-                  <%# Not DRY %>
-                  <%= "winning-area" if expired && choice_point.leader == option %>
-                  <%= "selected-area" if selected%>">
+                  show-options-row-description">
           <%= option.description %>
         </p>
   <% end %>
