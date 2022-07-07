@@ -9,32 +9,57 @@
 <!-- Content -->
 <div class="page-container choice-points-index-container" data-controller="search">
   <div class="choicepoint">
-
-    <!-- Search bar and choice point cards -->
     <div class="card-container">
+
+      <!-- Search bar -->
       <div class="search-bar mb-4 container-left">
-        <%= form_tag choice_points_path, method: :get, class: "search-wrapper", data: { search_target: 'form' } do %>
-          <%= text_field_tag :query,
-            params[:query],
+        <%= form_tag choice_points_path, {
+          method: :get,
+          class: "search-wrapper",
+          data: { search_target: 'form' }
+        } do %>
+          <%= text_field_tag :query, params[:query], {
             class: "form-control inner-search-bar",
             placeholder: "Search ChoicePoint",
             value: params[:query],
-            data: { search_target: 'input', action: 'keyup->search#update' }%>
-          <%= button_tag raw("<i class='fas fa-search'></i>"), class: "search-button" %>
+            data: { search_target: 'input', action: 'keyup->search#update' }
+          } %>
+          <%= button_tag raw("<i class='fas fa-search'></i>"), {
+            class: "search-button"
+          } %>
         <% end %>
       </div>
+
+      <!-- Choice point cards -->
       <%= render 'list', choice_points: @choice_points %>
-    </div>
 
-    <!-- Last chance container -->
+    </div>
     <div class="ranking-container">
-      <div class="trending mb-4 container-right general-card"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
-      <div class="trending mb-4 container-right" id="what-is-backdrop"><%= render "shared/info_card"%></div>
-      <div class="index-bottom-links">
-        <p><%= link_to "My ChoicePoints", my_choice_points_path, class: "btn-ghost btn-bolder" %></p>
-        <p><%= link_to "New ChoicePoint", new_choice_point_path, class: "btn-ghost btn-bolder btn-filled" %></p>
-      </div>
-    </div>
 
+      <!-- Last chance container -->
+      <div class="trending mb-4 container-right general-card">
+        <%= render "shared/last_chance_card", last_chance: @last_chance %>
+      </div>
+
+      <!-- About ChoicePoint -->
+      <div class="trending mb-4 container-right" id="what-is-backdrop">
+        <%= render "shared/info_card" %>
+      </div>
+
+      <!-- Links -->
+      <div class="index-bottom-links">
+        <p>
+          <%= link_to "My ChoicePoints", my_choice_points_path, {
+            class: "btn-ghost btn-bolder"
+          } %>
+        </p>
+        <p>
+          <%= link_to "New ChoicePoint", new_choice_point_path, {
+            class: "btn-ghost btn-bolder btn-filled"
+          } %>
+        </p>
+      </div>
+
+    </div>
   </div>
 </div>
