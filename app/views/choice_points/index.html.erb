@@ -1,15 +1,17 @@
+<!-- Banner text -->
 <div class="index_main_text">
-    <div class="large_index_image">
-      <h2 class="secondary-title">Can’t decide? Ask us.</h2>
-      <p><%= link_to "Get Your Solution", new_choice_point_path, class: "btn-large btn-info btn" %></p>
-       <!-- <h2 class="trending-text">TRENDING</h2> -->
-    </div>
+  <div class="large_index_image">
+    <h2 class="secondary-title">Can’t decide? Ask us.</h2>
+    <p><%= link_to "Get Your Solution", new_choice_point_path, class: "btn-large btn-info btn" %></p>
   </div>
+</div>
 
+<!-- Content -->
 <div class="page-container choice-points-index-container" data-controller="search">
   <div class="choicepoint">
-    <div class="card-container">
 
+    <!-- Search bar and choice point cards -->
+    <div class="card-container">
       <div class="search-bar mb-4 container-left">
         <%= form_tag choice_points_path, method: :get, class: "search-wrapper", data: { search_target: 'form' } do %>
           <%= text_field_tag :query,
@@ -24,10 +26,10 @@
       <%= render 'list', choice_points: @choice_points %>
     </div>
 
+    <!-- Last chance container -->
     <div class="ranking-container">
       <div class="trending mb-4 container-right general-card"><%= render "shared/last_chance_card",last_chance: @last_chance%></div>
       <div class="trending mb-4 container-right" id="what-is-backdrop"><%= render "shared/info_card"%></div>
-      <%# <div class="memo"><p>memo placeholder</p></div> %>
       <div class="index-bottom-links">
         <p><%= link_to "My ChoicePoints", my_choice_points_path, class: "btn-ghost btn-bolder" %></p>
         <p><%= link_to "New ChoicePoint", new_choice_point_path, class: "btn-ghost btn-bolder btn-filled" %></p>
