@@ -1,3 +1,3 @@
 **[ChoicePoint](http://www.choicepoint.me)** allows you to crowdsource your decisions. Can’t decide what to wear to that job interview? Why not ask the users of ChoicePoint? Once you’ve posted your dilemma on ChoicePoint, feel free to vote on other people’s difficult decisions as well! If you vote for an option that turns out to be successful, you’ll receive a reputation boost, which means your vote counts for more in the future.
 
-ChoicePoint is a web app created in Ruby on Rails, originally developed in two weeks as a final project for [Le Wagon](https://www.lewagon.com)’s web development bootcamp. It remains a work in progress.
+ChoicePoint is a web app created in Ruby on Rails, originally developed in two weeks as a final project for [Le Wagon](https://www.lewagon.com)’s web development bootcamp. It remains a work in progress; for now it is best viewed at a screen width of 1440 px.
