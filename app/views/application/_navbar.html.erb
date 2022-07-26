@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <ul class="navbar-logo">
-      <li><a href="/choice_points"><%= image_tag "CPLogo.png" %></a></li>
-      <li><a href="/choice_points"><h1 class="main-title">ChoicePoint</h1></li>
+      <li><a href="/choice_points"><%= image_tag "CPLogo.png", alt: "" %></a></li>
+      <li><h1 class="main-title"><a href="/choice_points">ChoicePoint</a></h1></li>
     </ul>
     <%#= link_to "Home", class: "navbar-brand" do %>
       <%#= image_tag "ChoicePointLogo.png" %>
@@ -43,7 +43,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item" id="sign-up-buttons">
             <%= link_to "Log in", new_user_session_path, class: "btn btn-nav" %>
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-nav" %>
           </li>
