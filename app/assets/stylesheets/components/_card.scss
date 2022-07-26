@@ -8,7 +8,8 @@
   &:hover {
     background-color: $orange-red-transparent;
   }
-  .card-link {
+  header h3 a::after {
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -19,7 +20,6 @@
   footer ul li,
   header h3 a {
     z-index: 20;
-    position: relative;
   }
 }
 
@@ -38,6 +38,7 @@ article.card-product {
     "header  image"
     "content image"
     "footer  image";
+  position: relative;
   p {
     margin-top: 0;
   }
@@ -155,10 +156,6 @@ article.card-product footer ul {
 
 .card-container a {
   text-decoration: none;
-}
-
-.card-container header a:hover {
-  text-decoration: underline;
 }
 
 .card-container footer li {

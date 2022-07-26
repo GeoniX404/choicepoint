@@ -5,10 +5,6 @@ module ChoicePoints
       super(helper_proxy)
     end
 
-    def link
-      h.choice_point_path(@choice_point)
-    end
-
     def pre_heading
       "posted by #{@choice_point.user.name}"
     end
