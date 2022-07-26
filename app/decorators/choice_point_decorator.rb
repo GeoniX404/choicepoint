@@ -1,4 +1,4 @@
-class ChoicePointDecorator < Draper::Decorator
+class ChoicePointDecorator < ApplicationDecorator
   delegate_all
 
   # Call this when passing a choice point to the `card` partial.
