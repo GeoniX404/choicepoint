@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["form", "container"]
 
   update(event) {
-    console.log("I'm here!!!")
     event.preventDefault()
     const url = this.formTarget.action
     fetch(url, {

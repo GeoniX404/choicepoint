@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   update(event) {
-    console.log("I'm here!!!")
     event.preventDefault()
     const url = this.formTarget.action
     fetch(url, {
