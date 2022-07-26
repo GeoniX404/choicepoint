@@ -1,17 +1,15 @@
 class ChoicePointsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index new show create toggle_favourite]
+  skip_before_action :authenticate_user!, only: %i[index new show create toggle_favorite]
+  decorates_assigned :choice_point, :choice_points
 
   def index
-    if params[:query].present?
-      @choice_points = ChoicePoint.search_by_title_and_description_and_user(params[:query])
-    else
-      @choice_points = ChoicePoint.all.order(id: :desc).select { |choicepoint| choicepoint.deadline >= Date.today }
-    end
-
-    @last_chance = ChoicePoint.all.order(deadline: :asc).select { |choicepoint| choicepoint.deadline >= Date.today }.take(5)
+    @choice_points = ChoicePoint.expires_after(Date.today).order(id: :desc)
+    @choice_points = filtered_choice_points if params[:query].present?
+    @choice_points.includes!(:user)
+    @last_chance_choice_points = last_chance_choice_points
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'choice_points/list', locals: { choice_points: @choice_points }, formats: [:html] }
+      format.text { render_card_partial }
     end
   end
 
@@ -40,7 +38,6 @@ class ChoicePointsController < ApplicationController
 
   def new
     @choice_point = ChoicePoint.new
-    # @choice_point.options.build
   end
 
   def create
@@ -104,21 +101,7 @@ class ChoicePointsController < ApplicationController
                formats: [:html]
       end
     end
-
-
-    # redirect_to choice_point_path(@choice_point)
-    # if @belongs_to_current_user && @expired
-    #   # render feedback form asks user to select chosen option (sets option chosen to true)
-    #   # successful or not (adds true or false to ChoicePoint.success)
-    #   # and in turn adjusts voter rep accordingly
-    # end
   end
-
-    # if @belongs_to_current_user && @expired
-    #   redirect_to choice_points(@belongs_to_current_user)
-    # else
-    #   render "choice_points/new"
-    # end
 
   def my_choice_points
     @choice_points = ChoicePoint.all
@@ -130,12 +113,29 @@ class ChoicePointsController < ApplicationController
     @expired = @belongs_to_current_user.filter do |point|
       point.expired
     end
-
   end
 
   private
 
   def choice_point_params
     params.require(:choice_point).permit(:title, :description, :deadline)
+  end
+
+  def filtered_choice_points
+    @choice_points.search_by_title_and_description_and_user(params[:query])
+  end
+
+  def last_chance_choice_points
+    ChoicePoint.expires_after(Date.today)
+               .not_created_by(current_user)
+               .no_vote_from(current_user)
+               .order(deadline: :asc)
+               .limit(5).decorate
+  end
+
+  def render_card_partial
+    render partial: 'card',
+           collection: choice_points.map(&:card),
+           formats: [:html]
   end
 end
