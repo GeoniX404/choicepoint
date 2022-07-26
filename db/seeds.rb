@@ -333,7 +333,7 @@ end
 def make_users_do_things
   User.all.each do |user|
     ChoicePoint.all.each do |choice_point|
-      if choice_point.user == user && choice_point.expired && rand < FEEDBACK_PROBABILITY
+      if choice_point.user == user && choice_point.expired? && rand < FEEDBACK_PROBABILITY
         chosen_option = choice_point.options.sample
         chosen_option.chosen = true
         chosen_option.save

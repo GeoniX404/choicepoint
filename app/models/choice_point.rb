@@ -59,8 +59,7 @@ class ChoicePoint < ApplicationRecord
   end
 
   # Returns true if the choice point has expired, false otherwise.
-  # TODO: Should have named this method with a question mark at the end...
-  def expired
+  def expired?
     deadline < Date.today
   end
 

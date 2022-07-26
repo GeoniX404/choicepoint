@@ -20,7 +20,7 @@ class ChoicePointsController < ApplicationController
 
   def show
     @choice_point = ChoicePoint.find(params[:id])
-    @expired = @choice_point.expired
+    @expired = @choice_point.expired?
     @user_has_voted = @choice_point.vote_from?(current_user)
     @highest_score = @choice_point.highest_score
     @belongs_to_current_user = @choice_point.user == current_user
@@ -66,7 +66,7 @@ class ChoicePointsController < ApplicationController
         render partial: "choice_points/results",
                locals: { choice_point: @choice_point,
                          highest_score: @choice_point.highest_score,
-                         expired: @choice_point.expired,
+                         expired: @choice_point.expired?,
                          belongs_to_current_user: false },
                formats: [:html]
       end
@@ -111,7 +111,7 @@ class ChoicePointsController < ApplicationController
     end
     @belongs_to_current_user_expired = @choice_points.where(user: current_user)
     @expired = @belongs_to_current_user.filter do |point|
-      point.expired
+      point.expired?
     end
   end
 
