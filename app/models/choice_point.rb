@@ -11,7 +11,7 @@ class ChoicePoint < ApplicationRecord
 
   scope :created_by, ->(user) { where(user: user) }
   scope :not_created_by, ->(user) { where.not(user: user) }
-  scope :expires_after, ->(date) { where(deadline: date...) }
+  scope :expires_on_or_after, ->(date) { where(deadline: date...) }
   scope :expires_before, ->(date) { where(deadline: ...date) }
   scope :vote_from, lambda { |user|
     where(id: Vote.joins(:option)

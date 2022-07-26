@@ -3,7 +3,8 @@ class ChoicePointsController < ApplicationController
   decorates_assigned :choice_point, :choice_points
 
   def index
-    @choice_points = ChoicePoint.expires_after(Date.today).order(id: :desc)
+    @choice_points = ChoicePoint.expires_on_or_after(Date.today)
+                                .order(id: :desc)
     @choice_points = filtered_choice_points if params[:query].present?
     @choice_points.includes!(:user)
     @last_chance_choice_points = last_chance_choice_points
@@ -126,7 +127,7 @@ class ChoicePointsController < ApplicationController
   end
 
   def last_chance_choice_points
-    ChoicePoint.expires_after(Date.today)
+    ChoicePoint.expires_on_or_after(Date.today)
                .not_created_by(current_user)
                .no_vote_from(current_user)
                .order(deadline: :asc)
