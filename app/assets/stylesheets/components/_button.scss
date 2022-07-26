@@ -1,4 +1,6 @@
 .btn-ghost {
+  display: block;
+  text-align: center;
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 6px 24px;
@@ -14,6 +16,8 @@
 }
 
 .btn-main {
+  display: block;
+  text-align: center;
   color: $off-white;
   background-color: $orange-red;
   padding: 4px 10px 0px 10px;
@@ -33,6 +37,8 @@
 }
 
 .btn-nav {
+  display: block;
+  text-align: center;
   color: $orange-red;
   border: 1px solid $orange-red;
   padding: 5px 15px 3px 15px;
@@ -48,6 +54,8 @@
 }
 
 .btn-login {
+  display: block;
+  text-align: center;
   color: $off-white;
   border: 1px solid $off-white;
   padding: 5px 15px 3px 15px;
@@ -63,6 +71,8 @@
 }
 
 .btn-signup {
+  display: block;
+  text-align: center;
   color: $orange-red;
   background: $off-white;
   padding: 5px 15px 3px 15px;
@@ -78,6 +88,8 @@
 }
 
 .btn-info {
+  display: block;
+  text-align: center;
   color: $off-white;
   //border: 2px solid $orange-red;
   background-color: $orange-red;
@@ -97,6 +109,8 @@
 }
 
 .btn-procon {
+  display: block;
+  text-align: center;
   color: $orange-red;
   //border: 2px solid $orange-red;
   background-color: $off-white;
@@ -126,6 +140,8 @@
 }
 
 .btn-submit {
+  display: block;
+  text-align: center;
   color: $off-white;
   background-color: $orange-red;
   padding: 9px 27px;
@@ -143,6 +159,9 @@
 }
 
 .btn-ghost-vote {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
   background-color: transparent;
   height: 35px;
   color: $orange-red;
@@ -161,6 +180,9 @@
 }
 
 .btn-ghost-voted {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
   background-color: $orange-red;
   height: 35px;
   color: $off-white;
@@ -169,14 +191,19 @@
   //border-radius: 50px;
   font-family: 'Martel';
   font-weight: lighter;
+  width: 81.2969px;
 }
 
 .btn.btn-large {
+  display: block;
+  text-align: center;
   font-size: 18px;
   font-family: 'Martel';
 }
 
 .btn-view {
+  display: block;
+  text-align: center;
   color: $off-white;
   background-color:  lightgrey !important;
   padding: 8px 24px;
@@ -201,6 +228,8 @@
 }
 
 .btn-filled {
+  display: block;
+  text-align: center;
   color: $white;
   background-color: $orange-red;
   transition: all 0.3s ease;

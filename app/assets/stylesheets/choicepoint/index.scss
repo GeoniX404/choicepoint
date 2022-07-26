@@ -39,8 +39,7 @@ body {
 }
 
 .page-container{
-  // width: 75%;
-  margin: 35px auto;
+  margin-top: 35px;
 }
 
 .choice-points-index-container {
@@ -70,7 +69,7 @@ body {
 }
 
 .ranking-container {
-  height: 100vh;
+  max-height: 100vh;
   position: sticky;
   top: 36px;
 }
@@ -82,5 +81,9 @@ body {
 .index-bottom-links {
   display: flex;
   gap: 20px;
-  padding-top: 8px;
+  padding: 8px 0 1.5rem;
 }
+
+// .fa-calendar::before {
+
+// }
