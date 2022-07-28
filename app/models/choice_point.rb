@@ -4,6 +4,7 @@ class ChoicePoint < ApplicationRecord
   has_many :options, dependent: :destroy
   has_many :tags, dependent: :destroy
   has_many :votes, through: :options
+  has_many :voters, through: :votes, source: :user
   accepts_nested_attributes_for :options
   validates :title, presence: true
   validates :deadline, presence: true
@@ -30,12 +31,12 @@ class ChoicePoint < ApplicationRecord
                   using: { tsearch: { prefix: true } }
 
   def favorited_by?(user)
-    user ? super(user) : false
+    favorited.any? { |favorite| favorite.favoritor == user }
   end
 
   # Returns true if user has voted on the choice point, false otherwise.
   def vote_from?(user)
-    self.class.vote_from(user).where(id: self).size.positive?
+    voters.include?(user)
   end
 
   # Gets the total number of votes for a choice point

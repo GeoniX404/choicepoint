@@ -5,9 +5,9 @@ class ChoicePointsController < ApplicationController
   def index
     @choice_points = ChoicePoint.expires_on_or_after(Date.today)
                                 .order(id: :desc)
-    @choice_points = filtered_choice_points if params[:query].present?
-    @choice_points.includes!(:user)
-    @last_chance_choice_points = last_chance_choice_points
+    @last_chance_choice_points = last_chance(@choice_points)
+    @choice_points = filter(@choice_points) if params[:query].present?
+    @choice_points.includes!(:user, :voters, favorited: [:favoritor])
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render_card_partial }
@@ -86,7 +86,7 @@ class ChoicePointsController < ApplicationController
     end
     @choice_point.feedback = "Feedback Provided"
     @choice_point.save
-    @chosen_users = @chosen_option.users
+    @chosen_users = @chosen_option.voters
     if @choice_point.successful
       @chosen_users.each do |user|
         user.update(reputation: user.reputation + 5)
@@ -122,16 +122,16 @@ class ChoicePointsController < ApplicationController
     params.require(:choice_point).permit(:title, :description, :deadline)
   end
 
-  def filtered_choice_points
-    @choice_points.search_by_title_and_description_and_user(params[:query])
+  def filter(choice_points)
+    choice_points.search_by_title_and_description_and_user(params[:query])
   end
 
-  def last_chance_choice_points
-    ChoicePoint.expires_on_or_after(Date.today)
-               .not_created_by(current_user)
-               .no_vote_from(current_user)
-               .order(deadline: :asc)
-               .limit(5).decorate
+  def last_chance(choice_points)
+    choice_points.expires_on_or_after(Date.today)
+                 .not_created_by(current_user)
+                 .no_vote_from(current_user)
+                 .reorder(deadline: :asc)
+                 .limit(5).decorate
   end
 
   def render_card_partial
