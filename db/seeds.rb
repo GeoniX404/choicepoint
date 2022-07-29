@@ -15,8 +15,8 @@ NUMBER_OF_CHOICE_POINTS = 3
 HIGHEST_SCORE = 100
 # Odds that a user votes for a particular choice point.
 VOTE_PROBABILITY = 1.0 / 2.0
-FEEDBACK_PROBABILITY = 0.5/2.0
-FAVORITE_PROBABILITY = 0.5/2.0
+FEEDBACK_PROBABILITY = 0.5 / 2.0
+FAVORITE_PROBABILITY = 0.5 / 2.0
 REPUTATION_RANGE = 5..40
 
 CHOICE_POINTS = [
@@ -333,14 +333,14 @@ end
 def make_users_do_things
   User.all.each do |user|
     ChoicePoint.all.each do |choice_point|
-      if choice_point.user == user && choice_point.expired && rand < FEEDBACK_PROBABILITY
+      if choice_point.user == user && choice_point.expired? && rand < FEEDBACK_PROBABILITY
         chosen_option = choice_point.options.sample
         chosen_option.chosen = true
         chosen_option.save
         choice_point.successful = [true, false].sample
         choice_point.feedback = "Feedback Provided"
         choice_point.save
-        chosen_users = chosen_option.users
+        chosen_users = chosen_option.voters
         if choice_point.successful
           chosen_users.each do |user|
             user.update(reputation: user.reputation + 5)

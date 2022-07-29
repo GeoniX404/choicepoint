@@ -1,0 +1,18 @@
+<div class="last-chance-container">
+  <h2>Last chance to vote!</h2>
+  <% choice_points.each do |choice_point| %>
+    <div class="card-last-chance card-last-chance-outer last-chance-row">
+      <p class="last-chance-row-title">
+        <%= choice_point.link %>
+      </p>
+      <p class="last-chance-row-vote">
+        <%= link_to 'Vote', choice_point, class: 'btn-ghost-vote' %>
+      </p>
+      <p class="last-chance-row-deadline">
+        <%= choice_point.deadline do |deadline|
+          distance_of_time_in_words(Date.today, deadline + 1)
+        end %>
+      </p>
+    </div>
+  <% end %>
+</div>

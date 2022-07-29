@@ -105,3 +105,8 @@ a:hover {
   border: none;
   background-color: unset;
 }
+
+#sign-up-buttons {
+  display: flex;
+  gap: 16px;
+}

@@ -1,0 +1,18 @@
+<article class="mb-4 card-product general-card container-left
+                card-product-infos">
+
+  <header>
+    <p><%= card.pre_heading %></p>
+    <h3><%= card.heading %></h3>
+  </header>
+
+  <p class="card-content"><%= card.content %></p>
+  <p class="card-image"><%= card.image %></p>
+
+  <footer class="card-product-save">
+    <ul><% card.buttons.each do |button| %>
+      <li><%= button %></li>
+    <% end %></ul>
+  </footer>
+
+</article>
