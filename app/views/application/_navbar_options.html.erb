@@ -1,0 +1,48 @@
+<%# Links for the navbar %>
+<% links = user_signed_in? ? [
+  # Links when user is signed in
+  {text: "About", path: choice_points_path}, # TODO: Create about page
+  {text: "Browse", path: choice_points_path},
+  {text: "Create", path: new_choice_point_path}
+] : [
+  # Links when user is not signed in
+  {text: "Log in", path: new_user_session_path},
+  {text: "Sign up", path: new_user_registration_path}
+] %>
+
+<%# Add each link to the navbar %>
+<% links.each do |link| %>
+  <li class="nav-item">
+    <%= link_to link[:text], link[:path],
+                class: "btn-ghost" %>
+  </li>
+<% end %>
+
+<% if user_signed_in? %>
+  <li class="nav-item dropdown">
+    <button id="navbarDropdown" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"
+            class="nav-link p-0 navbar-username">
+      <span class="fs-5">
+        <%= current_user.name %>
+      </span>
+      <span class="navbar-reputation">
+        <%= current_user.reputation %>
+      </span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end text-end"
+        aria-labelledby="navbarDropdown">
+      <li>
+        <%= link_to "My ChoicePoints", my_choice_points_path,
+                    class: ["dropdown-item"],
+                    # Disable Turbolinks to ensure tabs on "My ChoicePoints"
+                    # page are properly initialized on page load
+                    data: {turbolinks: false}  %>
+      </li>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path,
+                    class: ["dropdown-item"], method: :delete %>
+      </li>
+    </ul>
+  </li>
+<% end %>
