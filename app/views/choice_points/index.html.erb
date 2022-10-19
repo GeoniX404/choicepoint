@@ -2,13 +2,14 @@
 <section class="large_index_image">
   <h2 class="secondary-title">Can’t decide? Ask us.</h2>
   <p><%= link_to "Get Your Solution", new_choice_point_path,
-                 class: "btn-large btn-info btn" %></p>
+                 class: "btn-main fs-5 text-spaced" %></p>
 </section>
 
 <!-- Content -->
 <div class="page-container choice-points-index-container choicepoint">
   <section class="card-container" data-controller="search">
     <h2 class="visually-hidden">Latest ChoicePoints</h2>
+
     <!-- Search bar -->
     <%= form_tag choice_points_path,
                  method: :get,
@@ -28,10 +29,9 @@
       <%= render partial: 'card',
                  collection: choice_points.map(&:card) %>
     </div>
-
   </section>
-  <div class="ranking-container">
 
+  <div class="ranking-container">
     <!-- Last chance to vote -->
     <section class="trending mb-4 container-right general-card">
       <%= render "last_chance", choice_points: @last_chance_choice_points %>
@@ -47,16 +47,15 @@
       <ul class="index-bottom-links">
         <li>
           <%= link_to "My ChoicePoints", my_choice_points_path, {
-            class: "btn-ghost btn-bolder"
+            class: "btn-outline"
           } %>
         </li>
         <li>
           <%= link_to "New ChoicePoint", new_choice_point_path, {
-            class: "btn-ghost btn-bolder btn-filled"
+            class: "btn-outline"
           } %>
         </li>
       </ul>
     </nav>
-
   </div>
 </div>
