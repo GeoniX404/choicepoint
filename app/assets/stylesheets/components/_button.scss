@@ -3,6 +3,7 @@
   font-family: $headings-font-family;
   --#{$prefix}btn-bg: #{$btn-outline-bg};
   padding: .3em .9em .2em .9em;
+  min-width: min-content;
 }
 
 .btn-solid {
