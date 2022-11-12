@@ -43,3 +43,15 @@
     opacity: 1;
   }
 }
+
+.btn-outline-on-primary-bg {
+  @extend .btn;
+  $hover-background: shade-color($body-bg, 10%);
+  @include button-outline-variant(
+    $color: $primary, $color-hover: shade-color($primary, 10%),
+    $active-background: $hover-background, $active-border: $hover-background,
+    $active-color: $primary
+  );
+  --bs-btn-border-color: $body-bg;
+  --bs-btn-focus-shadow-rgb: #{to-rgb($hover-background)};
+}
