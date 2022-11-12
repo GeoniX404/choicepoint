@@ -21,6 +21,7 @@ a,a:hover {
 button {
   all: unset;
   outline: revert; // Button still gets outlined when focused
+  box-sizing: border-box;
 }
 
 // Utility class for increased letter spacing (used in some buttons)
