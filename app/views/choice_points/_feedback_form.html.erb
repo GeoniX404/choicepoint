@@ -1,0 +1,24 @@
+<div class="feedback-container"
+     data-controller="choice-point-feedback-form"
+     data-choice-point-feedback-form-target="container"
+     >
+  <h3 class="feedback-heading">How did it go?</h3>
+  <%= simple_form_for [ choice_point ], html: { data: {
+        choice_point_feedback_form_target: "form",
+        action: "submit->choice-point-feedback-form#update"
+      } } do |f| %>
+    <%= f.input :chosen, label: "What did you pick?",
+                          collection: options, label_method: :description,
+                          value_method: :id, required: true,
+                          input_html: { class: "py-1 ps-2" } %>
+    <div class="d-flex justify-content-between align-items-end">
+      <%= f.input :successful,
+                    label: "Did it work out?",
+                    as: :select,
+                    required: true,
+                    input_html: { class: "py-1 ps-2" },
+                    wrapper_html: { class: "mb-0-custom" } %>
+      <%= f.button :submit, "Submit", class: "btn-solid feedback-submit" %>
+    </div>
+  <% end %>
+</div>

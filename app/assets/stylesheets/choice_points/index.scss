@@ -11,7 +11,6 @@ body {
 .secondary-title {
   font-size: 56px;
   color: $orange-red;
-  //text-shadow: 0px 0px 16px #FFF8F7;
   font-family: 'Martel';
   font-weight: 600;
 }
@@ -26,7 +25,6 @@ body {
 }
 
 .large_index_image{
-  //background-image: url(asset_path("question_mark_hands.jpeg"));
   height: 200px;
   background-size: cover;
   display: flex;
@@ -83,7 +81,3 @@ body {
   gap: 20px;
   padding: 8px 0 1.5rem;
 }
-
-// .fa-calendar::before {
-
-// }

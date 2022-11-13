@@ -15,26 +15,14 @@ class ChoicePointsController < ApplicationController
   end
 
   def toggle_favorite
-    @choicepoint = ChoicePoint.find(params[:id])
-    current_user.favorited?(@choicepoint) ? current_user.unfavorite(@choicepoint) : current_user.favorite(@choicepoint)
+    @choice_point = ChoicePoint.find(params[:id])
+    current_user.favorited?(@choice_point) ? current_user.unfavorite(@choice_point) : current_user.favorite(@choice_point)
   end
 
   def show
     @choice_point = ChoicePoint.find(params[:id])
-    @expired = @choice_point.expired?
-    @user_has_voted = @choice_point.vote_from?(current_user)
-    @highest_score = @choice_point.highest_score
-    @belongs_to_current_user = @choice_point.user == current_user
-    if @belongs_to_current_user
-      @user_string = 'You asked…'
-    else
-      @user_string = "#{@choice_point.user.name} asks…"
-    end
-    @title = @choice_point.title
-
-    @options = Option.all
-    @choice_point_options = @options.where(choice_point_id: @choice_point[:id])
-    @descriptions = @choice_point_options.map(&:description)
+    @options = @choice_point.options.order(:id)
+    @options_by_score = @options.reorder(score: :desc)
   end
 
   def new
@@ -52,12 +40,12 @@ class ChoicePointsController < ApplicationController
   end
 
   def vote
+    # Increase score of chosen option
     @option = Option.find(params[:choice_point][:option])
-    @vote = Vote.new
-    @vote.user = current_user
-    @vote.option = @option
-    @vote.save!
+    @vote = Vote.create(user: current_user, option: @option)
     @option.increase_score(@vote)
+
+    # Rerender choice point
     @choice_point = ChoicePoint.find(params[:id])
     respond_to do |format|
       format.html do
@@ -68,7 +56,7 @@ class ChoicePointsController < ApplicationController
                locals: { choice_point: @choice_point,
                          highest_score: @choice_point.highest_score,
                          expired: @choice_point.expired?,
-                         belongs_to_current_user: false },
+                         options: @choice_point.options.order(:id) },
                formats: [:html]
       end
     end
@@ -76,44 +64,17 @@ class ChoicePointsController < ApplicationController
 
   def update
     @choice_point = ChoicePoint.find(params[:id])
-    @chosen_option = Option.find(params[:choice_point][:chosen_option][:id])
-    @chosen_option.chosen = true
-    @chosen_option.save
-    if params[:choice_point][:successful] == "true"
-      @choice_point.successful = true
-    elsif params[:choice_point][:successful] == "false"
-      @choice_point.successful = false
-    end
-    @choice_point.feedback = "Feedback Provided"
-    @choice_point.save
-    @chosen_users = @chosen_option.voters
-    if @choice_point.successful
-      @chosen_users.each do |user|
-        user.update(reputation: user.reputation + 5)
-      end
-    end
-    respond_to do |format|
-      format.html do
-        redirect_to my_choice_points_path
-      end
-      format.text do
-        render partial: "choice_points/feedback/completed",
-               locals: { choice_point: @choice_point },
-               formats: [:html]
-      end
-    end
+    @chosen_option = Option.find(params[:choice_point][:chosen])
+    save_chosen_option(@chosen_option)
+    save_success_status(@choice_point)
+    boost_reputation(@chosen_option) if @choice_point.successful
+    render_feedback(@choice_point)
   end
 
   def my_choice_points
-    @choice_points = ChoicePoint.all
-    @belongs_to_current_user = @choice_points.where(user: current_user)
-    @ongoing = @belongs_to_current_user.filter do |point|
-      point.ongoing
-    end
-    @belongs_to_current_user_expired = @choice_points.where(user: current_user)
-    @expired = @belongs_to_current_user.filter do |point|
-      point.expired?
-    end
+    choice_points = ChoicePoint.where(user: current_user)
+    @expired, @ongoing = choice_points.partition(&:expired?)
+    @favorites = current_user.all_favorites
   end
 
   private
@@ -138,5 +99,38 @@ class ChoicePointsController < ApplicationController
     render partial: 'card',
            collection: choice_points.map(&:card),
            formats: [:html]
+  end
+
+  def save_chosen_option(chosen_option)
+    chosen_option.chosen = true
+    chosen_option.save
+  end
+
+  def save_success_status(choice_point)
+    case params[:choice_point][:successful]
+    when 'true' then choice_point.successful = true
+    when 'false' then choice_point.successful = false
+    end
+    choice_point.feedback = "Feedback Provided"
+    choice_point.save
+  end
+
+  def boost_reputation(chosen_option)
+    chosen_option.voters.each do |user|
+      user.update(reputation: user.reputation + 5)
+    end
+  end
+
+  def render_feedback(choice_point)
+    respond_to do |format|
+      format.html do
+        redirect_to my_choice_points_path
+      end
+      format.text do
+        render partial: 'completed_feedback',
+               locals: { choice_point: choice_point },
+               formats: [:html]
+      end
+    end
   end
 end

@@ -1,0 +1,32 @@
+<%
+  belongs_to_current_user = choice_point.user == current_user
+  option_order = choice_point.expired? ? {score: :desc} : {id: :asc}
+  options = choice_point.options.order(option_order)
+  user_string = (belongs_to_current_user ?
+                 'You asked…' : "#{choice_point.user.name} asks…")
+  expired = choice_point.expired?
+  user_has_voted = choice_point.vote_from?(current_user)
+%>
+
+<div class="d-flex justify-content-between gap-5">
+  <section class="d-flex flex-column gap-2">
+    <hgroup>
+      <p class="mb-0"><%= user_string %></p>
+      <h2 class="choice-point-title"><%= choice_point.title %></h2>
+    </hgroup>
+    <p class="choice-point-description mb-0"><%= choice_point.description %></p>
+  </section>
+  <% if belongs_to_current_user && expired %>
+    <% if choice_point.feedback %>
+      <%= render "completed_feedback", choice_point: choice_point %>
+    <% else %>
+      <%= render "feedback_form", choice_point: choice_point, options: options %>
+    <% end %>
+  <% end %>
+</div>
+<% no_vote = user_has_voted || belongs_to_current_user || expired %>
+<%= render (no_vote ? "results" : "voting_form"),
+           choice_point: choice_point,
+           expired: expired,
+           belongs_to_current_user: belongs_to_current_user,
+           options: options %>

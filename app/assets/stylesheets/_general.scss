@@ -15,3 +15,29 @@ ul > li {
   letter-spacing: 2px;
   text-indent: 2px;
 }
+
+hgroup > p + %heading {
+  margin-top: $spacer * 0.5;
+}
+
+.transparent {
+  display: contents;
+}
+
+table.transparent {
+  tbody, tr {
+    display: contents;
+  }
+}
+
+// Can be used to override a Bootstrap `mb` class whenever it cannot be easily
+// removed from an element (e.g., if it is generated automatically by a
+// simple_form wrapper)
+.mb-0-custom {
+  margin-bottom: 0 !important;
+}
+
+@mixin heading-text {
+  font-family: $headings-font-family;
+  color: $primary;
+}

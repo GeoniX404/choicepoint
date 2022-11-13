@@ -15,9 +15,9 @@ export default class extends Controller {
       headers: { "Accept": "text/plain" },
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
-      .then((data) => {
-        this.formTarget.outerHTML = data
-      })
+    .then(response => response.text())
+    .then((data) => {
+      this.formTarget.outerHTML = data
+    })
   }
 }

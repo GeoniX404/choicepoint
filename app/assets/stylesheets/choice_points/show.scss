@@ -1,0 +1,148 @@
+%choice-point-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1140px;
+}
+
+.choice-point-container {
+  @extend %choice-point-container;
+  margin: 48px auto;
+  width: 80%;
+}
+
+.choice-point-voting-form {
+  @extend %choice-point-container;
+}
+
+.choice-point-description {
+  font-size: 1.25rem;
+}
+
+.choice-point-container .show-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 48px;
+}
+
+.feedback-container {
+  flex-basis: 25%;
+  flex-shrink: 0;
+}
+
+.feedback-report-container {
+  h3 {
+    margin-bottom: 8px;
+  }
+  flex-basis: 411px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.choice-point-options {
+  display: grid;
+  grid-template-columns: 0.7fr min-content 8fr 2.25fr 2.25fr 0.7fr 1fr 13fr;
+  grid-template-rows: 1em;
+  align-items: center;
+  row-gap: $spacer;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.choice-point-deadline {
+  grid-column: 3 / span 3;
+}
+
+.choice-point-score {
+  grid-column: 8;
+}
+
+.choice-point-score-visual {
+  @extend .choice-point-score;
+  background-color: #F35529;
+  height: 2.5rem;
+  border-radius: 5px;
+  $box-shadow: ();
+  @for $i from 0 through 15 {
+    $amount: 4px - 0.25 * $i;
+    $current-shadow: $amount $amount 0 #6b98a822;
+    $box-shadow: append($box-shadow, $current-shadow, comma);
+  }
+  box-shadow: $box-shadow;
+}
+
+.choice-point-options-header {
+  text-transform: uppercase;
+  font-weight: unset;
+}
+
+.choice-point-option {
+  --border-radius: 2rem;
+  .grid-cell, &::before, &::after {
+    background-color: tint-color($body-color, 80%);
+    height: 100%;
+    padding: 0.625rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include heading-text;
+    content: "";
+  }
+  &::before {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    grid-column: 1;
+  }
+  &::after {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    grid-column: 6;
+  }
+  .choice-point-selected-icon {
+    color: $body-color;
+  }
+}
+
+.choice-point-option-winner {
+  .grid-cell, &::before, &::after {
+    background-color: $primary;
+    color: $body-bg;
+  }
+  .choice-point-selected-icon {
+    color: $body-bg;
+  }
+}
+
+.choice-point-radio-button-space {
+  & > * {
+    margin-right: $spacer;
+    transform: scale(1.1);
+  }
+  input {
+    filter: hue-rotate(158deg);
+  }
+}
+
+.choice-point-pros-cons-button {
+  width: 86%;
+}
+
+.choice-point-vote-button {
+  align-self: flex-start;
+}
+
+.feedback-heading {
+  font-size: 24px;
+}
+
+.feedback-last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.feedback-chosen-option {
+  text-decoration: underline;
+}

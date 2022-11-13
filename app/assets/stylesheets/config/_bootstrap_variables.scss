@@ -10,8 +10,8 @@ $body-bg:                 $light-gray;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$body-color: $blue-gray;
+$primary:    $orange-red;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -23,3 +23,5 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$headings-color:          $primary;
+$modal-content-bg:        $body-bg;
