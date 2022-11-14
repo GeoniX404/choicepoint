@@ -58,7 +58,7 @@
             "width: #{percentage_of_highest}%;" unless no_votes_yet
           %>">
         <p class="<%= 'visually-hidden' unless no_votes_yet %>">
-          <%= option.score.positive? ? option.score.to_i : "No votes yet" %>
+          <%= option.score.positive? ? "Score: #{option.score.to_i}" : "No votes yet" %>
         </p>
       </td>
     </tr>
