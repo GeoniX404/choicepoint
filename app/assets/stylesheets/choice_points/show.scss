@@ -1,20 +1,17 @@
-%choice-point-container {
+.choice-point-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
   max-width: 1140px;
-}
-
-.choice-point-container {
-  @extend %choice-point-container;
   margin: 48px auto;
   width: 80%;
 }
 
 .choice-point-voting-form {
-  @extend %choice-point-container;
+  display: grid;
+  gap: 40px;
 }
-
+v
 .choice-point-description {
   font-size: 1.25rem;
 }
@@ -129,7 +126,7 @@
 }
 
 .choice-point-vote-button {
-  align-self: flex-start;
+  justify-self: flex-start;
 }
 
 .feedback-heading {

@@ -1,20 +1,22 @@
-<div class="choice-point-options
-            <%= "choice-point-options-active" unless expired %>">
-  <%= render "voting_area_content",
-             choice_point: choice_point,
-             highest_score: choice_point.highest_score,
-             expired: expired,
-             options: options do |option| %>
-    <% selected = option.votes.any? do |vote|
-      vote.user_id == current_user.id
-    end %>
-    <div class="grid-cell choice-point-radio-button-space">
-      <% if selected %>
-        <i class="far fa-check-circle choice-point-selected-icon"></i>
-      <% end %>
-    </div>
-    <p class="grid-cell justify-content-start fs-5">
-      <%= option.description %>
-    </p>
-  <% end %>
+<div class="choice-point-voting-form">
+  <div class="choice-point-options
+              <%= "choice-point-options-active" unless expired %>">
+    <%= render "voting_area_content",
+              choice_point: choice_point,
+              highest_score: choice_point.highest_score,
+              expired: expired,
+              options: options do |option| %>
+      <% selected = option.votes.any? do |vote|
+        vote.user_id == current_user.id
+      end %>
+      <div class="grid-cell choice-point-radio-button-space">
+        <% if selected %>
+          <i class="far fa-check-circle choice-point-selected-icon"></i>
+        <% end %>
+      </div>
+      <p class="grid-cell justify-content-start fs-5">
+        <%= option.description %>
+      </p>
+    <% end %>
+  </div>
 </div>
