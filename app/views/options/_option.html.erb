@@ -1,5 +1,5 @@
 <div>
-  <h2>Add an option</h3>
+  <h2>Add an option</h2>
   <%= render "form_option",
       choice_point: @choice_point,
       option: @option,
@@ -7,7 +7,7 @@
 </div>
 
 <div class="options-list">
-  <h3 class="options-heading"><%= @choice_point.title %></h4>
+  <h3 class="options-heading"><%= @choice_point.title %></h3>
   <% if @options.empty? %>
     <p>Waiting for your first option…</p>
   <% else %>

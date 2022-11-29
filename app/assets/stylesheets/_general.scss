@@ -1,3 +1,8 @@
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headers-font;
+  color: $orange-red;
+}
+
 ul {
   padding-left: unset;
 }
@@ -6,14 +11,23 @@ ul > li {
   list-style: none;
 }
 
-.spaced {
-  letter-spacing: 1px;
-  text-indent: 1px;
+// Undoes default browser styles for links
+a,a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
-.really-spaced {
-  letter-spacing: 2px;
-  text-indent: 2px;
+// Undoes default browser style for buttons
+button {
+  all: unset;
+  outline: revert; // Button still gets outlined when focused
+  box-sizing: border-box;
+}
+
+// Utility class for increased letter spacing (used in some buttons)
+.text-spaced {
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
 }
 
 hgroup > p + %heading {

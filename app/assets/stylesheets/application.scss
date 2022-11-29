@@ -10,15 +10,14 @@
 
 // Your CSS partials
 @import "general";
-@import "pages/index";
 @import "choice_points/index";
 @import "choice_points/show";
 @import "choice_points/new";
 @import "choice_points/my_choice_points";
-@import "components/modal";
 @import "options/new";
+@import "components/modal";
 @import "components/index";
 @import "components/card";
-@import "components/layout";
 @import "components/button";
 @import "components/user_forms";
+@import "devise/index";

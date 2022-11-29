@@ -1,54 +1,23 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-light navbar-expand-lg">
   <div class="container-fluid">
-    <ul class="navbar-logo">
-      <li><a href="/choice_points"><%= image_tag "CPLogo.png", alt: "" %></a></li>
-      <li><h1 class="main-title"><a href="/choice_points">ChoicePoint</a></h1></li>
-    </ul>
-    <%#= link_to "Home", class: "navbar-brand" do %>
-      <%#= image_tag "ChoicePointLogo.png" %>
-    <%# end %>
-
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/choice_points">
+      <h1 class="mb-0 disable-rfs">
+        <%= image_tag 'CPLogo.png',
+                      alt: '', height: 400, width: 400, class: "navbar-logo" %>
+        ChoicePoint
+      </h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <div class="signedin-button-container">
-            <li class="nav-item">
-              <!-- TODO: Create about page -->
-              <%= link_to "About", choice_points_path, class: "btn btn-nav" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Browse", choice_points_path, class: "btn btn-nav" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Create", new_choice_point_path, class: "btn btn-nav" %>
-            </li>
-          </div>
-          <li class="nav-item dropdown">
-            <ul class="username-and-reputation" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <li class="nav-username">
-                <%= current_user.name %>
-              </li>
-              <li class="nav-rep">
-                <%= current_user.reputation %>
-              </li>
-            </ul>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My ChoicePoints", my_choice_points_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item" id="sign-up-buttons">
-            <%= link_to "Log in", new_user_session_path, class: "btn btn-nav" %>
-            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-nav" %>
-          </li>
-        <% end %>
+      <ul class="navbar-nav ms-auto align-items-center">
+        <%= render partial: "navbar_options" %>
       </ul>
     </div>
   </div>
-</div>
+</nav>
