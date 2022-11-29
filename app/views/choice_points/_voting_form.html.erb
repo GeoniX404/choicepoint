@@ -1,32 +1,35 @@
 <%= form_with(model: choice_point,
               url: vote_choice_point_path(choice_point),
-              html: { class: 'votes-container',
-                      data: { controller: 'choice-point-voting-form',
-                              choice_point_voting_form_target: 'form',
-                              action: "submit->choice-point-voting-form#update" } }) do |form| %>
+              html: { data: {
+                controller: 'choice-point-voting-form',
+                choice_point_voting_form_target: 'form',
+                action: "submit->choice-point-voting-form#update"
+              }, class: 'choice-point-voting-form' }) do |form| %>
 
-  <div class="show-options">
+  <div class="choice-point-options">
 
     <%= render "voting_area_content",
         choice_point: choice_point,
-        highest_score: highest_score,
-        expired: expired do |option| %>
-      <div class="show-options-radio-button-space">
+        highest_score: choice_point.highest_score,
+        expired: expired,
+        options: options do |option| %>
+      <div class="grid-cell choice-point-radio-button-space">
         <%= form.radio_button(
           :option,
           (option.id).to_s,
           data: { action: "click->choice-point-voting-form#enableVoteButton" },
-          class: "show-options-radio-button"
         ) %>
       </div>
-      <%= form.label "option_#{(option.id).to_s}".to_sym, option.description, class: "show-options-row show-options-row-description" %>
+      <div class="grid-cell justify-content-start fs-5">
+        <%= form.label "option_#{option.id.to_s}".to_sym,
+                       option.description %>
+      </div>
     <% end %>
-
   </div>
 
   <%= form.submit(
     "Vote",
-    class: "btn-solid text-uppercase text-spaced fs-5",
+    class: "btn-solid text-uppercase text-spaced fs-5 choice-point-vote-button",
     disabled: true,
     data: { choice_point_voting_form_target: "voteButton" }
   ) %>

@@ -1,7 +1,7 @@
-.my-choice-points .show-container {
-  border-bottom: 1px solid $orange-red;
-  margin: 0 auto;
-  padding: 48px 0;
+.choice-point-container {
+  padding-block: $spacer * 3;
+  margin-block: 0;
+  border-bottom: 1px solid $primary;
   &:last-child {
     border-bottom: none;
   }

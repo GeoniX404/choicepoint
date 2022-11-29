@@ -10,67 +10,41 @@
     <button class="nav-link text-uppercase text-spaced fw-bolder" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Saved ChoicePoints</button>
   </li>
 </ul>
+
 <div class="tab-content" id="myTabContent">
+
+  <%# My active choice points %>
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <!--My active ChoicePoints -->
-    <div class="show-view my-choice-points">
-      <% @ongoing.each do |choice| %>
-      <div class="show-container">
-        <div class="show-header">
-          <h1 class="question">
-            <%= choice.title %>
-          </h1>
+    <div class="my-choice-points-container">
+      <% @ongoing.each do |choice_point| %>
+        <div class="choice-point-container">
+          <%= render choice_point %>
         </div>
-        <h4 class="description"><%= choice.description %></h4>
-            <% no_vote = true %>
-            <%= render (no_vote ? "results" : "voting_form"),
-                choice_point: choice,
-                highest_score: choice.highest_score,
-                expired: choice.expired?,
-                belongs_to_current_user: true %>
-      </div>
       <% end %>
     </div>
-<!--My active ChoicePoints -->
   </div>
 
+  <%# My past choice points %>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-  <!--My past ChoicePoints -->
-    <div class="show-view my-choice-points">
-      <% @expired.each do |choice| %>
-        <%= render "show_container",
-                   choice_point: choice,
-                   user_string: "You asked…",
-                   title: choice.title,
-                   belongs_to_current_user: true,
-                   expired: true,
-                   user_has_voted: false,
-                   highest_score: choice.highest_score %>
+    <div class="my-choice-points-container">
+      <% @expired.each do |choice_point| %>
+        <div class="choice-point-container">
+          <%= render choice_point %>
+        </div>
       <% end %>
     </div>
-  <!--My past ChoicePoints -->
   </div>
+
+  <%# My saved choice points %>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
-    <!--Saved ChoicePoints -->
-    <div class="show-view">
-        <% @current_user.all_favorites.each do |favorite| %>
-        <div class="show-container">
-          <div class="show-header">
-            <h1 class="question">
-<!-- favorite.favoritable reurns the instance of choice_point that has been favorited -->
-              <%= favorite.favoritable.title %>
-            </h1>
-          </div>
-          <h4 class="description"><%= favorite.favoritable.description %></h4>
-              <% no_vote = true %>
-              <%= render (no_vote ? "results" : "voting_form"),
-                  choice_point: favorite.favoritable,
-                  highest_score: favorite.favoritable.highest_score,
-                  expired: favorite.favoritable.expired?,
-                  belongs_to_current_user: favorite.favoritable.user == current_user %>
+    <div class="my-choice-points-container">
+      <% @favorites.each do |favorite| %>
+        <div class="choice-point-container">
+          <%# favorite.favoritable returns the instance of choice_point that has
+              been favorited %>
+          <%= render favorite.favoritable %>
         </div>
-        <% end %>
-      </div>
-  <!--Saved ChoicePoints -->
+      <% end %>
+    </div>
   </div>
 </div>

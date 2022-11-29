@@ -21,12 +21,6 @@ class OptionsController < ApplicationController
     end
   end
 
-  # private
-
-  # def vote_params
-  #   params.require(:vote).permit(:user_id, :option_id)
-  # end
-
   private
 
   def option_params

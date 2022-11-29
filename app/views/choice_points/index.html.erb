@@ -34,11 +34,13 @@
   <div class="ranking-container">
     <!-- Last chance to vote -->
     <section class="trending mb-4 container-right general-card">
-      <%= render "last_chance", choice_points: @last_chance_choice_points %>
+      <%= render "last_chance_container",
+                 choice_points: @last_chance_choice_points %>
     </section>
 
     <!-- About ChoicePoint -->
-    <aside class="trending mb-4 container-right card-what-is" id="what-is-backdrop">
+    <aside class="trending mb-4 container-right card-what-is"
+           id="what-is-backdrop">
       <%= render "about_choice_point" %>
     </aside>
 

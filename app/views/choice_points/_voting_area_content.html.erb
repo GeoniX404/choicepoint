@@ -1,63 +1,105 @@
-<!-- spacer div for the grid --> <div></div>
-<p class="show-options-header-row show-options-row-description">
+<% deadline = choice_point.deadline %>
+
+<%# Deadline %>
+<p class="choice-point-deadline choice-point-options-header">
   <% if expired %>
-    Ended <%= pluralize((Date.today - choice_point.deadline).to_i, "day") %> ago
+    Ended <time datetime='<%= deadline %>'>
+      <%= pluralize((Date.today - deadline).to_i, "day") %> ago
+    </time>
+  <% elsif Date.today == deadline %>
+    Ends <time datetime='<%= deadline %>'>today</time>
   <% else %>
-    <%= pluralize((choice_point.deadline - Date.today + 1).to_i, "day") %> left
+    <time datetime='<%= deadline %>'>
+      <%= pluralize((deadline - Date.today).to_i, "day") %> left
+    </time>
   <% end %>
 </p>
-<!-- spacer div for the grid --> <div></div>
-<!-- spacer div for the grid --> <div></div>
-<!-- spacer div for the grid --> <div></div>
-<p class="show-options-header-row">
-  score
-  (<%= pluralize((choice_point.total_votes), "vote") %>)
-</p>
-<% options = choice_point.options.order(expired ? 'score DESC' : :id) %>
+
+<%# Options %>
+<table class="transparent" role="table">
+  <tr>
+    <th scope="col" class="visually-hidden choice-point-options-header">
+      Options
+    </th>
+    <th scope="col" class="choice-point-score choice-point-options-header">
+      Score
+      (<%= pluralize((choice_point.total_votes), "vote") %>)
+    </th>
+  </tr>
+  <% options.each do |option| %>
+    <% no_votes_yet = option.score.zero? %>
+    <% percentage_of_highest = (option.score / highest_score) * 100 %>
+    <tr>
+      <td class="choice-point-option transparent
+                 <% if expired && choice_point.leader == option %>
+                   choice-point-option-winner
+                 <% end %>"
+          aria-label="<%= option.description %>">
+        <%= yield(option) %>
+        <ul class="transparent">
+          <% %i[pros cons].each do |pros_or_cons| %>
+            <li class="grid-cell">
+              <% btn = expired && choice_point.leader == option ?
+                       'btn-outline-on-primary-bg' :
+                       'btn-outline' %>
+              <button class="<%= btn %> choice-point-pros-cons-button"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#<%= "#{pros_or_cons}-#{option.id}" %>">
+                <%= pros_or_cons.capitalize %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+      </td>
+        <td class="choice-point-score<%= '-visual' unless no_votes_yet %>
+                   fw-bolder"
+          style="<%=
+            "width: #{percentage_of_highest}%;" unless no_votes_yet
+          %>">
+        <p class="<%= 'visually-hidden' unless no_votes_yet %>">
+          <%= option.score.positive? ? "Score: #{option.score.to_i}" : "No votes yet" %>
+        </p>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%# Modals %>
 <% options.each do |option| %>
-  <%= yield(option) %>
-  <!-- spacer div for the grid --> <div class="show-options-row-description"></div>
-  <div class="pros-and-cons-container">
-    <p><a class="btn-outline show-options-row-pros-and-cons" data-bs-toggle="modal" href="#prosToggle<%= option.id %>">Pros</a></p>
-    <div class="modal fade" id="prosToggle<%= option.id %>" aria-hidden="true" aria-labelledby="prosToggleLabel<%= option.id %>" tabindex="-1">
+  <% modals = [
+    {title: "Pros", prefix: "pros", other_prefix: "cons",
+     content: option.pros, button_text: "Next"},
+    {title: "Cons", prefix: "cons", other_prefix: "pros",
+     content: option.cons, button_text: "Back"}
+  ] %>
+  <% modals.each do |modal| %>
+    <% heading_id = "#{modal[:prefix]}-#{option.id}-heading" %>
+    <div class="modal fade" tabindex="-1"
+         id="<%= "#{modal[:prefix]}-#{option.id}" %>"
+         aria-labelled-by="<%= heading_id %>" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="prosToggleLabel<%= option.id %>">Pros</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title"
+                id="<%= heading_id %>">
+              <%= modal[:title] %>
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <h1><%= option.pros %></h1>
+            <p><%= modal[:content] %></p>
           </div>
           <div class="modal-footer">
-            <a class="btn-ghost" data-bs-target="#consToggle<%= option.id %>" data-bs-toggle="modal">Next</a>
+            <button type="button" class="btn-ghost" data-bs-target="<%=
+                      "##{modal[:other_prefix]}-#{option.id}"
+                    %>" data-bs-toggle="modal">
+              <%= modal[:button_text] %>
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <p><a class="btn-outline show-options-row-pros-and-cons" data-bs-toggle="modal" href="#consToggle<%= option.id %>">Cons</a></p>
-    <div class="modal fade" id="consToggle<%= option.id %>" aria-hidden="true" aria-labelledby="consToggleLabel<%= option.id %>" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="consToggleLabel<%= option.id %>">Cons</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h1><%= option.cons %></h1>
-          </div>
-          <div class="modal-footer">
-            <a class="btn-ghost" data-bs-target="#prosToggle<%= option.id %>" data-bs-toggle="modal">Back</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- spacer div for the grid --> <div></div>
-  <% width = option.score.zero? ? nil : option.score / highest_score %>
-  <!-- Not accessible! Should be fixed -->
-  <p class="show-options-row show-options-row-score <%= "show-options-row-score-bar" if width %>"
-     style="<%= width ? "width: calc(#{width * 100}% - #{24 * width}px);" : "" %>">
-    <%= "No votes yet" if width.nil? %>
-  </p>
+  <% end %>
 <% end %>
