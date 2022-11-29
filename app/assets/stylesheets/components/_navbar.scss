@@ -1,71 +1,35 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  //background-color: $orange-red;
-  // border-bottom: 5px solid $light-tan;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 60px;
+.navbar {
+  & > .container-fluid {
+    padding: 0 3%;
+  }
+  a, button {
+    // Draws an appropriate-looking border around links/buttons when focused
+    &:focus-visible {
+      outline: 0;
+      box-shadow: 0 0 0 $btn-focus-width rgba($primary, 0.5);
+      border-radius: $border-radius;
+    }
+  }
 }
 
 .navbar-logo {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-
-.navbar-logo li img {
   width: 80px;
+  height: auto;
 }
 
-a {
-  text-decoration: none;
-  // makes changes (no underline) to all link tags on the site
-  color: inherit;
+.navbar-nav {
+  gap: $spacer;
 }
 
-a:hover {
-  color: inherit;
+.navbar-username {
+  display: flex;
+  gap: $spacer / 2;
+  align-items: center;
 }
 
-.main-title {
-  color: $orange-red;
-  font-family: 'Martel';
-  font-weight: 600;
-  font-size: 40px;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 10px;
-}
-
-.navbar {
-  & > .container-fluid {
-    padding: 0 44px;
-  }
-  .btn-signup, .btn-login {
-    margin-left: 16px;
-  }
-  .dropdown {
-    margin-left: 8px;
-  }
-}
-
-.nav-username {
-  color: $orange-red;
-  align-self: center;
-  margin-left: 20px;
-  font-size: larger;
-}
-
-.nav-rep {
-  color: white;
-  background-color: $orange-red;
+.navbar-reputation {
+  color: $body-bg;
+  background-color: $primary;
   align-self: center;
   border-radius: 50%;
   padding: 5px 8px;
@@ -73,40 +37,8 @@ a:hover {
   text-align: center;
 }
 
-#navbarDropdown {
-  cursor: pointer;
-}
-
-.username-and-reputation {
-  display: flex;
-  gap: 8px;
-  padding-right: 1rem;
-}
-
-.nav-item {
-  margin-top: 4px;
-}
-
-.navbar-expand-sm .navbar-nav .dropdown-menu {
-  cursor: pointer;
-  padding-right: 0;
-  text-align: right;
-}
-
-.dropdown-item {
-  color: $blue-gray;
-  &:active {
-    background-color: #e9ecef;
-  }
-}
-
 .dropdown-menu {
   border-radius: 10px;
   border: none;
   background-color: unset;
-}
-
-#sign-up-buttons {
-  display: flex;
-  gap: 16px;
 }

@@ -6,12 +6,12 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
-$font-size-base: 1rem;
+$body-bg:                 $off-white;
+$font-size-base:          1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$body-color: $blue-gray;
+$primary:    $orange-red;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -23,3 +23,24 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$dropdown-link-color:            $body-color;
+$dropdown-link-hover-color:      $black;
+$dropdown-link-hover-bg:         $body-bg;
+$dropdown-item-padding-x:        0;
+$dropdown-link-active-color:     $dropdown-link-hover-color;
+$dropdown-link-active-bg:        $dropdown-link-hover-bg;
+$dropdown-min-width:             0;
+
+$btn-outline-bg:                 $body-bg;
+$btn-shade-amount:               15%;
+$btn-hover-bg-shade-amount:      $btn-shade-amount;
+$btn-hover-border-shade-amount:  $btn-shade-amount;
+$btn-active-bg-shade-amount:     $btn-shade-amount;
+$btn-active-border-shade-amount: $btn-shade-amount;
+
+$navbar-light-color:             $primary;
+$navbar-light-hover-color:       $navbar-light-color;
+
+$rfs-class:                      "disable";
+$input-color:                    $black;
+$color-contrast-light:           $body-bg;
